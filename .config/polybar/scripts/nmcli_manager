@@ -1,0 +1,77 @@
+
+#!/usr/bin/env bash
+
+#
+# nmcli connection switching from a rofi menu.
+# When a network is selected its status is switched  from UP to DOWN or vice versa.
+#
+# WARNING, connection name can't contain a # or | symbol
+#
+
+ROFI="rofi -dmenu
+           -sep #
+           -i -p Network:
+           -theme orange
+           -location 3
+           -yoffset +45
+           -xoffset -80
+           -width 30
+"
+
+function build_rofi_menu()
+{
+    local menu
+    local name
+    local dtype
+    local device
+    local option
+
+    while read -r line
+    do
+          name="$(cut -d':' -f1 <<< $line)"
+         dtype="$(cut -d':' -f2 <<< $line)"
+        device="$(cut -d':' -f3 <<< $line)"
+
+        [[ -z $device ]] && status=DOWN || status=UP
+        dtype=${dtype##*-}
+        option="$name $dtype is $status"
+
+        option=$(printf '%-45s | %s | %s\n' "$name" $dtype $status)
+        menu="$menu # $option"
+    done  < <(nmcli -c no --terse -f NAME,TYPE,DEVICE connection show)
+
+    echo "$(cut -c 3- <<< $menu)"
+}
+
+function switch_connections()
+{
+    local name="$1"
+    local status=$2
+
+    if [[ "$status" == "UP" ]]; then
+        nmcli connection down "$name"
+    else
+        nmcli connection up "$name"
+    fi
+}
+
+function main()
+{
+    local menu
+    local choice
+    local name
+    local stat
+
+    menu=$(build_rofi_menu)
+    choice=$($ROFI <<< $menu)
+    [[ $? -ne 0 ]] && return 1
+
+    name=$(cut -d '|' -f 1 <<< $choice | awk '{$1=$1;print}')
+    stat=$(cut -d '|' -f 3 <<< $choice | awk '{$1=$1;print}')
+
+    switch_connections "$name" $stat
+}
+
+
+main
+
