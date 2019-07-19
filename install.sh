@@ -8,6 +8,7 @@ function dotfiles()
 
     rsync --exclude "dconf/" \
         --exclude ".vscode/" \
+        --exclude ".git*" \
         --exclude "install.sh" \
         --exclude "LICENSE" \
         --exclude "README.md" \
