@@ -18,6 +18,7 @@ def get_spotify_song():
         title = metadata['xesam:title']
 
         window_title = artist + ' - ' + title
+
         output = "%{A1:$WM_CONTROL '" + window_title + "' &:}" + window_title + "%{A-}"
     except dbus.DBusException as e:
         if (e.get_dbus_message() == f'The name {bus_name} was not provided by any .service files'):
