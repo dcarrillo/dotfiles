@@ -32,11 +32,10 @@ function build_rofi_menu()
          dtype="$(cut -d':' -f2 <<< $line)"
         device="$(cut -d':' -f3 <<< $line)"
 
-        [[ -z $device ]] && status=DOWN || status=UP
+        [[ -z $device ]] && status= || status=
         dtype=${dtype##*-}
-        option="$name $dtype is $status"
-
         option=$(printf '%-45s | %s | %s\n' "$name" $dtype $status)
+
         menu="$menu # $option"
     done  < <(nmcli -c no --terse -f NAME,TYPE,DEVICE connection show)
 
