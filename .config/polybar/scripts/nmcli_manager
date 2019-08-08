@@ -34,7 +34,7 @@ function build_rofi_menu()
 
         [[ -z $device ]] && status= || status=
         dtype=${dtype##*-}
-        option=$(printf '%-45s | %s | %s\n' "$name" $dtype $status)
+        option=$(printf '%-35s | %-15s | %s\n' "$name" $dtype $status)
 
         menu="$menu # $option"
     done  < <(nmcli -c no --terse -f NAME,TYPE,DEVICE connection show)
