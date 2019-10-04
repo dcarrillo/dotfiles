@@ -47,7 +47,7 @@ function switch_connections()
     local name="$1"
     local status=$2
 
-    if [[ "$status" == "UP" ]]; then
+    if [[ "$status" == "" ]]; then
         nmcli connection down "$name"
     else
         nmcli connection up "$name"
