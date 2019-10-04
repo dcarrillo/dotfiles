@@ -12,7 +12,7 @@ function dotfiles()
         --exclude "install.sh" \
         --exclude "LICENSE" \
         --exclude "README.md" \
-        -hla --no-perms . ~
+        -hlav --no-perms . ~
 
     echo ""
 }
