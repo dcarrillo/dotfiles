@@ -2,16 +2,16 @@
 
 set -e
 
-[[ -z $1 ]] && exit 1
+[ -z "$1" ] && exit 1
 
 active_window=$(xdotool getactivewindow)
 window=$(xdotool search --name "$1")
-[[ $? -ne 0 ]] && exit 1
+[ "$?" -ne 0 ] && exit 1
 
-if [[ $active_window == $window ]]; then
-    xdotool windowminimize $window
+if [ "$active_window" = "$window" ]; then
+    xdotool windowminimize "$window"
 else
-    xdotool windowactivate $window
+    xdotool windowactivate "$window"
 fi
 
 exit 0
