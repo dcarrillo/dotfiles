@@ -20,6 +20,7 @@ alias gb="git checkout \$(git branch -vv | fzf +m | awk '{print \$1}')"
 alias open='xdg-open'
 alias yayU='yay -Suy --noconfirm'
 alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
+alias dkillall='docker rm -f $(docker ps -qa)'
 
 ##### tilix #####
 
@@ -48,6 +49,15 @@ source /usr/share/fzf/completion.zsh
 fzf-file-widget-hidden () {
   fd --type f --hidden -I --follow --exclude .git --exclude .cache | fzf
 }
+
+dexec () {
+  local cid
+  local cmd=${1:-"bash"}
+  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker exec -ti "$cid" $cmd
+}
+
 
 export FZF_DEFAULT_COMMAND="fd --type f --follow -I"
 export FZF_DEFAULT_OPTS="-m --reverse --bind 'ctrl-o:execute(xdg-open {})+abort,ctrl-e:execute({})+abort,ctrl-y:execute(echo {} | xclip -selection clipboard -in)+abort'"
