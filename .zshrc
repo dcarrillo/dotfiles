@@ -19,6 +19,7 @@ alias duh='du -sch .[!.]* *'
 alias gb="git checkout \$(git branch -vv | fzf +m | awk '{print \$1}')"
 alias open='xdg-open'
 alias yayU='yay -Suy --noconfirm'
+alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 
 ##### tilix #####
 
@@ -45,10 +46,10 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 fzf-file-widget-hidden () {
-  fd --type f --hidden --follow --exclude .git --exclude .cache | fzf
+  fd --type f --hidden -I --follow --exclude .git --exclude .cache | fzf
 }
 
-export FZF_DEFAULT_COMMAND="fd --type f --follow"
+export FZF_DEFAULT_COMMAND="fd --type f --follow -I"
 export FZF_DEFAULT_OPTS="-m --reverse --bind 'ctrl-o:execute(xdg-open {})+abort,ctrl-e:execute({})+abort,ctrl-y:execute(echo {} | xclip -selection clipboard -in)+abort'"
 export FZF_CTRL_T_OPTS="--no-height --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || pygmentize {} 2> /dev/null | head -500'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
