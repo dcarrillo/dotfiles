@@ -2,7 +2,7 @@
 
 set -e
 
-dotfiles()
+copy_dotfiles()
 {
     echo "[INFO] Installing dot files..."
 
@@ -34,15 +34,39 @@ dconf_loader()
     echo ""
 }
 
+dconf_dumper()
+{
+    if ! command -v dconf > /dev/null 2>&1; then
+        echo "[WARNING] dconf command not found"
+        echo ""
+        return 1
+    else
+        for file in dconf/*; do
+            dconf_conf=$(grep -E -m1 '^#.+dconf-path=.+$' "$file")
+            dconf_path=$(echo "$dconf_conf" | cut -f2 -d "=")
+
+            echo "[INFO] Dumping $dconf_path to $(basename "$file")..."
+            printf "%s\n\n" "$dconf_conf" > "$file"
+            dconf dump "$dconf_path" >> "$file"
+        done
+    fi
+
+    echo ""
+}
+
 main()
 {
     cd "$(dirname "$0")"
 
-    dotfiles
-    dconf_loader
+    if [ x"$1" = x"--dump-dconf" ]; then
+        dconf_dumper
+    else
+        copy_dotfiles
+        dconf_loader
+    fi
 
     cd - > /dev/null
 }
 
-main
+main "$1"
 
