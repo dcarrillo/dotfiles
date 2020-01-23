@@ -9,6 +9,10 @@ export PATH=$PATH:~/bin
 setopt clobber
 zstyle ':completion:*' rehash true
 
+unsetopt correct
+unsetopt correctall
+DISABLE_CORRECTION="true"
+
 ##### aliases ######
 
 alias ccat="pygmentize -O style=native -g "
