@@ -57,7 +57,7 @@ fzf-file-widget-hidden () {
 dexec () {
   local cid
   local cmd=${1:-"bash"}
-  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+  cid=$(docker ps -a | sed 1d | fzf -1 | awk '{print $1}')
 
   [ -n "$cid" ] && docker exec -ti "$cid" $cmd
 }
