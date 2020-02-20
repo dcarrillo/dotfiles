@@ -25,7 +25,6 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
-  'terminal' \
   'editor' \
   'history' \
   'directory' \
@@ -36,9 +35,7 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'python' \
   'git' \
-  'openstack' \
-  'aws' \
-  'yank'
+  'aws'
 
 #
 # Autosuggestions
@@ -201,4 +198,4 @@ zstyle ':completion:*' special-dirs true
 
 zstyle ':prezto:module:aws' output 'table'
 zstyle ':prezto:module:aws' profile 'default'
-
+zstyle ':prezto:module:aws' show_region 'true'
