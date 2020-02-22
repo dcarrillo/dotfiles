@@ -31,8 +31,9 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'syntax-highlighting' \
   'prompt' \
+  'archive' \
+  'syntax-highlighting' \
   'python' \
   'git' \
   'aws'
@@ -189,7 +190,6 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 # Set the default session name:
 # zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
 
-# Add / when autocomplete cd ../
 zstyle ':completion:*' special-dirs true
 
 #
