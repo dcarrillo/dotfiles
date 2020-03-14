@@ -9,7 +9,7 @@ copy_dotfiles()
     rsync --exclude "dconf/" \
         --exclude ".vscode/" \
         --exclude ".git*" \
-        --exclude "install.sh" \
+        --exclude "$(basename "$0")" \
         --exclude "LICENSE" \
         --exclude "README.md" \
         -hlav --no-perms . ~
