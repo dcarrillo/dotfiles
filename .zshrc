@@ -17,8 +17,9 @@ DISABLE_CORRECTION="true"
 
 alias ccat="pygmentize -O style=native -g "
 alias chromium-socks='chromium --proxy-server=socks://localhost:3000'
-alias curlmobile='curl -A "Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; Nexus S Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" '
+alias curlmobile='curl -A "Mozilla/5.0 (Linux; Android 9; AR 4G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36"'
 alias curlr='curl -o /dev/null -w "\n\nCode:   \t%{http_code}\n\nDNS:    \t%{time_namelookup}\nConnect:\t%{time_connect}\nStartTransfer:\t%{time_starttransfer} (PreTransfer:%{time_pretransfer})\nTotal:   \t%{time_total}\n\n"'
+alias curlh='curl -sD - -o /dev/null'
 alias duh='du -sch .[!.]* *'
 alias gb="git checkout \$(git branch -avv | fzf +m | awk '{print \$1}')"
 alias open='xdg-open'
