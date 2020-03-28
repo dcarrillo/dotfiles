@@ -4,4 +4,4 @@ date=$(date "+%H:%M | %d de %B")
 hour_minute=$(echo "$date" | cut -f 1 -d"|")
 day_of_month=$(echo "$date" | cut -f 2 -d"|")
 
-echo %{F#F5A70A}%{T4}"${hour_minute}"%{F-}%{T-} \|"$day_of_month"
+echo "%{F#F5A70A}%{T4}${hour_minute}%{F-}%{T-}" \|"$day_of_month"
