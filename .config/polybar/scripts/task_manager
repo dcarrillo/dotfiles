@@ -8,12 +8,15 @@ get_icon_by_name()
 {
     name=$(echo "$1" | tr '[:upper:]' '[:lower:]')
     declare -A ICON_MAP=(
-        [firefox]=
-        [code]=
         [tilix]=
+        [code]=
+        [firefox]=
+        [chromium]=
         [nautilus]=
         [gnome-calculator]=
         [gnome-calendar]=
+        [eog]=
+        [keepassxc]=
     )
 
     if [ ${ICON_MAP[$name]+_} ]; then
@@ -51,14 +54,14 @@ show_tasks()
 
 print_task_name()
 {
-    name=$(sed "${1}q;d" $STATUS_FILE | cut -f 1 -d " ")
+    name=$(sed "${1}q;d" $STATUS_FILE | cut -f 1 -d " " | tr '[:upper:]' '[:lower:]')
     icon=$(get_icon_by_name "$name")
 
     if [ -n "$icon" ]; then
         name="$name "
     fi
 
-    printf "%s%s" "$name" "$icon"
+    printf "%s%s" "${name^}" "$icon"
 }
 
 get_task_id()
