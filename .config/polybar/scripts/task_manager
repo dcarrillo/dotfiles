@@ -4,14 +4,32 @@ STATUS_FILE=/dev/shm/polybar_task_manager
 REFRESH=2
 MAX_TASKS=10
 
+get_icon_by_name()
+{
+    name=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+    declare -A ICON_MAP=(
+        [firefox]=
+        [code]=
+        [tilix]=
+        [nautilus]=
+        [gnome-calculator]=
+        [gnome-calendar]=
+    )
+
+    if [ ${ICON_MAP[$name]+_} ]; then
+        echo "${ICON_MAP[$name]}"
+    fi
+}
+
 show_tasks()
 {
-    wmctrl -lx | awk '{if ($2 > -1) print $3}' \
+    wmctrl -lx | awk '{if ($2 > -1) print $3,$1}' \
                | awk -F'.' '{ print $NF }' \
                | tail -$MAX_TASKS | sort > $STATUS_FILE.current
 
     diff -q $STATUS_FILE $STATUS_FILE.current > /dev/null 2>&1
     if [ $? -ne 1 ]; then
+        rm -rf $STATUS_FILE.current
         return 0
     fi
 
@@ -21,14 +39,31 @@ show_tasks()
     num_windows=$(wc -l $STATUS_FILE | cut -f 1 -d " ")
     while [ $counter -le "$MAX_TASKS" ]; do
         if [ $counter -le "$num_windows" ]; then
-            polybar-msg hook taskbar$counter 1 > /dev/null
+            polybar-msg hook taskbar$counter 2 > /dev/null
         else
-            polybar-msg hook taskbar"$counter" 2 > /dev/null
+            polybar-msg hook taskbar"$counter" 1 > /dev/null
         fi
 
         sleep 0.1
         counter=$((counter+1))
     done
+}
+
+print_task_name()
+{
+    name=$(sed "${1}q;d" $STATUS_FILE | cut -f 1 -d " ")
+    icon=$(get_icon_by_name "$name")
+
+    if [ -n "$icon" ]; then
+        name="$name "
+    fi
+
+    printf "%s%s" "$name" "$icon"
+}
+
+get_task_id()
+{
+    sed "${1}q;d" $STATUS_FILE | cut -f 2 -d " "
 }
 
 daemon()
@@ -39,13 +74,23 @@ daemon()
     done
 }
 
-if [ "$1" = "--daemon" ]; then
-    > /dev/shm/polybar_task_manager
-    daemon
-fi
+case "$1" in
+    --daemon)
+        > /dev/shm/polybar_task_manager
+        daemon
+    ;;
+    --set-task)
+        print_task_name "$2"
+    ;;
+    --show-window)
+        id=$(get_task_id "$2")
+        wmctrl -ia "$id"
+        print_task_name "$2"
+    ;;
+    --close-window)
+        id=$(get_task_id "$2")
+        wmctrl -ic "$id"
+    ;;
+esac
 
-if [ "$1" = "--window" ]; then
-    sed "${2}q;d" $STATUS_FILE
-fi
-
-exit 1
+exit 0
