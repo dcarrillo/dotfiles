@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+STATUS_FILE=/dev/shm/polybar_task_manager
+REFRESH=2
+MAX_TASKS=10
+
+show_tasks()
+{
+    wmctrl -lx | awk '{if ($2 > -1) print $3}' \
+               | awk -F'.' '{ print $NF }' \
+               | tail -$MAX_TASKS | sort > $STATUS_FILE.current
+
+    diff -q $STATUS_FILE $STATUS_FILE.current > /dev/null 2>&1
+    if [ $? -ne 1 ]; then
+        return 0
+    fi
+
+    mv $STATUS_FILE.current $STATUS_FILE
+
+    counter=1
+    num_windows=$(wc -l $STATUS_FILE | cut -f 1 -d " ")
+    while [ $counter -le "$MAX_TASKS" ]; do
+        if [ $counter -le "$num_windows" ]; then
+            polybar-msg hook taskbar$counter 1 > /dev/null
+        else
+            polybar-msg hook taskbar"$counter" 2 > /dev/null
+        fi
+
+        sleep 0.1
+        counter=$((counter+1))
+    done
+}
+
+daemon()
+{
+    while true; do
+        show_tasks
+        sleep $REFRESH
+    done
+}
+
+if [ "$1" = "--daemon" ]; then
+    > /dev/shm/polybar_task_manager
+    daemon
+fi
+
+if [ "$1" = "--window" ]; then
+    sed "${2}q;d" $STATUS_FILE
+fi
+
+exit 1
