@@ -64,6 +64,11 @@ print_task_name()
     printf "%s%s" "${name^}" "$icon"
 }
 
+get_active_window()
+{
+    echo 0x0"$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2 | cut -f 2 -d 'x')"
+}
+
 get_task_id()
 {
     sed "${1}q;d" $STATUS_FILE | cut -f 2 -d " "
@@ -87,7 +92,12 @@ case "$1" in
     ;;
     --show-window)
         id=$(get_task_id "$2")
-        wmctrl -ia "$id"
+
+        if [ "$id" = "$(get_active_window)" ]; then
+            xdotool getactivewindow windowminimize
+        else
+            wmctrl -ia "$id"
+        fi
         print_task_name "$2"
     ;;
     --close-window)
