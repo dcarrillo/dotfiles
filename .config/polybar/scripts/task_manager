@@ -68,17 +68,15 @@ show_tasks()
 
     mv $STATUS_FILE.current $STATUS_FILE
 
-    counter=1
     num_windows=$(wc -l $STATUS_FILE | cut -f 1 -d " ")
-    while [ $counter -le "$max_tasks" ]; do
-        if [ $counter -le "$num_windows" ]; then
-            polybar-msg hook taskbar$counter 2 > /dev/null
+    for counter in $(seq 1 "$max_tasks"); do
+        if [ "$counter" -le "$num_windows" ]; then
+            polybar-msg hook taskbar"$counter" 2 > /dev/null
         else
             polybar-msg hook taskbar"$counter" 1 > /dev/null
         fi
 
         sleep 0.1
-        counter=$((counter+1))
     done
 }
 
