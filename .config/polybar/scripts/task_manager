@@ -2,7 +2,36 @@
 
 STATUS_FILE=/dev/shm/polybar_task_manager
 REFRESH=2
-MAX_TASKS=10
+
+create_module_tasklabel()
+{
+cat <<TASKLABEL_TEMPLATE
+[module/taskslabel]
+type = custom/text
+content = "%{T4}Tasks:%{T-}"
+click-left = rofi -modi window -show window -theme orange -show-icons -location 1 -yoffset +45 -xoffset +20
+
+TASKLABEL_TEMPLATE
+}
+
+create_module_sections()
+{
+for task in $(seq 1 "$1"); do
+
+    cat <<MODULE_TEMPLATE
+[module/taskbar$task]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = ~/.config/polybar/scripts/task_manager --set-task $task
+hook-2 = ~/.config/polybar/scripts/task_manager --show-window $task
+hook-3 = ~/.config/polybar/scripts/task_manager --close-window $task
+click-left = polybar-msg -p %pid% hook taskbar$task 3
+click-middle = polybar-msg -p %pid% hook taskbar$task 4
+
+MODULE_TEMPLATE
+
+done
+}
 
 get_icon_by_name()
 {
@@ -26,9 +55,10 @@ get_icon_by_name()
 
 show_tasks()
 {
+    max_tasks=$(grep -cE "^\[module/taskbar[0-9]+]" ~/.config/polybar/task_manager.ini)
     wmctrl -lx | awk '{if ($2 > -1) print $3,$1}' \
                | awk -F'.' '{ print $NF }' \
-               | tail -$MAX_TASKS | sort > $STATUS_FILE.current
+               | tail -"$max_tasks" | sort > $STATUS_FILE.current
 
     diff -q $STATUS_FILE $STATUS_FILE.current > /dev/null 2>&1
     if [ $? -ne 1 ]; then
@@ -40,7 +70,7 @@ show_tasks()
 
     counter=1
     num_windows=$(wc -l $STATUS_FILE | cut -f 1 -d " ")
-    while [ $counter -le "$MAX_TASKS" ]; do
+    while [ $counter -le "$max_tasks" ]; do
         if [ $counter -le "$num_windows" ]; then
             polybar-msg hook taskbar$counter 2 > /dev/null
         else
@@ -76,6 +106,9 @@ get_task_id()
 
 daemon()
 {
+    create_module_tasklabel > ~/.config/polybar/task_manager.ini
+    create_module_sections "$1" >> ~/.config/polybar/task_manager.ini
+
     while true; do
         show_tasks
         sleep $REFRESH
@@ -85,7 +118,7 @@ daemon()
 case "$1" in
     --daemon)
         > /dev/shm/polybar_task_manager
-        daemon
+        daemon "$2"
     ;;
     --set-task)
         print_task_name "$2"
