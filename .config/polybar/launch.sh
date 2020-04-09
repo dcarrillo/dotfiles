@@ -18,4 +18,4 @@ until pgrep -u "$(id -u)" -x polybar >/dev/null; do
     sleep 0.5
 done
 
-~/.config/polybar/scripts/task_manager --daemon 10 &
+~/.config/polybar/scripts/task_manager --daemon 15 &
