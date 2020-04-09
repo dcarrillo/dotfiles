@@ -4,8 +4,8 @@ import os
 import subprocess
 
 colors = {
-    'us': '#43A047',  # us, user    : time running un-niced user processes
-    'sy': '#87CEFA',  # sy, system  : time running kernel processes
+    'us': '#FDD835',  # us, user    : time running un-niced user processes
+    'sy': '#23A8F1',  # sy, system  : time running kernel processes
     'ni': '#FFFFFF',  # ni, nice    : time running niced user processes
     'wa': '#E53935',  # wa, IO-wait : time waiting for I/O completion
     'hi': '#66CDAA',  # hi : time spent servicing hardware interrupts
