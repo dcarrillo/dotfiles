@@ -41,6 +41,7 @@ get_icon_by_name()
         [code]=
         [firefox]=
         [chromium]=
+        [tor]=
         [nextcloud]=
         [gnome-calculator]=
         [gnome-calendar]=
