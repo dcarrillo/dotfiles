@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
 STATUS_FILE=/dev/shm/polybar_task_manager
-REFRESH=2
+REFRESH=1
 
 create_module_tasklabel()
 {
 cat <<TASKLABEL_TEMPLATE
 [module/taskslabel]
-type = custom/text
-content = "%{T4}Tasks:%{T-}"
+type = custom/ipc
+hook-0 = echo "%{T4}Tasks:%{T-}"
+hook-1 = echo ""
 click-left = rofi -modi window -show window -theme orange -show-icons -location 1 -yoffset +45 -xoffset +20
 
 TASKLABEL_TEMPLATE
@@ -78,6 +79,13 @@ show_tasks()
     mv $STATUS_FILE.current $STATUS_FILE
 
     num_windows=$(wc -l $STATUS_FILE | cut -f 1 -d " ")
+
+    if [ "$num_windows" -eq 0 ]; then
+        polybar-msg hook taskslabel 2 > /dev/null
+    else
+        polybar-msg hook taskslabel 1 > /dev/null
+    fi
+
     for counter in $(seq 1 "$max_tasks"); do
         if [ "$counter" -le "$num_windows" ]; then
             polybar-msg hook taskbar"$counter" 2 > /dev/null
