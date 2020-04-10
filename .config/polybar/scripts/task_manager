@@ -1,22 +1,15 @@
 #!/usr/bin/env bash
 
 STATUS_FILE=/dev/shm/polybar_task_manager
+BAR_CONFIG_FILE=~/.config/polybar/bar.ini
+MODULES_LEFT_FILE=~/.config/polybar/modules-left.ini
 REFRESH=1
 
-create_module_tasklabel()
+update_bar_config()
 {
-cat <<TASKLABEL_TEMPLATE
-[module/taskslabel]
-type = custom/ipc
-hook-0 = echo "%{T4}Tasks:%{T-}"
-hook-1 = echo ""
-click-left = rofi -modi window -show window -theme orange -show-icons -location 1 -yoffset +45 -xoffset +20
+base_config=$(grep -e "^modules-left-dynamic *= *" $BAR_CONFIG_FILE | cut -f 3- -d " " )
+new_config="taskslabel"
 
-TASKLABEL_TEMPLATE
-}
-
-create_module_sections()
-{
 for task in $(seq 1 "$1"); do
 
     cat <<MODULE_TEMPLATE
@@ -31,7 +24,22 @@ click-middle = polybar-msg -p %pid% hook taskbar$task 4
 
 MODULE_TEMPLATE
 
+new_config="$new_config taskbar$task"
 done
+
+echo "modules-left = $base_config $new_config" > $MODULES_LEFT_FILE
+}
+
+create_module_tasklabel()
+{
+cat <<TASKLABEL_TEMPLATE
+[module/taskslabel]
+type = custom/ipc
+hook-0 = echo "%{T4}Tasks:%{T-}"
+hook-1 = echo ""
+click-left = rofi -modi window -show window -theme orange -show-icons -location 1 -yoffset +45 -xoffset +20
+
+TASKLABEL_TEMPLATE
 }
 
 get_icon_by_name()
@@ -48,7 +56,10 @@ get_icon_by_name()
         [gnome-calendar]=
         [gnome-control-center]=
         [eog]=
+        [evince]=
+        [gimp-210]=
         [nautilus]=
+        [file-roller]=
         [keepassxc]=
         [steam]=
         [skype]=
@@ -122,9 +133,6 @@ get_task_id()
 
 daemon()
 {
-    create_module_tasklabel > ~/.config/polybar/task_manager.ini
-    create_module_sections "$1" >> ~/.config/polybar/task_manager.ini
-
     while true; do
         show_tasks
         sleep $REFRESH
@@ -134,7 +142,11 @@ daemon()
 case "$1" in
     --daemon)
         > /dev/shm/polybar_task_manager
-        daemon "$2"
+        daemon
+    ;;
+    --generate-config)
+        create_module_tasklabel > ~/.config/polybar/task_manager.ini
+        update_bar_config "$2" >> ~/.config/polybar/task_manager.ini
     ;;
     --set-task)
         print_task_name "$2"
