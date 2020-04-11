@@ -1,23 +1,40 @@
 #!/usr/bin/env bash
 
-pkill polybar
-pkill -f "task_manager --daemon"
-while pgrep -u "$(id -u)" -x polybar >/dev/null; do
-    sleep 0.5;
-done
+[ -f ~/.config/polybar/bar.env ] && . ~/.config/polybar/bar.env
 
-export TERMINAL_CMD="tilix --profile orange --new-process -e"
-export WM_CONTROL="$(dirname "$0")/scripts/switch_window_state"
+export TERMINAL_CMD=${TERMINAL_CMD:-"tilix --profile orange --new-process -e"}
+export WM_CONTROL=${WM_CONTROL:-"~/.config/polybar/scripts/switch_window_state"}
+export TASKMANAGER_MAX_TASKS=${TASKMANAGER_MAX_TASKS:-20}
 
-~/.config/polybar/scripts/task_manager --generate-config 20
+function wait_for_polybar
+{
+    condition=1
+    if [ "$1" = "stopped" ]; then
+        condition=0
+    fi
 
-for monitor in $(polybar --list-monitors | cut -d":" -f1); do
-    export MONITOR=$monitor
-    polybar top -c ~/.config/polybar/bar.ini >/dev/null  &
-done
+    while [ "$(pgrep -u "$(id -u)" -x polybar >/dev/null)" = $condition ]; do
+        sleep 0.2
+    done
+}
 
-until pgrep -u "$(id -u)" -x polybar >/dev/null; do
-    sleep 0.5
-done
+function kill_polybar
+{
+    pkill polybar
+    pkill -f "task_manager --daemon"
+    wait_for_polybar stopped
+}
 
+function launch_polybar
+{
+    for monitor in $(polybar --list-monitors | cut -d":" -f1); do
+        export MONITOR=$monitor
+        polybar top -c ~/.config/polybar/bar.ini >/dev/null  &
+    done
+    wait_for_polybar started
+}
+
+kill_polybar
+~/.config/polybar/scripts/task_manager --generate-config "$TASKMANAGER_MAX_TASKS"
+launch_polybar
 ~/.config/polybar/scripts/task_manager --daemon &
