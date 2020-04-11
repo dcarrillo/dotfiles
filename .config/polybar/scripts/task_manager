@@ -17,7 +17,7 @@ for task in $(seq 1 "$1"); do
 type = custom/ipc
 hook-0 = echo ""
 hook-1 = ~/.config/polybar/scripts/task_manager --set-task $task
-hook-2 = ~/.config/polybar/scripts/task_manager --show-window $task
+hook-2 = ~/.config/polybar/scripts/task_manager --show-or-minimize-window $task
 hook-3 = ~/.config/polybar/scripts/task_manager --close-window $task
 click-left = polybar-msg -p %pid% hook taskbar$task 3
 click-middle = polybar-msg -p %pid% hook taskbar$task 4
@@ -151,7 +151,7 @@ case "$1" in
     --set-task)
         print_task_name "$2"
     ;;
-    --show-window)
+    --show-or-minimize-window)
         id=$(get_task_id "$2")
 
         if [ "$id" = "$(get_active_window)" ]; then
