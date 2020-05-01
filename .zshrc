@@ -30,14 +30,15 @@ alias dkillall='docker rm -f $(docker ps -qa)'
 ##### tilix #####
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]  ; then
-        source /etc/profile.d/vte.sh
+    source /etc/profile.d/vte.sh
 fi
 
-##### editor #####
+##### default apps #####
 
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
+export BROWSER='/usr/bin/firefox'
 
 ##### venvs ######
 
