@@ -58,12 +58,18 @@ main()
 {
     cd "$(dirname "$0")"
 
-    if [ x"$1" = x"--dump-dconf" ]; then
-        dconf_dumper
-    else
-        copy_dotfiles
-        dconf_loader
-    fi
+    case "$1" in
+        --dump-dconf)
+            dconf_dumper
+        ;;
+        --install)
+            copy_dotfiles
+            dconf_loader
+        ;;
+        **)
+            echo "Usage: $0 <--dump-dconf|--install>"
+        ;;
+    esac
 
     cd - > /dev/null
 }
