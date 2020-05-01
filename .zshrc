@@ -58,10 +58,15 @@ fzf-file-widget-hidden () {
 
 dexec () {
   local cid
-  local cmd=${1:-"bash"}
+  local cmd=("$@")
+
+  if [ -z "$1" ]; then
+    cmd=(bash)
+  fi
+
   cid=$(docker ps -a | sed 1d | fzf -1 | awk '{print $1}')
 
-  [ -n "$cid" ] && docker exec -ti "$cid" $cmd
+  [ -n "$cid" ] && docker exec -ti "$cid" "${cmd[@]}"
 }
 
 
