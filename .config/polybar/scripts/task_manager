@@ -55,6 +55,8 @@ get_icon_by_name()
         [gnome-calculator]=
         [gnome-calendar]=
         [gnome-control-center]=
+        [gnome-terminal]=
+        [gpaste-ui]=
         [eog]=
         [evince]=
         [gimp-210]=
