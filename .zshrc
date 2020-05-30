@@ -88,3 +88,7 @@ fi
 # Autocompletion
 
 source /usr/bin/aws_zsh_completer.sh
+
+# custom device
+
+source .zshrc_custom
