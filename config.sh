@@ -73,7 +73,7 @@ main()
             copy_dotfiles
         ;;
         **)
-            echo "Usage: $0 <--dump-dconf|--install>"
+            echo "Usage: $0 <--dump-dconf|--install|--install-dotfiles|--install-dconf>"
         ;;
     esac
 
