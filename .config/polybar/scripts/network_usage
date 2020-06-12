@@ -47,7 +47,12 @@ while true; do
         bits_in=$((((current_bytes_in-last_value_in) / REFRESH) * 8))
         bits_out=$((((current_bytes_out-last_value_out) / REFRESH) * 8))
 
-        output=$(numfmt --to iec --format "%8.2f" -z "$bits_in" "$bits_out" 2>/dev/null)
+        output=$(LANG=C numfmt --to iec --format "%8.2f" -z "$bits_in" "$bits_out" 2>/dev/null)
+
+        if ! echo "$output" | grep -qE '[0-9]{1,3}\.[0-9]{1,3}([K,M,G,B])?$'; then
+            output="  0.01  0.01"
+        fi
+
         echo "$icon $output"
     else
         echo "$icon --  --"
