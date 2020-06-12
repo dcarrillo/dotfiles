@@ -91,4 +91,4 @@ source /usr/bin/aws_zsh_completer.sh
 
 # custom device
 
-source .zshrc_custom
+source ~/.zshrc_custom
