@@ -70,7 +70,7 @@ main()
             copy_dotfiles
         ;;
         --install-dconf)
-            copy_dotfiles
+            dconf_loader
         ;;
         **)
             echo "Usage: $0 <--dump-dconf|--install|--install-dotfiles|--install-dconf>"
