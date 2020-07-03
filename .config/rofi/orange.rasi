@@ -6,6 +6,11 @@
  * Slight modification by dcarrillo
  */
 
+configuration {
+   me-select-entry: "MouseSecondary";
+   me-accept-entry: "MousePrimary";
+}
+
 /* global settings and color variables */
 * {
    maincolor:        #ed8712;

@@ -4,6 +4,7 @@ STATUS_FILE=/dev/shm/polybar_task_manager
 BAR_CONFIG_FILE=~/.config/polybar/bar.ini
 MODULES_LEFT_FILE=~/.config/polybar/modules-left.ini
 REFRESH=1
+TASK_MENU="  Open a new one #  Close"
 
 update_bar_config()
 {
@@ -19,8 +20,10 @@ hook-0 = echo ""
 hook-1 = ~/.config/polybar/scripts/task_manager --set-task $task
 hook-2 = ~/.config/polybar/scripts/task_manager --show-or-minimize-window $task
 hook-3 = ~/.config/polybar/scripts/task_manager --close-window $task
+hook-4 = ~/.config/polybar/scripts/task_manager --show-menu $task
 click-left = polybar-msg -p %pid% hook taskbar$task 3
 click-middle = polybar-msg -p %pid% hook taskbar$task 4
+click-right = polybar-msg -p %pid% hook taskbar$task 5
 
 MODULE_TEMPLATE
 
@@ -37,7 +40,7 @@ cat <<TASKLABEL_TEMPLATE
 type = custom/ipc
 hook-0 = echo "%{T4}Tasks:%{T-}"
 hook-1 = echo ""
-click-left = rofi -modi window -show window -theme orange -show-icons -location 1 -yoffset +45 -xoffset +20
+click-left = rofi -modi window -show window -theme $ROFI_THEME -show-icons -location 1 -yoffset +45 -xoffset +20
 
 TASKLABEL_TEMPLATE
 }
@@ -78,10 +81,10 @@ get_icon_by_name()
 show_tasks()
 {
     max_tasks=$(grep -cE "^\[module/taskbar[0-9]+]" ~/.config/polybar/task_manager.ini)
-    wmctrl -lx | awk '{if ($2 > -1) print $3,$1}' \
-               | sed -r 's/([0-9])\.([0-9])/\1\2/g' \
-               | awk -F'.' '{ print $NF }' \
-               | tail -"$max_tasks" | sort > $STATUS_FILE.current
+    wmctrl -lxp | awk '{if ($2 > -1) print $4,$1,$3}' \
+                | sed -r 's/([0-9])\.([0-9])/\1\2/g' \
+                | awk -F'.' '{ print $NF }' \
+                | tail -"$max_tasks" | sort > $STATUS_FILE.current
 
     diff -q $STATUS_FILE $STATUS_FILE.current > /dev/null 2>&1
     if [ $? -ne 1 ]; then
@@ -123,6 +126,32 @@ print_task_name()
     echo '%{T6}'"$icon"'%{T-}'
 }
 
+show_task_menu()
+{
+    pid=$(get_task_pid "$1")
+    cmd=$(ps --no-headers -o cmd "$pid" \
+            | sed 's/--gapplication-service//g' \
+            | tr -d '\n')
+    offset=$(( ($1 * 65) ))
+    ROFI="rofi -dmenu -sep # -theme $ROFI_THEME
+                -location 1 -width 8
+                -yoffset +45 -xoffset +${offset}"
+    choice=$(echo "$TASK_MENU" | $ROFI -theme-str 'inputbar { children: [];}' \
+              | sed 's/^[[:space:]]*//' | cut -f 1 -d " ")
+
+    case "$choice" in
+        Open)
+            $cmd &>/dev/null &
+        ;;
+        Close)
+            id=$(get_task_id "$1")
+            wmctrl -ic "$id"
+        ;;
+    esac
+
+    print_task_name "$1"
+}
+
 get_active_window()
 {
     echo 0x0"$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2 | cut -f 2 -d 'x')"
@@ -131,6 +160,11 @@ get_active_window()
 get_task_id()
 {
     sed "${1}q;d" $STATUS_FILE | cut -f 2 -d " "
+}
+
+get_task_pid()
+{
+    sed "${1}q;d" $STATUS_FILE | cut -f 3 -d " "
 }
 
 daemon()
@@ -152,6 +186,9 @@ case "$1" in
     ;;
     --set-task)
         print_task_name "$2"
+    ;;
+    --show-menu)
+        show_task_menu "$2"
     ;;
     --show-or-minimize-window)
         id=$(get_task_id "$2")

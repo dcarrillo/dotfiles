@@ -10,7 +10,7 @@
 ROFI="rofi -dmenu
            -sep #
            -i -p Network:
-           -theme orange
+           -theme $ROFI_THEME
            -location 3
            -yoffset +45
            -xoffset -80
