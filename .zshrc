@@ -70,6 +70,18 @@ dexec () {
   [ -n "$cid" ] && docker exec -ti "$cid" "${cmd[@]}"
 }
 
+kexec () {
+  local cid
+  local cmd=("$@")
+
+  if [ -z "$1" ]; then
+    cmd=(bash)
+  fi
+
+  cid=$(kubectl get pods | sed 1d | fzf -1 | awk '{print $1}')
+
+  [ -n "$cid" ] && kubectl exec -ti "$cid" -- "${cmd[@]}"
+}
 
 export FZF_DEFAULT_COMMAND="fd --type f --follow -I"
 export FZF_DEFAULT_OPTS="-m --reverse --bind 'ctrl-o:execute(xdg-open {})+abort,ctrl-e:execute({})+abort,ctrl-y:execute(echo {} | xclip -selection clipboard -in)+abort'"
