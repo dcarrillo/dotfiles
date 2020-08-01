@@ -99,7 +99,8 @@ if [ -z $SSH_AUTH_SOCK ] && [ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]; then
 fi
 
 # Autocompletion
-
+autoload -U compinit
+compinit
 source /usr/bin/aws_zsh_completer.sh
 
 # custom device
