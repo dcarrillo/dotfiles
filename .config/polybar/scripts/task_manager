@@ -86,10 +86,14 @@ show_tasks()
                 | awk -F'.' '{ print $NF }' \
                 | tail -"$max_tasks" | sort > $STATUS_FILE.current
 
-    diff -q $STATUS_FILE $STATUS_FILE.current > /dev/null 2>&1
-    if [ $? -ne 1 ]; then
-        rm -rf $STATUS_FILE.current
-        return 0
+    if [ -f $STATUS_FILE.active ]; then
+        if [ "$(get_task_id "$(cat $STATUS_FILE.active)")" = "$(get_active_window)" ]; then
+            diff -q $STATUS_FILE $STATUS_FILE.current > /dev/null 2>&1
+            if [ $? -ne 1 ]; then
+                rm -rf $STATUS_FILE.current
+                return 0
+            fi
+        fi
     fi
 
     mv $STATUS_FILE.current $STATUS_FILE
@@ -113,17 +117,20 @@ show_tasks()
     done
 }
 
-print_task_name()
+print_task_icon()
 {
     name=$(sed "${1}q;d" $STATUS_FILE | cut -f 1 -d " " | tr '[:upper:]' '[:lower:]')
     icon=$(get_icon_by_name "$name")
 
-    if [ -n "$icon" ]; then
-        name="$name "
+    if [ "$(get_task_id "$1")" = "$(get_active_window)" ]; then
+        echo '%{T6}%{F#FDD835}'"$icon"'%{F-}%{T-}'
+        if [ -f $STATUS_FILE.active ]; then
+            polybar-msg hook "taskbar$(cat $STATUS_FILE.active)" 2 > /dev/null
+        fi
+        echo "$1" > $STATUS_FILE.active
+    else
+        echo '%{T6}'"$icon"'%{T-}'
     fi
-
-    #echo "${name^}${icon}"
-    echo '%{T6}'"$icon"'%{T-}'
 }
 
 show_task_menu()
@@ -149,7 +156,7 @@ show_task_menu()
         ;;
     esac
 
-    print_task_name "$1"
+    print_task_icon "$1"
 }
 
 get_active_window()
@@ -185,7 +192,7 @@ case "$1" in
         update_bar_config "$2" >> ~/.config/polybar/task_manager.ini
     ;;
     --set-task)
-        print_task_name "$2"
+        print_task_icon "$2"
     ;;
     --show-menu)
         show_task_menu "$2"
@@ -198,7 +205,7 @@ case "$1" in
         else
             wmctrl -ia "$id"
         fi
-        print_task_name "$2"
+        print_task_icon "$2"
     ;;
     --close-window)
         id=$(get_task_id "$2")
