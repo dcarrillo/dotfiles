@@ -124,7 +124,7 @@ print_task_icon()
     icon=$(get_icon_by_name "$name")
 
     if [ "$(get_task_id "$1")" = "$(get_active_window)" ]; then
-        echo '%{T6}%{F#FDD835}'"$icon"'%{F-}%{T-}'
+        echo '%{T6}%{F#F5A70A}'"$icon"'%{F-}%{T-}'
         if [ -f $STATUS_FILE.active ]; then
             polybar-msg hook "taskbar$(cat $STATUS_FILE.active)" 2 > /dev/null
         fi
