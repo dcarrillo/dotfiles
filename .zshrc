@@ -26,6 +26,8 @@ alias open='xdg-open'
 alias yayU='yay -Suy --noconfirm'
 alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias dkillall='docker rm -f $(docker ps -qa)'
+alias k=kubectl
+alias kconfig='echo "$(kubectl config current-context) ($(kubectl config view --minify --output "jsonpath={..namespace}"))"'
 
 ##### tilix #####
 
