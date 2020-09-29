@@ -52,6 +52,7 @@ get_icon_by_name()
     declare -A ICON_MAP=(
         [tilix]=
         [code]=
+        [brave-browser]=
         [firefox]=
         [chromium]=
         [tor]=
