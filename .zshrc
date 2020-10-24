@@ -9,6 +9,9 @@ export PATH=$PATH:~/bin
 setopt clobber
 zstyle ':completion:*' rehash true
 
+export HISTFILESIZE=100000
+export HISTSIZE=100000
+
 unsetopt correct
 unsetopt correctall
 DISABLE_CORRECTION="true"
