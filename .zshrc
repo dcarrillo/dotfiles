@@ -43,7 +43,7 @@ fi
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
-export BROWSER='/usr/bin/firefox'
+export BROWSER='/usr/bin/brave'
 
 ##### venvs ######
 
