@@ -71,6 +71,7 @@ get_icon_by_name()
         [steam]=
         [skype]=
         [slack]=
+        [telegramdesktop]=
     )
 
     if [ ${ICON_MAP[$name]+_} ]; then
