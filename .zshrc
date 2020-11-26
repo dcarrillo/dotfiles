@@ -15,6 +15,7 @@ export HISTSIZE=100000
 unsetopt correct
 unsetopt correctall
 DISABLE_CORRECTION="true"
+PROMPT_EOL_MARK=''
 
 ##### aliases ######
 
