@@ -3,7 +3,7 @@
 OUTPUT=""
 
 openvpn=$(pgrep -c openvpn$)
-[ "$openvpn" -gt 0 ] && OUTPUT=$(eval printf "%.0s" "{1..$openvpn}")
+[ "$openvpn" -gt 0 ] && OUTPUT=$(eval printf "%.0s" "{1..$openvpn}")
 
 openfortivpn=$(pgrep -c openfortivpn$)
 [ "$openfortivpn" -gt 0 ] && OUTPUT=${OUTPUT}$(eval printf '%.0s' "{1..$openfortivpn}")
