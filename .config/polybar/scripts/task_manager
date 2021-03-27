@@ -67,6 +67,7 @@ get_icon_by_name()
         [gimp-210]=
         [nautilus]=
         [file-roller]=
+        [mailspring]=
         [keepassxc]=
         [steam]=
         [skype]=
