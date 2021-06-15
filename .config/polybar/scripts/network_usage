@@ -31,6 +31,10 @@ while true; do
     now=$(date +%s)
     counter_age=$(stat --format %Z $COUNTER_FILE 2>/dev/null)
 
+    if [ "$default_device" = "link" ]; then
+        default_device=$(ip route list | grep -Fm 1 default | cut -d " " -f 3)
+    fi
+
     if [ -f $COUNTER_FILE ] && [ $((now-counter_age)) -lt $((REFRESH+1)) ]; then
         last_value_in=$(cut -f 1 -d " " $COUNTER_FILE)
         last_value_out=$(cut -f 2 -d " " $COUNTER_FILE)
