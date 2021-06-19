@@ -860,7 +860,7 @@
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=37
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=184
   # Don't show Python version next to the virtual environment name.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
   # If set to "false", won't show virtualenv if pyenv is already shown.
@@ -869,7 +869,7 @@
   # Separate environment name from Python version only with a space.
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
   # Custom icon.
-  typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION='🐍'
+  typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION=''
 
   #####################[ anaconda: conda environment (https://conda.io/) ]######################
   # Anaconda environment color.
@@ -928,7 +928,7 @@
   typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
 
   # Custom icon.
-  typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION='🐍'
+  typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION=''
 
   ################[ goenv: go environment (https://github.com/syndbg/goenv) ]################
   # Goenv color.
@@ -1176,12 +1176,12 @@
   #
   # You can define different colors, icons and content expansions for different classes:
   #
-  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_FOREGROUND=28
-  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PRO_FOREGROUND=196
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PRE_FOREGROUND=069
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
-      # '*prod*'  PROD    # These values are examples that are unlikely
-      # '*test*'  TEST    # to match your needs. Customize them as needed.
+      '*-pro*'  PRO
+      '*-pre*'  PRE
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=134
   # typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -1293,12 +1293,14 @@
   #
   # You can define different colors, icons and content expansions for different classes:
   #
-  #   typeset -g POWERLEVEL9K_AWS_TEST_FOREGROUND=28
-  #   typeset -g POWERLEVEL9K_AWS_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_AWS_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+  typeset -g POWERLEVEL9K_AWS_PRO_FOREGROUND=196
+  typeset -g POWERLEVEL9K_AWS_PRO_VISUAL_IDENTIFIER_EXPANSION=' '
+  typeset -g POWERLEVEL9K_AWS_PRE_FOREGROUND=208
+  typeset -g POWERLEVEL9K_AWS_PRE_VISUAL_IDENTIFIER_EXPANSION=' '
+  #typeset -g POWERLEVEL9K_AWS_PRE_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_AWS_CLASSES=(
-      # '*prod*'  PROD    # These values are examples that are unlikely
-      # '*test*'  TEST    # to match your needs. Customize them as needed.
+      '*-pro*'  PRO
+      '*-pre*'  PRE
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=208
   # typeset -g POWERLEVEL9K_AWS_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
