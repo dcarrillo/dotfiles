@@ -74,6 +74,7 @@ get_icon_by_name()
         [slack]=
         [spotify]=
         [telegramdesktop]=
+        [xterm]=
     )
 
     if [ ${ICON_MAP[$name]+_} ]; then
