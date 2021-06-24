@@ -33,7 +33,6 @@
     # os_icon               # os identifier
     dir                     # current directory
     # vpn_ip                  # virtual private network indicator
-    vcs                     # git status
     prompt_char             # prompt symbol
   )
 
@@ -44,6 +43,7 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
+    vcs                     # git status
     background_jobs         # presence of background jobs
     direnv                  # direnv status (https://direnv.net/)
     # asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
