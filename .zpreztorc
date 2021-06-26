@@ -190,8 +190,6 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 # Set the default session name:
 # zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
 
-zstyle ':completion:*' special-dirs true
-
 #
 # AWS
 #

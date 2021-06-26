@@ -15,6 +15,7 @@ fi
 export PATH=$PATH:~/bin
 setopt clobber
 zstyle ':completion:*' rehash true
+zstyle ':completion:*' special-dirs true
 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=100000
