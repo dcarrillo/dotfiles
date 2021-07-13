@@ -4,7 +4,6 @@
 
 export TERMINAL_CMD=${TERMINAL_CMD:-"tilix --profile orange --new-process -e"}
 export WM_CONTROL=${WM_CONTROL:-"~/.config/polybar/scripts/switch_window_state"}
-export TASKMANAGER_MAX_TASKS=${TASKMANAGER_MAX_TASKS:-20}
 export ROFI_THEME=${ROFI_THEME:-orange}
 
 function wait_for_polybar
@@ -22,7 +21,6 @@ function wait_for_polybar
 function kill_polybar
 {
     pkill polybar
-    pkill -f "task_manager --daemon"
     wait_for_polybar stopped
 }
 
@@ -36,6 +34,4 @@ function launch_polybar
 }
 
 kill_polybar
-~/.config/polybar/scripts/task_manager --generate-config "$TASKMANAGER_MAX_TASKS"
 launch_polybar
-~/.config/polybar/scripts/task_manager --daemon &
