@@ -265,7 +265,7 @@ generate_window_list() {
 
 		window_count=$(( window_count + 1 ))
 	done <<-EOF
-	$(wmctrl -lx)
+	$(wmctrl -lx | sort -k3)
 	EOF
 
 	# After printing all the windows,
