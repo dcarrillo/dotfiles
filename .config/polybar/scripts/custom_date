@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 date=$(date "+%H:%M | %d de %B")
 hour_minute=$(echo "$date" | cut -f 1 -d"|")

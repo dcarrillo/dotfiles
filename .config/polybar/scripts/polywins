@@ -1,5 +1,4 @@
-#!/bin/sh
-# POLYWINS
+#!/usr/bin/env bash
 
 # Forked from: https://github.com/tam-carre/polywins
 
