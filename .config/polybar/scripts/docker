@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+declare -A STATUS=(
+    [running]=#43A047
+    [exited]=#A14242
+    [restarting]=#E53935
+    [dead]=#E53935
+    [created]=#1A4F76
+    [paused]=#654321
+    [removing]=#8E6995
+)
+
+output=""
+containers=$(docker ps --all --format="{{.State}}")
+if [ "$(echo "$containers" | wc -l)" -gt 0 ]; then
+    for status in "${!STATUS[@]}"; do
+        count=$(echo "$containers" | grep -c "$status")
+        if [ "$count" -gt 0 ]; then
+            output="$output %{F${STATUS[$status]}}$count%{F-}"
+        fi
+    done
+fi
+
+echo "$output"
