@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+URL=${1:-1.1.1.1}
+
+output=$(fping --quiet --outage --count=5 "$URL" 2>&1)
+outage_output=""
+outage_color="FFFFFF"
+avg_output=""
+avg_color="FFFFFF"
+
+avg=$(echo "$output" | cut -d "," -f 3 | cut -d "=" -f 2 | cut -d "/" -f 2 | cut -d "." -f 1)
+outage=$(echo "$output" | cut -d "," -f 2 | cut -d "=" -f 2 | tr -d " " | cut -d "." -f 1)
+
+if [ "$outage" -eq 0 ] || [ -z "$outage" ]; then
+    outage_output=""
+elif [ "$outage" -lt 30 ]; then
+    outage_color=F5A70A
+else
+    outage_color=FF0000
+fi
+
+if [ -z "$avg" ] || [ "$avg" -gt 60 ]; then
+    avg_color=FF0000
+elif [ "$avg" -lt 40 ]; then
+    avg_output=""
+else
+    avg_color=F5A70A
+fi
+
+if [ -n "$outage_output" ] || [ -n "$avg_output" ]; then
+    echo "%{F#$outage_color}%{T5}${outage_output}%{F-}%{T-}%{F#$avg_color}%{T5} ${avg_output}%{F-}%{T-}"
+else
+    echo ""
+fi
+
