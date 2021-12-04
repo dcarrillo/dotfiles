@@ -49,6 +49,7 @@ get_icon_by_name()
 	name=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 	declare -A ICON_MAP=(
 		[tilix]=
+		[alacritty]=
 		[code]=
 		[brave-browser]=
 		[firefox]=
