@@ -41,6 +41,8 @@ alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias dkillall='docker rm -f $(docker ps -qa)'
 alias k=kubectl
 alias kconfig='echo "$(kubectl config current-context) ($(kubectl config view --minify --output "jsonpath={..namespace}"))"'
+alias icat="kitty +kitten icat --align=left"
+alias idiff="kitty +kitten diff"
 
 ##### tilix #####
 
