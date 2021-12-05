@@ -50,6 +50,7 @@ get_icon_by_name()
 	declare -A ICON_MAP=(
 		[tilix]=
 		[alacritty]=
+		[kitty]=
 		[code]=
 		[brave-browser]=
 		[firefox]=
