@@ -1,23 +1,37 @@
 from contextlib import closing
 
-from typing import Dict, List
+from typing import Dict, List, Optional
 
-from simple_term_menu import TerminalMenu
+from prompt_toolkit.application.current import get_app
+from prompt_toolkit import PromptSession
+from prompt_toolkit.completion import WordCompleter
 
 import secretstorage
 
 from kitty.boss import Boss
 
 
-def main(args: List[str]) -> str:
-    options = get_secret_names(args[1], args[2])
-    terminal_menu = TerminalMenu(options)
-    menu_entry_index = terminal_menu.show()
+def main(args: List[str]) -> Optional[str]:
+    secrets = get_secret_names(args[1], args[2])
+    entries = WordCompleter(secrets)
+    session = PromptSession(completer=entries)
+    try:
+        entry = session.prompt('> ', pre_run=expand_prompt)
+    except (KeyboardInterrupt, EOFError):
+        pass
+    else:
+        return secrets[entry]
 
-    if menu_entry_index is not None:
-        return list(options.values())[menu_entry_index]
+    return None
 
-    return ''
+
+def expand_prompt() -> None:
+    app = get_app()
+    buffer = app.current_buffer
+    if buffer.complete_state:
+        buffer.complete_next()
+    else:
+        buffer.start_completion(select_first=False)
 
 
 def get_secret_names(attribute: str, value: str) -> Dict[str, str]:
