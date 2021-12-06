@@ -55,6 +55,7 @@ get_icon_by_name()
 		[brave-browser]=
 		[firefox]=
 		[chromium]=
+		[vivaldi-stable]=
 		[tor]=
 		[nextcloud]=
 		[gnome-calculator]=
@@ -90,9 +91,7 @@ raise_or_minimize() {
 	if [ "$(get_active_wid)" = "$1" ]; then
 		# wmctrl -ir "$1"  -b toggle,hidden
 		xdotool windowminimize "$(xdotool getactivewindow)"
-		echo "minimize" >> /dev/shm/log
 	else
-	    echo "positos" >> /dev/shm/log
 		wmctrl -ia "$1"
 	fi
 }
@@ -215,7 +214,7 @@ generate_window_list() {
 		case "$show" in
 			"window_classname") w_name="$cname" ;;
 			"window_title") w_name="$title" ;;
-			"icon") w_name=$(get_icon_by_name "$cname")
+			"icon") w_name=$(get_icon_by_name "$cname") ;;
 		esac
 
 		# Use user-selected character case
