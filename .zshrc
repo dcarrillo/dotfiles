@@ -43,6 +43,7 @@ alias k=kubectl
 alias kconfig='echo "$(kubectl config current-context) ($(kubectl config view --minify --output "jsonpath={..namespace}"))"'
 alias icat="kitty +kitten icat --align=left"
 alias idiff="kitty +kitten diff"
+alias ls="ls --group-directories-first --color=auto --hyperlink=auto"
 
 ##### tilix #####
 
@@ -55,7 +56,7 @@ fi
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
-export BROWSER='/usr/bin/brave'
+export BROWSER='/usr/bin/vivaldi-stable'
 
 ##### venvs ######
 
