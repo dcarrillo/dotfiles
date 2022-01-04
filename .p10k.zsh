@@ -101,6 +101,7 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
+    hcloud
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
@@ -1525,6 +1526,19 @@
   typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
   # Custom prefix.
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
+
+  typeset -g POWERLEVEL9K_HCLOUD_SHOW_ON_COMMAND='hcloud'
+  typeset -g POWERLEVEL9K_HCLOUD_FOREGROUND=214
+  function prompt_hcloud() {
+    hcloud_file="$HOME/.config/hcloud/cli.toml"
+    if [ -f $hcloud_file ] ; then
+      context=$(fgrep active_context $hcloud_file | cut -f 2 -d "=" | tr -d " \"")
+      p10k segment -f 208 -i '' -t "$context"
+    fi
+  }
+  function instant_prompt_hcloud() {
+    prompt_hcloud
+  }
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
