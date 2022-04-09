@@ -101,6 +101,8 @@ kexec () {
   [ -n "$cid" ] && kubectl exec -ti "$cid" -- "${cmd[@]}"
 }
 
+## fzf
+
 export FZF_DEFAULT_COMMAND="fd --type f --follow -I"
 export FZF_DEFAULT_OPTS="-m --reverse \
                         --color 'info:#00AAFF,prompt:#FFFFFF,pointer:#00AAFF,hl:#1AE51A,hl+:#1AE51A' \
