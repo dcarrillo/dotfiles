@@ -17,6 +17,10 @@ setopt clobber
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' special-dirs true
 
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=100000
+export HISTSIZE=100000
+
 unsetopt correct
 unsetopt correctall
 DISABLE_CORRECTION="true"
