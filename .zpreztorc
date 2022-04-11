@@ -89,6 +89,7 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 zstyle ':prezto:module:aws' output 'table'
 zstyle ':prezto:module:aws' profile 'default'
 zstyle ':prezto:module:aws' show_region 'true'
+zstyle ':prezto:module:aws' sso 'true'
 
 #
 # fzf-tab
