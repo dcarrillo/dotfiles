@@ -51,6 +51,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 
 zstyle ':prezto:module:history' histfile "~/.zsh_history"
 zstyle ':prezto:module:history' histsize "100000"
+zstyle ':prezto:module:history' histignorespace "true"
 
 #
 # Prompt
