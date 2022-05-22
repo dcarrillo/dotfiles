@@ -45,35 +45,7 @@ alias icat="kitty +kitten icat --align=left"
 alias idiff="kitty +kitten diff"
 alias ls="ls --group-directories-first --color=auto --hyperlink=auto"
 
-##### tilix #####
-
-if [ $TILIX_ID ] || [ $VTE_VERSION ]  ; then
-    source /etc/profile.d/vte.sh
-fi
-
-##### default apps #####
-
-export EDITOR='vim'
-export VISUAL='vim'
-export PAGER='less'
-export BROWSER='/usr/bin/vivaldi-stable'
-
-##### venvs ######
-
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-alias workondir='workon $(basename $(pwd))'
-
-##### fzf #####
-
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-fzf-file-widget-hidden () {
-  fd --type f --hidden -I --follow --exclude .git --exclude .cache | fzf
-}
+##### Functions to be used from command line #####
 
 dexec () {
   local cid
@@ -101,9 +73,37 @@ kexec () {
   [ -n "$cid" ] && kubectl exec -ti "$cid" -- "${cmd[@]}"
 }
 
-## fzf
+##### tilix #####
 
-export FZF_DEFAULT_COMMAND="fd --type f --follow -I"
+if [ $TILIX_ID ] || [ $VTE_VERSION ]  ; then
+    source /etc/profile.d/vte.sh
+fi
+
+##### default apps #####
+
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
+export BROWSER='/usr/bin/vivaldi-stable'
+
+##### venvs ######
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+alias workondir='workon $(basename $(pwd))'
+
+##### fzf #####
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+fzf-file-widget-hidden () {
+  fd --type f --hidden --follow --exclude .git --exclude .cache | fzf
+}
+
+export FZF_DEFAULT_COMMAND="fd --type file --follow"
 export FZF_DEFAULT_OPTS="-m --reverse \
                         --color 'info:#00AAFF,prompt:#FFFFFF,pointer:#00AAFF,hl:#1AE51A,hl+:#1AE51A' \
                         --tabstop=4 \
