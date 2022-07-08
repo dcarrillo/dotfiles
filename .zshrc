@@ -28,7 +28,6 @@ PROMPT_EOL_MARK=''
 
 ##### aliases ######
 
-alias ccat="pygmentize -O style=native -g "
 alias chromium-socks='chromium --proxy-server=socks://localhost:3000'
 alias curlmobile='curl -A "Mozilla/5.0 (Linux; Android 9; AR 4G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36"'
 alias curlr='curl -o /dev/null -w "\n\nCode:   \t%{http_code}\n\nDNS:    \t%{time_namelookup}\nConnect:\t%{time_connect}\nStartTransfer:\t%{time_starttransfer} (PreTransfer:%{time_pretransfer})\nTotal:   \t%{time_total}\n\n"'
@@ -40,7 +39,6 @@ alias yayU='yay -Suy --noconfirm'
 alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias dkillall='docker rm -f $(docker ps -qa)'
 alias k=kubectl
-alias kconfig='echo "$(kubectl config current-context) ($(kubectl config view --minify --output "jsonpath={..namespace}"))"'
 alias icat="kitty +kitten icat --align=left"
 alias idiff="kitty +kitten diff"
 alias ls="ls --group-directories-first --color=auto --hyperlink=auto"
