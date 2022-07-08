@@ -73,6 +73,22 @@ kexec () {
   [ -n "$cid" ] && kubectl exec -ti "$cid" -- "${cmd[@]}"
 }
 
+# "dirty" squash before merge
+git_squash () {
+  if [ -z $2 ]; then
+    echo "Usage: $0 <base branch> \"commit message\""
+    return 1
+  fi
+
+  local bbranch=$1
+  local message=$2
+  local cbranch=$(git branch --show-current)
+
+  git reset $(git merge-base $bbranch $cbranch)
+  git add -A
+  git commit -m "$message"
+}
+
 ##### tilix #####
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]  ; then
