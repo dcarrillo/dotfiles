@@ -42,6 +42,8 @@ alias k=kubectl
 alias icat="kitty +kitten icat --align=left"
 alias idiff="kitty +kitten diff"
 alias ls="ls --group-directories-first --color=auto --hyperlink=auto"
+alias vim=nvim
+alias neovim=nvim
 
 ##### Functions to be used from command line #####
 
@@ -79,8 +81,8 @@ fi
 
 ##### default apps #####
 
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='less'
 export BROWSER='/usr/bin/vivaldi-stable'
 

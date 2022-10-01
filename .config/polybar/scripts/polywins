@@ -48,9 +48,9 @@ get_icon_by_name()
 {
 	name=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 	declare -A ICON_MAP=(
-		[tilix]=
 		[alacritty]=
 		[kitty]=
+		[nvim]=
 		[code]=
 		[brave-browser]=
 		[firefox]=
@@ -76,6 +76,7 @@ get_icon_by_name()
 		[spotify]=
 		[telegramdesktop]=
 		[xterm]=
+		[tilix]=
 	)
 
 	if [ ${ICON_MAP[$name]+_} ]; then
@@ -191,7 +192,7 @@ generate_window_list() {
 	# Format each window name one by one
 	# Space and . are both used as IFS,
 	# because classname and class are separated by '.'
-	while IFS=" " read -r wid ws cname host title; do
+	while IFS=" " read -r wid ws cname _ title; do
 		cname=${cname##*.}
 		# Don't show the window if on another workspace (-1 = sticky)
 		if [ "$ws" != "$active_workspace" ] && [ "$ws" != "-1" ]; then
