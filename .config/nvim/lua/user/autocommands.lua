@@ -14,8 +14,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
--- Set options by FileType
-
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "gitcommit", "markdown" },
@@ -25,7 +23,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- Set wrap and spell in markdown and gitcommit
+-- Set expandtab=true in several file types
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "go", "makefile", "lua" },
 	callback = function()

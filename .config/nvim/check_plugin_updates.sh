@@ -18,6 +18,8 @@ function check_update() {
     remote_url=$(git config --get remote.origin.url)
     if [[ "$current_commit" != "$last_commit" ]]; then
         echo -e "Plugin $plugin has a new version $last_commit (the current version is $current_commit)\n\tURL: $remote_url"
+    else
+        echo "Plugin $plugin is up to date."
     fi
 
     popd > /dev/null || exit
