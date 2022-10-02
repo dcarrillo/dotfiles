@@ -2,7 +2,7 @@
 
 My dotfiles, including:
 
-- neovim
+- neovim (need neovim v0.8.x)
 - kitty
 - polybar
 - zsh

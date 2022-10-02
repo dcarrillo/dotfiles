@@ -25,18 +25,18 @@ function check_update() {
 
 pushd "$HOME/.config/nvim/lua/user" > /dev/null || exit
 
-grep -P "use.*commit" plugins.lua < plugins.lua | cut -f 2,4 -d "\"" | while IFS= read -r line; do
+grep -P "use.*commit" plugins.lua  | cut -f 2,4 -d "\"" | while IFS= read -r line; do
     plugin=$(echo "$line" | cut -f1 -d "\"" | cut -f2 -d "/")
     current_commit=$(echo "$line" | cut -f2 -d "\"")
     check_update "$plugin" "$current_commit"
 done
 
-grep -P "^\t*commit" plugins.lua < plugins.lua | cut -f2 -d "\"" | while IFS= read -r current_commit; do
+grep -P "^\t*commit" plugins.lua  | cut -f2 -d "\"" | while IFS= read -r current_commit; do
     plugin=$(grep "$current_commit" -B1 plugins.lua | grep -v "$current_commit" | cut -f2 -d "\"" | cut -f2 -d "/")
     check_update "$plugin" "$current_commit"
 done
 
-grep -P "^\t*requires.*commit" < plugins.lua | cut -f 2,4 -d "\"" | while IFS= read -r line; do
+grep -P "^\t*requires.*commit" plugins.lua | cut -f 2,4 -d "\"" | while IFS= read -r line; do
     plugin=$(echo "$line" | cut -f1 -d "\"" | cut -f2 -d "/")
     current_commit=$(echo "$line" | cut -f2 -d "\"")
     check_update "$plugin" "$current_commit"
