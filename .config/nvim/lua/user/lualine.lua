@@ -13,7 +13,7 @@ local diagnostics = {
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
 	colored = false,
-	always_visible = true,
+	always_visible = false,
 }
 
 local diff = {
@@ -34,7 +34,14 @@ local location = {
 }
 
 local spaces = function()
-	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+	local expandtab = vim.api.nvim_buf_get_option(0, "expandtab")
+
+	local title = "spaces: "
+	if not expandtab then
+		title = "tab: "
+	end
+
+	return title .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
 local gitblame_status_ok, gitblame = pcall(require, "gitblame")
