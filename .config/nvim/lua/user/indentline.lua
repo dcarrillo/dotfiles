@@ -13,6 +13,6 @@ indent_blankline.setup({
 	filetype_exclude = {
 		"help",
 		"packer",
-		"NvimTree",
+		"neo-tree",
 	},
 })
