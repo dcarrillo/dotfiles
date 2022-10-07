@@ -11,4 +11,17 @@ gitsigns.setup({
 		topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
 		changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
 	},
+	on_attach = function(bufnr)
+		local gs = package.loaded.gitsigns
+
+		local function map(mode, l, r, opts)
+			opts = opts or {}
+			opts.buffer = bufnr
+			vim.keymap.set(mode, l, r, opts)
+		end
+
+		map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+		map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+		map("n", "<leader>hR", gs.reset_buffer)
+	end,
 })
