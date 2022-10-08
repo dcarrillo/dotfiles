@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use({ "romgrk/fzy-lua-native", commit = "085c7d262aa35cc55a8523e8c1618d398bf717a7", run = "make" })
 	use({ "mg979/vim-visual-multi", tag = "v0.*" })
 	use({ "Shatur/neovim-session-manager", commit = "4005dac93f5cd1257792259ef4df6af0e3afc213" })
-	use({ "nvim-treesitter/nvim-treesitter", commit = "5d11dfc27849e3d7435c32dbd8ea9be35bcd990b" })
+	use({ "nvim-treesitter/nvim-treesitter", commit = "b273a06728305c1e7bd0179977ca48049aeff5e6" })
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -79,14 +79,14 @@ return packer.startup(function(use)
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig", commit = "9d4b8d393aad0e6e9227e2d67629aa99e56b994a" })
-	use({ "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12" })
-	use({ "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" })
-	use({ "jose-elias-alvarez/null-ls.nvim", commit = "6a98411e70fad6928f7311eeade4b1753cb83524" })
+	use({ "williamboman/mason.nvim", commit = "72efedba614355b48109206ecf2cd3e2ce62731d" })
+	use({ "williamboman/mason-lspconfig.nvim", commit = "ef41cd4ebccbf0981089bb06f5ed59e0dad549ca" })
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "8be9f4f2aca1cafac1e57234bed202bb274d03ee" })
 	use({ "RRethy/vim-illuminate", commit = "0603e75fc4ecde1ee5a1b2fc8106ed6704f34d14" })
 	use({ "folke/trouble.nvim", commit = "929315ea5f146f1ce0e784c76c943ece6f36d786" })
 
 	-- Telescope
-	use({ "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" })
+	use({ "nvim-telescope/telescope.nvim", commit = "5fadc247c56e739d9c5c30a484fd291bb87bd378" })
 	use({ "nvim-telescope/telescope-ui-select.nvim", commit = "62ea5e58c7bbe191297b983a9e7e89420f581369" })
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
@@ -96,7 +96,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", tag = "v0.5*" })
-	use({ "sindrets/diffview.nvim", commit = "7c149a4df943c05846d3f552b89b47df50f009c9" })
+	use({ "sindrets/diffview.nvim", commit = "a1fbcaa7e1e154cfa793ab44da4a6eb0ae15458d" })
 	use({ "f-person/git-blame.nvim", commit = "08e75b7061f4a654ef62b0cac43a9015c87744a2" })
 
 	-- DAP
