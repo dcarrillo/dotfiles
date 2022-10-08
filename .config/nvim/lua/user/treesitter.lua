@@ -4,14 +4,20 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = "all", -- one of "all" or a list of languages
-	ignore_install = { "" }, -- List of parsers to ignore installing
+	ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python", "go", "gomod", "gowork" },
+	ignore_install = { "" },
+	sync_install = false,
 	highlight = {
-		enable = true, -- false will disable the whole extension
-		disable = { "css" }, -- list of language that will be disabled
+		enable = true,
+		disable = { "css" },
 	},
 	autopairs = {
 		enable = true,
 	},
 	indent = { enable = true, disable = { "python", "css" } },
+
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 })
