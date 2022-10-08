@@ -44,6 +44,15 @@ local spaces = function()
 	return title .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local venv = function()
+	local venv = os.getenv("VIRTUAL_ENV")
+	if venv then
+		return string.format("  %s", string.match(venv, "[^/]+$"))
+	end
+
+	return ""
+end
+
 local gitblame_status_ok, gitblame = pcall(require, "gitblame")
 if not gitblame_status_ok then
 	return
@@ -66,7 +75,7 @@ lualine.setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch" },
-		lualine_c = { diagnostics, { "filename", path = 3 } },
+		lualine_c = { diagnostics, venv, { "filename", path = 3 } },
 		lualine_x = {
 			{ gitblame.get_current_blame_text, cond = gitblame.is_blame_text_available },
 			diff,
