@@ -44,7 +44,10 @@ keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
 keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
 keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
 keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
-keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)
+keymap("n", "gd", "<cmd>TroubleToggle lsp_definitions<cr>", opts)
+keymap("n", "gt", "<cmd>TroubleToggle lsp_type_definitions<cr>", opts)
+keymap("n", "gi", "<cmd>TroubleToggle lsp_implementations<cr>", opts)
+keymap("n", "gr", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
