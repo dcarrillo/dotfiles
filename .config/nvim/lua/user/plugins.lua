@@ -57,6 +57,7 @@ return packer.startup(function(use)
 	use({ "mg979/vim-visual-multi", tag = "v0.*" })
 	use({ "Shatur/neovim-session-manager", commit = "4005dac93f5cd1257792259ef4df6af0e3afc213" })
 	use({ "nvim-treesitter/nvim-treesitter", commit = "b273a06728305c1e7bd0179977ca48049aeff5e6" })
+	use({ "ray-x/sad.nvim", commit = "01b7d84f4f73c8963f5933f09e88c833757bc7d8" })
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
