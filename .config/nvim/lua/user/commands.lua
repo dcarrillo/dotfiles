@@ -13,3 +13,8 @@ end, {})
 vim.api.nvim_create_user_command("RemoveTrailingSpaces", function()
 	vim.cmd("% s/\\s\\+$//e")
 end, {})
+
+vim.api.nvim_create_user_command("ReloadConfiguration", function()
+	vim.cmd("source $MYVIMRC")
+	vim.notify("Configuration reloaded")
+end, {})

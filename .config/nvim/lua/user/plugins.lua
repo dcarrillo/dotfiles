@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use({ "romgrk/fzy-lua-native", commit = "085c7d262aa35cc55a8523e8c1618d398bf717a7", run = "make" })
 	use({ "mg979/vim-visual-multi", tag = "v0.*" })
 	use({ "Shatur/neovim-session-manager", commit = "4005dac93f5cd1257792259ef4df6af0e3afc213" })
-	use({ "nvim-treesitter/nvim-treesitter", commit = "b273a06728305c1e7bd0179977ca48049aeff5e6" })
+	use({ "nvim-treesitter/nvim-treesitter", commit = "7ddc2b54db9b92846292e081a337dce2ed4f66a1" })
 	use({ "ray-x/sad.nvim", commit = "01b7d84f4f73c8963f5933f09e88c833757bc7d8" })
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
@@ -69,7 +69,7 @@ return packer.startup(function(use)
 	use({ "EdenEast/nightfox.nvim", commit = "59c3dbcec362eff7794f1cb576d56fd8a3f2c8bb" })
 
 	-- cmp plugins
-	use({ "hrsh7th/nvim-cmp", commit = "0e436ee23abc6c3fe5f3600145d2a413703e7272" })
+	use({ "hrsh7th/nvim-cmp", commit = "0ad2450ff617a3568cc3f5e46f13635ef5185e6c" })
 	use({ "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" })
 	use({ "hrsh7th/cmp-path", commit = "91ff86cd9c29299a64f968ebb45846c485725f23" })
 	use({ "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" })
@@ -80,15 +80,15 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets", commit = "6cd7469403fd06a3840a1065728d1affe1c23ec8" })
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig", commit = "9d4b8d393aad0e6e9227e2d67629aa99e56b994a" })
-	use({ "williamboman/mason.nvim", commit = "72efedba614355b48109206ecf2cd3e2ce62731d" })
-	use({ "williamboman/mason-lspconfig.nvim", commit = "ef41cd4ebccbf0981089bb06f5ed59e0dad549ca" })
-	use({ "jose-elias-alvarez/null-ls.nvim", commit = "8be9f4f2aca1cafac1e57234bed202bb274d03ee" })
+	use({ "neovim/nvim-lspconfig", commit = "0a8064eda0c7a4475c4a8ceb39199e975308797b" })
+	use({ "williamboman/mason.nvim", commit = "b0cb03d39e0ace54cc00fe6d7e3418a84887ffa7" })
+	use({ "williamboman/mason-lspconfig.nvim", commit = "0eb7cfefbd3a87308c1875c05c3f3abac22d367c" })
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "ce85d7738b5a29c910a970fed3299bada855fb3d" })
 	use({ "RRethy/vim-illuminate", commit = "0603e75fc4ecde1ee5a1b2fc8106ed6704f34d14" })
 	use({ "folke/trouble.nvim", commit = "929315ea5f146f1ce0e784c76c943ece6f36d786" })
 
 	-- Telescope
-	use({ "nvim-telescope/telescope.nvim", commit = "5fadc247c56e739d9c5c30a484fd291bb87bd378" })
+	use({ "nvim-telescope/telescope.nvim", commit = "f174a0367b4fc7cb17710d867e25ea792311c418" })
 	use({ "nvim-telescope/telescope-ui-select.nvim", commit = "62ea5e58c7bbe191297b983a9e7e89420f581369" })
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",

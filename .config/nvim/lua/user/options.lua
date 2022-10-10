@@ -43,3 +43,7 @@ vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.cmdheight = 0 -- experimental
+
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- autocmd BufReadPost,FileReadPost * normal zR
