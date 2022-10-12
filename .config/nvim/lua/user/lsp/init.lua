@@ -7,4 +7,4 @@ require("user.lsp.mason")
 require("user.lsp.handlers").setup()
 require("user.lsp.null-ls")
 
-win.default_options.border = 'rounded'
+win.default_options.border = "rounded"
