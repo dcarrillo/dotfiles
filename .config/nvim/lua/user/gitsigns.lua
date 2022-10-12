@@ -21,7 +21,7 @@ gitsigns.setup({
 	update_debounce = 100,
 	status_formatter = nil,
 	preview_config = {
-		border = "single",
+		border = "rounded",
 		style = "minimal",
 		relative = "cursor",
 		row = 0,

@@ -22,13 +22,11 @@ end
 --   augroup end
 -- ]])
 
--- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
 end
 
--- Have packer use a popup window
 packer.init({
 	display = {
 		open_fn = function()
@@ -37,7 +35,6 @@ packer.init({
 	},
 })
 
--- Install your plugins here
 return packer.startup(function(use)
 	-- Plugins
 	use({ "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" })
@@ -75,7 +72,7 @@ return packer.startup(function(use)
 	use({ "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" })
 	use({ "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" })
 
-	-- snippets
+	-- Snippets
 	use({ "L3MON4D3/LuaSnip", tag = "v1.*" })
 	use({ "rafamadriz/friendly-snippets", commit = "6cd7469403fd06a3840a1065728d1affe1c23ec8" })
 
@@ -107,7 +104,7 @@ return packer.startup(function(use)
 	use({ "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" })
 	use({ "theHamsta/nvim-dap-virtual-text", commit = "2971ce3e89b1711cc26e27f73d3f854b559a77d4" })
 
-	-- golang
+	-- Go
 	use({ "ray-x/go.nvim", commit = "1aef2d60bd220a8d58a0b5fed6af696b6244ce1d" })
 	use({
 		"ray-x/guihua.lua",
@@ -121,7 +118,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- markdown
+	-- Markdown
 	use({ "mzlogin/vim-markdown-toc", commit = "7ec05df27b4922830ace2246de36ac7e53bea1db" })
 	use({
 		"iamcco/markdown-preview.nvim",

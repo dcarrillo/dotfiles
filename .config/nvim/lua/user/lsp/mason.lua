@@ -1,17 +1,16 @@
 local servers = {
 	"sumneko_lua",
-	"cssls",
-	"html",
 	"gopls",
 	"pyright",
 	"bashls",
 	"jsonls",
 	"yamlls",
+	"ansiblels",
 }
 
 local settings = {
 	ui = {
-		border = "none",
+		border = "rounded",
 		icons = {
 			package_installed = "◍",
 			package_pending = "◍",
