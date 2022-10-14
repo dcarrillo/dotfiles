@@ -41,7 +41,7 @@ return packer.startup(function(use)
 	use({ "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" })
 	use({ "windwp/nvim-autopairs", commit = "4fc96c8f3df89b6d23e5092d31c866c53a346347" })
 	use({ "numToStr/Comment.nvim", tag = "v0.*" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" })
+	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "2941f0064874b33e93d3a794a8a4e99f5f6ece56" })
 	use({ "kyazdani42/nvim-web-devicons", commit = "a8cf88cbdb5c58e2b658e179c4b2aa997479b3da" })
 	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
 	use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
@@ -62,7 +62,7 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	use({ "folke/tokyonight.nvim", commit = "6ffb1579d02b77d7284732a67801b3f388e3b9e5" })
+	use({ "folke/tokyonight.nvim", commit = "e6307e12ebe8487d17ec87fe14c3972c21466139" })
 	use({ "EdenEast/nightfox.nvim", commit = "59c3dbcec362eff7794f1cb576d56fd8a3f2c8bb" })
 
 	-- cmp plugins
@@ -77,12 +77,12 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets", commit = "fd16b4d9dc58119eeee57e9915864c4480d591fd" })
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig", commit = "28ec7c4f4ad4701a88024fb8105ac7baff7d4f2a" })
-	use({ "williamboman/mason.nvim", commit = "2cd60f62d8c490b3ed99e0c526a12d8e19765612" })
-	use({ "williamboman/mason-lspconfig.nvim", commit = "d2bcb38523a7f602e01ca0425ec44f4081362fb9" })
-	use({ "jose-elias-alvarez/null-ls.nvim", commit = "3d9e5f6bf029fcda0eed08915bed3d5052c6d804" })
+	use({ "neovim/nvim-lspconfig", commit = "2b4ab0208413856247899616acb45a62cc2f2ad6" })
+	use({ "williamboman/mason.nvim", commit = "a3eb3f0874ee7500915dbcce0beba22d112b15e6" })
+	use({ "williamboman/mason-lspconfig.nvim", commit = "bf8ac1221aed7d61abc646cffb5450b1aca31d39" })
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "643c67a296711ff40f1a4d1bec232fa20b179b90" })
 	use({ "RRethy/vim-illuminate", commit = "0603e75fc4ecde1ee5a1b2fc8106ed6704f34d14" })
-	use({ "folke/trouble.nvim", commit = "929315ea5f146f1ce0e784c76c943ece6f36d786" })
+	use({ "folke/trouble.nvim", commit = "ed65f84abc4a1e5d8f368d7e02601fc0357ea15e" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "f174a0367b4fc7cb17710d867e25ea792311c418" })

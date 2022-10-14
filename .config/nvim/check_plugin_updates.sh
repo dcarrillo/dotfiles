@@ -36,7 +36,7 @@ function check_update() {
 update=${1:-"false"}
 pushd "$HOME/.config/nvim/lua/user" > /dev/null || exit
 
-grep -P "use.*commit" plugins.lua  | cut -f 2,4 -d "\"" | while IFS= read -r line; do
+grep -P "^\t*use.*commit" plugins.lua  | cut -f 2,4 -d "\"" | while IFS= read -r line; do
     plugin=$(echo "$line" | cut -f1 -d "\"" | cut -f2 -d "/")
     current_commit=$(echo "$line" | cut -f2 -d "\"")
     check_update "$plugin" "$current_commit" "$update"
