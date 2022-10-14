@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 -- Set expandtab=true in several file types
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "go", "makefile", "lua" },
+	pattern = { "*.go", "makefile", "*.lua" },
 	callback = function()
 		vim.opt_local.expandtab = false
 	end,
@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
+	pattern = { "qf", "help", "man", "lspinfo" },
 	callback = function()
 		vim.cmd([[
 			nnoremap <silent> <buffer> q :close<CR>
