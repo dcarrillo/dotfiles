@@ -3,8 +3,8 @@ if not status_ok then
 	return
 end
 
-require("user.lsp.mason")
-require("user.lsp.handlers").setup()
-require("user.lsp.null-ls")
+require("plugins.lsp.mason")
+require("plugins.lsp.handlers").setup()
+require("plugins.lsp.null-ls")
 
 win.default_options.border = "rounded"

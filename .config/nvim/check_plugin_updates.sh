@@ -9,6 +9,7 @@
 #
 
 PLUGINS_DIR="$HOME/.local/share/nvim/site/pack/packer/start"
+CONF_DIR="$HOME/.config/nvim/lua/core/"
 
 function check_update() {
     local plugin=$1
@@ -24,7 +25,7 @@ function check_update() {
         echo -e "Plugin $plugin has a new version $last_commit (the current version is $current_commit)\n\tURL: $remote_url"
 
         if [[ $update == "--update" ]]; then
-            sed -i "s/$current_commit/$last_commit/" "$HOME/.config/nvim/lua/user/plugins.lua"
+            sed -i "s/$current_commit/$last_commit/" "$CONF_DIR/plugins.lua"
         fi
     else
         echo "Plugin $plugin is up to date."
@@ -34,7 +35,7 @@ function check_update() {
 }
 
 update=${1:-"false"}
-pushd "$HOME/.config/nvim/lua/user" > /dev/null || exit
+pushd "$CONF_DIR" > /dev/null || exit
 
 grep -P "^\t*use.*commit" plugins.lua  | cut -f 2,4 -d "\"" | while IFS= read -r line; do
     plugin=$(echo "$line" | cut -f1 -d "\"" | cut -f2 -d "/")
