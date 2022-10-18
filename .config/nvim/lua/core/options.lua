@@ -1,7 +1,6 @@
 vim.opt.backup = false -- creates a backup file
 vim.opt.autowriteall = true
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
@@ -41,8 +40,6 @@ vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
-vim.opt.cmdheight = 0 -- experimental
 
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- autocmd BufReadPost,FileReadPost * normal zR
+-- experimental
+vim.opt.cmdheight = 0 -- Number of screen lines to use for the command-line
