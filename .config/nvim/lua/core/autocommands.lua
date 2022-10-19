@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 -- Set expandtab=true in several file types
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "*.go", "makefile", "*.lua" },
+	pattern = { "go", "makefile", "lua" },
 	callback = function()
 		vim.opt_local.expandtab = false
 	end,
