@@ -10,6 +10,7 @@
 
 PLUGINS_DIR="$HOME/.local/share/nvim/site/pack/packer/start"
 CONF_DIR="$HOME/.config/nvim/lua/core/"
+has_updates=false
 
 function check_update() {
     local plugin=$1
@@ -23,12 +24,13 @@ function check_update() {
     remote_url=$(git config --get remote.origin.url)
     if [[ "$current_commit" != "$last_commit" ]]; then
         echo -e "Plugin $plugin has a new version $last_commit (the current version is $current_commit)\n\tURL: $remote_url"
+        git log "${current_commit}"..origin/HEAD --pretty='format:%x09%h - %s (%cr) <%an>' --no-merges
 
         if [[ $update == "--update" ]]; then
             sed -i "s/$current_commit/$last_commit/" "$CONF_DIR/plugins.lua"
         fi
-    else
-        echo "Plugin $plugin is up to date."
+
+        has_updates=true
     fi
 
     popd > /dev/null || exit
@@ -53,5 +55,9 @@ grep -P "^\t*requires.*commit" plugins.lua | cut -f 2,4 -d "\"" | while IFS= rea
     current_commit=$(echo "$line" | cut -f2 -d "\"")
     check_update "$plugin" "$current_commit" "$update"
 done
+
+if [ "$has_updates" == "false" ]; then
+    echo "Everything is up to date"
+fi
 
 popd > /dev/null || exit

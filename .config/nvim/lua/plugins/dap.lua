@@ -14,8 +14,6 @@ if not dap_install_status_ok then
 end
 
 dap_install.config("python", {})
--- add other configs here
-
 dapui.setup({})
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
