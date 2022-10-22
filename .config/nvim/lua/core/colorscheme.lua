@@ -1,6 +1,7 @@
 local colorscheme = "tokyonight"
 
 require("tokyonight").setup({
+	style = "moon",
 	styles = {
 		sidebars = "normal",
 		floats = "normal",
