@@ -106,7 +106,7 @@ return packer.startup(function(use)
 	use({ "theHamsta/nvim-dap-virtual-text", commit = "2971ce3e89b1711cc26e27f73d3f854b559a77d4" })
 
 	-- Go
-	use({ "ray-x/go.nvim", commit = "7720ddcbeac7fee4a2d30079f3c3c9d26a1236b5" })
+	use({ "ray-x/go.nvim", commit = "6602986054b93660d297868781e1cbfd7ae8872a" })
 	use({
 		"ray-x/guihua.lua",
 		commit = "2fce8a8b462cf6599d9422efb157773126e1c7ce",
