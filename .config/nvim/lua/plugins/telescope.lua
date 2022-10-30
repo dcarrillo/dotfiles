@@ -36,7 +36,7 @@ telescope.setup({
 			require("telescope.themes").get_dropdown({}),
 		},
 		fzf = {
-			case_mode = "ignore_case",
+			case_mode = "smart_case",
 		},
 	},
 })
