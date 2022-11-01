@@ -42,10 +42,11 @@ neotree.setup({
 	filesystem = {
 		filtered_items = {
 			visible = false,
-			hide_dotfiles = true,
+			hide_dotfiles = false,
 			hide_gitignored = false,
 			hide_by_name = {
 				"__pycache__",
+				".git",
 			},
 		},
 		follow_current_file = true,
