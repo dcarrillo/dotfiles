@@ -14,7 +14,28 @@ if not dap_install_status_ok then
 end
 
 dap_install.config("python", {})
-dapui.setup({})
+dapui.setup({
+	layouts = {
+		{
+			elements = {
+				{ id = "scopes", size = 0.25 },
+				"watches",
+				"stacks",
+				"breakpoints",
+			},
+			size = 50, -- columns
+			position = "left",
+		},
+		{
+			elements = {
+				"repl",
+				-- "console",
+			},
+			size = 0.25, -- 25% of total lines
+			position = "bottom",
+		},
+	},
+})
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 

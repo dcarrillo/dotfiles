@@ -7,7 +7,10 @@ bufferline.setup({
 	options = {
 		close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 		right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-		offsets = { { filetype = "neo-tree", text = "", padding = 1 } },
+		offsets = {
+			{ filetype = "neo-tree", text = "", padding = 1 },
+			{ filetype = "dapui_scopes", text = "", padding = 1 },
+		},
 		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
 	},
 	highlights = {
