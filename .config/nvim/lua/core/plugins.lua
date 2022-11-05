@@ -53,7 +53,7 @@ return packer.startup(function(use)
 	use({ "romgrk/fzy-lua-native", commit = "085c7d262aa35cc55a8523e8c1618d398bf717a7", run = "make" })
 	use({ "mg979/vim-visual-multi", tag = "v0.*" })
 	use({ "Shatur/neovim-session-manager", commit = "4005dac93f5cd1257792259ef4df6af0e3afc213" })
-	use({ "nvim-treesitter/nvim-treesitter", commit = "7709eb4b47b8ee19e760aa2771c5735fda2798e1" })
+	use({ "nvim-treesitter/nvim-treesitter", commit = "57638f8249819fbc0ffc073981b1c4f875dac7b1" })
 	use({ "ray-x/sad.nvim", commit = "01b7d84f4f73c8963f5933f09e88c833757bc7d8" })
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
@@ -77,10 +77,10 @@ return packer.startup(function(use)
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig", commit = "5f4b1fa83c80f43e434c1fb227967dac9ad8f44c" })
-	use({ "williamboman/mason.nvim", commit = "4bdfe6795bc4595f3b37f90f2c2e6b9bfc2aa588" })
+	use({ "williamboman/mason.nvim", commit = "b91ccdcb538377b2bd9b81ca9b103641b10d2ec0" })
 	use({ "williamboman/mason-lspconfig.nvim", commit = "a910b4d50f7a32d2f9057d636418a16843094b7c" })
-	use({ "jose-elias-alvarez/null-ls.nvim", commit = "f1add2302e6a01531a007c51054392d2029dbed4" })
-	use({ "RRethy/vim-illuminate", commit = "eb67b1317df846cb12091c43e7c555f915f56578" })
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "1ac465b1617b28f753cb875d8ac1d0f23c0b96d4" })
+	use({ "RRethy/vim-illuminate", commit = "fb83d835eac50baeef49aac20c524a80727db0ac" })
 	use({ "folke/trouble.nvim", commit = "ed65f84abc4a1e5d8f368d7e02601fc0357ea15e" })
 	use({ "simrat39/symbols-outline.nvim", commit = "6a3ed24c5631da7a5d418bced57c16b32af7747c" })
 
@@ -105,7 +105,7 @@ return packer.startup(function(use)
 	use({ "theHamsta/nvim-dap-virtual-text", commit = "2971ce3e89b1711cc26e27f73d3f854b559a77d4" })
 
 	-- Go
-	use({ "ray-x/go.nvim", commit = "825f20b0366302f0d587b2a1280d4690fe2bbc27" })
+	use({ "ray-x/go.nvim", commit = "79c79c4872a5145dfbd94d8b24837430931b4213" })
 	use({
 		"ray-x/guihua.lua",
 		commit = "2fce8a8b462cf6599d9422efb157773126e1c7ce",
