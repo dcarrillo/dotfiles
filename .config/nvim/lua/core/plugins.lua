@@ -83,6 +83,7 @@ return packer.startup(function(use)
 	use({ "RRethy/vim-illuminate", commit = "fb83d835eac50baeef49aac20c524a80727db0ac" })
 	use({ "folke/trouble.nvim", commit = "ed65f84abc4a1e5d8f368d7e02601fc0357ea15e" })
 	use({ "simrat39/symbols-outline.nvim", commit = "6a3ed24c5631da7a5d418bced57c16b32af7747c" })
+	use({ "arkav/lualine-lsp-progress", commit = "56842d097245a08d77912edf5f2a69ba29f275d7" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "4bd4205028d6588cf2e0a1346687a6039b0f0a7c" })
