@@ -47,7 +47,7 @@ end
 local venv = function()
 	local venv = os.getenv("VIRTUAL_ENV")
 	if venv then
-		return string.format("  %s", string.match(venv, "[^/]+$"))
+		return string.format(" %s", string.match(venv, "[^/]+$"))
 	end
 
 	return ""
@@ -74,8 +74,8 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch" },
-		lualine_c = { diagnostics, venv, { "filename", path = 3 }, "lsp_progress" },
+		lualine_b = { "branch", venv },
+		lualine_c = { diagnostics, { "filename", path = 3 }, "searchcount", "lsp_progress" },
 		lualine_x = {
 			{ gitblame.get_current_blame_text, cond = gitblame.is_blame_text_available },
 			diff,
