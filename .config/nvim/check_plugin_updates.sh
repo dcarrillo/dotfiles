@@ -20,7 +20,7 @@ function check_update() {
     local remote_url
 
     pushd "$PLUGINS_DIR/$plugin" > /dev/null || exit
-    git fetch
+    git fetch origin +"$(git rev-parse --abbrev-ref HEAD)": 2> /dev/null
     last_commit=$(git log -n 1 --pretty=format:"%H" origin/HEAD)
     remote_url=$(git config --get remote.origin.url)
     if [[ "$current_commit" != "$last_commit" ]]; then
