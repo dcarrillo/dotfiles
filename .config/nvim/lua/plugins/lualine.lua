@@ -11,26 +11,26 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
+	symbols = { error = " ", warn = "!" },
 	colored = false,
-	always_visible = false,
+	always_visible = true,
 }
 
 local diff = {
 	"diff",
 	colored = false,
-	symbols = { added = "", modified = "", removed = "" }, -- changes diff symbols
+	symbols = { added = "+", modified = "", removed = "" },
 	cond = hide_in_width,
 }
 
 local filetype = {
 	"filetype",
-	icons_enabled = false,
+	colored = false,
 }
 
-local location = {
-	"location",
-	padding = 0,
+local lsp_progress = {
+	"lsp_progress",
+	display_components = { "spinner" },
 }
 
 local spaces = function()
@@ -65,17 +65,11 @@ vim.g.gitblame_message_template = "<author>, <date>"
 lualine.setup({
 	options = {
 		globalstatus = true,
-		icons_enabled = true,
-		theme = "auto",
-		component_separators = { left = "", right = " " },
-		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "dashboard" },
-		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", venv },
-		lualine_c = { diagnostics, { "filename", path = 3 }, "searchcount", "lsp_progress" },
+		lualine_c = { diagnostics, { "filename", path = 3 }, "searchcount", lsp_progress },
 		lualine_x = {
 			{ gitblame.get_current_blame_text, cond = gitblame.is_blame_text_available },
 			diff,
@@ -83,7 +77,7 @@ lualine.setup({
 			"encoding",
 			filetype,
 		},
-		lualine_y = { location },
-		lualine_z = { "progress" },
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
 	},
 })
