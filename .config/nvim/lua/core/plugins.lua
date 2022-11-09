@@ -60,6 +60,7 @@ return packer.startup(function(use)
 		branch = "v2.x",
 		requires = { "MunifTanjim/nui.nvim", commit = "d12a6977846b2fa978bff89b439e509320854e10" },
 	})
+	use({ "taybart/b64.nvim", commit = "12dde6ebc3035f010833f513cfbd9abad92b28b3" })
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim", commit = "a9f4933221c315037cc6700e964ce4d97f074206" })

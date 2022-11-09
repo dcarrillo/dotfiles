@@ -73,8 +73,8 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fc", ":Telescope commands<CR>", opts)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
+keymap("n", "<leader>/", "<cmd>lua require'Comment.api'.toggle.linewise.current()<CR>", opts)
+keymap("x", "<leader>/", "<ESC><CMD>lua require'Comment.api'.toggle.linewise(vim.fn.visualmode())<CR>")
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
@@ -91,3 +91,7 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 keymap("n", "<leader>so", ":SessionManager load_session<cr>", opts)
 keymap("n", "<leader>sd", ":SessionManager delete_session<cr>", opts)
 keymap("n", "<leader>ss", ":SessionManager save_current_session<cr>", opts)
+
+-- Base64
+keymap("v", "<leader>64e", ":<c-u>lua require'b64'.encode()<cr>", opts)
+keymap("v", "<leader>64d", ":<c-u>lua require'b64'.decode()<cr>", opts)
