@@ -39,9 +39,10 @@ alias yayU='yay -Suy --noconfirm'
 alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias dkillall='docker rm -f $(docker ps -qa)'
 alias k=kubectl
-alias icat="kitty +kitten icat --align=left"
-alias idiff="kitty +kitten diff"
-alias ls="ls --group-directories-first --color=auto --hyperlink=auto"
+alias icat='kitty +kitten icat --align=left'
+alias idiff='kitty +kitten diff'
+alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
+alias bkpwd='cp -a $PWD{,.bak}'
 alias vim=nvim
 alias neovim=nvim
 
