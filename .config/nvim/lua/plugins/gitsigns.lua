@@ -11,21 +11,8 @@ gitsigns.setup({
 		topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
 		changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
 	},
-	signcolumn = true,
-	watch_gitdir = {
-		interval = 1000,
-		follow_files = true,
-	},
-	attach_to_untracked = true,
-	sign_priority = 6,
-	update_debounce = 100,
-	status_formatter = nil,
 	preview_config = {
 		border = "rounded",
-		style = "minimal",
-		relative = "cursor",
-		row = 0,
-		col = 1,
 	},
 
 	on_attach = function(bufnr)
@@ -39,6 +26,7 @@ gitsigns.setup({
 
 		map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 		map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+		map("n", "<leader>hp", gs.preview_hunk)
 		map("n", "<leader>hR", gs.reset_buffer)
 	end,
 })

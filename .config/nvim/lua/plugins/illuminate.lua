@@ -11,11 +11,6 @@ vim.api.nvim_set_keymap(
 	{ noremap = true }
 )
 illuminate.configure({
-	providers = {
-		"lsp",
-		"treesitter",
-		"regex",
-	},
 	delay = 200,
 	filetypes_denylist = {
 		"neo-tree",
@@ -23,10 +18,4 @@ illuminate.configure({
 		"Trouble",
 		"TelescopePrompt",
 	},
-	filetypes_allowlist = {},
-	modes_denylist = {},
-	modes_allowlist = {},
-	providers_regex_syntax_denylist = {},
-	providers_regex_syntax_allowlist = {},
-	under_cursor = true,
 })
