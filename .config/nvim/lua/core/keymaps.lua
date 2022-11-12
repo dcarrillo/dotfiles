@@ -38,16 +38,21 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
--- Toogle Trouble
+-- LSP / Diagnostics
 keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
 keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
 keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
 keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
 keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
-keymap("n", "gd", "<cmd>TroubleToggle lsp_definitions<cr>", opts)
-keymap("n", "gt", "<cmd>TroubleToggle lsp_type_definitions<cr>", opts)
-keymap("n", "gi", "<cmd>TroubleToggle lsp_implementations<cr>", opts)
-keymap("n", "gr", "<cmd>TroubleToggle lsp_references<cr>", opts)
+keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+keymap("n", "D", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+keymap("n", "gd", "<cmd>Lspsaga lsp_finder<cr>", opts)
+keymap("n", "<leader>ld", "<cmd>Lspsaga lsp_finder<cr>", opts)
+keymap("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", opts)
+keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+keymap("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", opts)
+keymap("n", "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -95,3 +100,7 @@ keymap("n", "<leader>ss", ":SessionManager save_current_session<cr>", opts)
 -- Base64
 keymap("v", "<leader>64e", ":<c-u>lua require'b64'.encode()<cr>", opts)
 keymap("v", "<leader>64d", ":<c-u>lua require'b64'.decode()<cr>", opts)
+
+-- Illuminate
+keymap("n", "<a-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
+keymap("n", "<a-p>", '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })

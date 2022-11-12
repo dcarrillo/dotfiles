@@ -77,13 +77,13 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets", commit = "c93311fbcc840210a2c0db574177d84a35a2c9c1" })
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig", commit = "c96ec574eacfff8ad8dd4bdb6e96a1b3dbd268fd" })
-	use({ "williamboman/mason.nvim", commit = "d85d71e910d1b2c539d17ae0d47dad48f8f3c8a7" })
+	use({ "neovim/nvim-lspconfig", commit = "f40eae01b8e353e9d6e61792567c7d3b9856fd20" })
+	use({ "williamboman/mason.nvim", commit = "45714c54fb61a61c74724f64ca3f728c30ae01d2" })
 	use({ "williamboman/mason-lspconfig.nvim", commit = "a910b4d50f7a32d2f9057d636418a16843094b7c" })
-	use({ "jose-elias-alvarez/null-ls.nvim", commit = "07d4ed4c6b561914aafd787453a685598bec510f" })
-	use({ "RRethy/vim-illuminate", commit = "a6d0b28ea7d6b9d139374be1f94a16bd120fcda3" })
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "9c19fb55154e53dadb986d5aceed1c53e3131b35" })
+	use({ "RRethy/vim-illuminate", commit = "fb83d835eac50baeef49aac20c524a80727db0ac" })
 	use({ "folke/trouble.nvim", commit = "ed65f84abc4a1e5d8f368d7e02601fc0357ea15e" })
-	use({ "simrat39/symbols-outline.nvim", commit = "6a3ed24c5631da7a5d418bced57c16b32af7747c" })
+	use({ "glepnir/lspsaga.nvim", commit = "201dbbd13d6bafe1144475bbcae9efde224e07ec" })
 	use({ "arkav/lualine-lsp-progress", commit = "56842d097245a08d77912edf5f2a69ba29f275d7" })
 
 	-- Telescope
