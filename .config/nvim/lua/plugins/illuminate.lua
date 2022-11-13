@@ -10,5 +10,6 @@ illuminate.configure({
 		"packer",
 		"Trouble",
 		"TelescopePrompt",
+		"lspsagafinder",
 	},
 })

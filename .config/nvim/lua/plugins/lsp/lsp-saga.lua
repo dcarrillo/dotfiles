@@ -7,7 +7,6 @@ lsp_saga.init_lsp_saga({
 	border_style = "rounded",
 	code_action_icon = "",
 	preview_lines_above = 5,
-	max_preview_lines = 15,
 	show_outline = {
 		win_width = 45,
 		auto_preview = false,
