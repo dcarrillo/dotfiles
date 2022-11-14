@@ -1,3 +1,5 @@
+#zmodload zsh/zprof
+
 # Enable Powerlevel10k instant prompt.uld stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -92,7 +94,7 @@ export BROWSER='/usr/bin/vivaldi-stable'
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
 export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
 alias workondir='workon $(basename $(pwd))'
 
 ##### fzf #####
@@ -136,3 +138,5 @@ source ~/.zshrc_custom
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#zprof
