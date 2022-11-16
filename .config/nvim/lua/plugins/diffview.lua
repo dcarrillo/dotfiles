@@ -3,6 +3,12 @@ if not status_ok then
 	return
 end
 
-diffview.setup({})
+diffview.setup({
+	view = {
+		merge_tool = {
+			layout = "diff3_mixed",
+		},
+	},
+})
 
 vim.opt.fillchars = "diff: "
