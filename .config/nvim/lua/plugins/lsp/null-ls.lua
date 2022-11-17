@@ -13,7 +13,8 @@ null_ls.setup({
 	sources = {
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		diagnostics.golangci_lint.with({ extra_args = { "--fast" } }),
+		formatting.prettier,
+		-- diagnostics.golangci_lint.with({ extra_args = { "--fast" } }),
 		diagnostics.cfn_lint,
 		diagnostics.hadolint,
 		diagnostics.markdownlint,

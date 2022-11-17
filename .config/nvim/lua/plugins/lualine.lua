@@ -31,6 +31,7 @@ local filetype = {
 local lsp_progress = {
 	"lsp_progress",
 	display_components = { "spinner" },
+	spinner_symbols = { "⠈⠁", "⠈⠑", "⠈⠱", "⠈⡱", "⢀⡱", "⢄⡱" },
 }
 
 local spaces = function()

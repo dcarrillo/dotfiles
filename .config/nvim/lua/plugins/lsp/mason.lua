@@ -1,11 +1,12 @@
 local servers = {
-	"sumneko_lua",
-	"gopls",
-	"pyright",
-	"bashls",
-	"jsonls",
-	"yamlls",
 	"ansiblels",
+	"bashls",
+	"gopls",
+	"jsonls",
+	"kotlin_language_server",
+	"pyright",
+	"sumneko_lua",
+	"yamlls",
 }
 
 local settings = {

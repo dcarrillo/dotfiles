@@ -74,11 +74,11 @@ return packer.startup(function(use)
 
 	-- Snippets
 	use({ "L3MON4D3/LuaSnip", tag = "v1.*" })
-	use({ "rafamadriz/friendly-snippets", commit = "c93311fbcc840210a2c0db574177d84a35a2c9c1" })
+	use({ "rafamadriz/friendly-snippets", commit = "ef8caa5002e53977779ce8ab18a9c393ed624386" })
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig", commit = "2b802ab1e94d595ca5cc7c55f9d1fb9b17f9754c" })
-	use({ "williamboman/mason.nvim", commit = "a41b90fceddcbafc22bf9780722e7dfbf7a482a8" })
+	use({ "williamboman/mason.nvim", commit = "6600d2af20fc8df1765fbc68283de2a4da17e190" })
 	use({ "williamboman/mason-lspconfig.nvim", commit = "a1e2219ecea273d52b1ce1d527dd3a93cfe5b396" })
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "07d4ed4c6b561914aafd787453a685598bec510f" })
 	use({ "RRethy/vim-illuminate", commit = "a6d0b28ea7d6b9d139374be1f94a16bd120fcda3" })
@@ -97,7 +97,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", tag = "v0.*" })
-	use({ "sindrets/diffview.nvim", commit = "e0c81186dcb96f9199024cbe3400ed367e716037" })
+	use({ "sindrets/diffview.nvim", commit = "d5662d416bd1f12b73a288769ad8dedab7cc92c9" })
 	use({ "f-person/git-blame.nvim", commit = "d3afb1c57918720548effb42edec530232436378" })
 
 	-- DAP
