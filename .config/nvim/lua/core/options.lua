@@ -41,6 +41,7 @@ vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.formatoptions:remove({ "c", "r", "o" })
+vim.opt.linebreak = true
 
 -- experimental
 vim.opt.cmdheight = 0 -- Number of screen lines to use for the command-line
