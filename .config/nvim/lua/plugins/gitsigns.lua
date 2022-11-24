@@ -28,5 +28,8 @@ gitsigns.setup({
 		map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
 		map("n", "<leader>hp", gs.preview_hunk)
 		map("n", "<leader>hR", gs.reset_buffer)
+		map('n', '<leader>hd', gs.diffthis)
+		map('n', '<leader>hj', gs.next_hunk)
+		map('n', '<leader>hk', gs.prev_hunk)
 	end,
 })
