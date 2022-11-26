@@ -2,6 +2,7 @@ local servers = {
 	"ansiblels",
 	"bashls",
 	"gopls",
+	"html",
 	"jsonls",
 	"kotlin_language_server",
 	"pyright",
