@@ -4,7 +4,6 @@ local servers = {
 	"gopls",
 	"html",
 	"jsonls",
-	"kotlin_language_server",
 	"pyright",
 	"sumneko_lua",
 	"yamlls",
