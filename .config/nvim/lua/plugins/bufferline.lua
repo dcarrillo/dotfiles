@@ -11,7 +11,9 @@ bufferline.setup({
 			{ filetype = "neo-tree", text = "", padding = 1 },
 			{ filetype = "dapui_scopes", text = "", padding = 1 },
 		},
-		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+		indicator = {
+			style = "none",
+		},
 	},
 	highlights = {
 		fill = {
