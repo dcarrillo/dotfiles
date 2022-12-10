@@ -44,7 +44,8 @@ alias k=kubectl
 alias icat='kitty +kitten icat --align=left'
 alias idiff='kitty +kitten diff'
 alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
-alias bkpwd='cp -a $PWD{,.bak}'
+alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
+alias rgh="rg --hidden -g '!.git/'"
 alias vim=nvim
 alias neovim=nvim
 
