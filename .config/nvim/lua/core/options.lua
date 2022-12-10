@@ -35,7 +35,7 @@ vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would sh
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
+vim.opt.guifont = "monospace:h10" -- the font used in graphical neovim applications
 vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
@@ -45,3 +45,9 @@ vim.opt.linebreak = true
 
 -- experimental
 vim.opt.cmdheight = 0 -- Number of screen lines to use for the command-line
+
+-- neovide
+if vim.fn.exists("g:neovide") ~= 0 then
+	vim.g.neovide_cursor_animation_length=0
+	vim.g.neovide_cursor_trail_size = 0
+end
