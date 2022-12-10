@@ -30,7 +30,9 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<C-PageDown>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<C-PageUp>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -53,6 +55,8 @@ keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 keymap("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", opts)
 keymap("n", "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", opts)
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async=true }<cr>", opts)
+keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
