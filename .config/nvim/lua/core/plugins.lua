@@ -52,7 +52,7 @@ return packer.startup(function(use)
 	use({ "gelguy/wilder.nvim", commit = "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" })
 	use({ "romgrk/fzy-lua-native", commit = "085c7d262aa35cc55a8523e8c1618d398bf717a7", run = "make" })
 	use({ "mg979/vim-visual-multi", tag = "v0.*" })
-	use({ "Shatur/neovim-session-manager", commit = "f8c85da390c5d1ad3bfd229ac2ed805c5742263d" })
+	use({ "gnikdroy/projections.nvim", commit = "be100ad3540952542c2a1135f39cddea8a1a00de" })
 	use({ "nvim-treesitter/nvim-treesitter", commit = "507527711fdd8f701544024aeb1a9a068f986d89" })
 	use({ "ray-x/sad.nvim", commit = "01b7d84f4f73c8963f5933f09e88c833757bc7d8" })
 	use({

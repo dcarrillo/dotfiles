@@ -96,10 +96,8 @@ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- Session Manager
-keymap("n", "<leader>so", ":SessionManager load_session<cr>", opts)
-keymap("n", "<leader>sd", ":SessionManager delete_session<cr>", opts)
-keymap("n", "<leader>ss", ":SessionManager save_current_session<cr>", opts)
+-- Projections
+keymap("n", "<leader>fp", ":Telescope projections<CR>", opts)
 
 -- Base64
 keymap("v", "<leader>64e", ":<c-u>lua require'b64'.encode()<cr>", opts)
