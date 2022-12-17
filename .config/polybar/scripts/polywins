@@ -51,6 +51,7 @@ get_icon_by_name()
 		[alacritty]=
 		[kitty]=
 		[nvim]=
+		[glrnvim]=
 		[code]=
 		[brave-browser]=
 		[firefox]=

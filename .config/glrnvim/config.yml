@@ -1,0 +1,2 @@
+backend: kitty
+load_term_conf: true
