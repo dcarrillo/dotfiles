@@ -70,7 +70,7 @@ lualine.setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", venv },
-		lualine_c = { diagnostics, { "filename", path = 3 }, "searchcount", lsp_progress },
+		lualine_c = { diagnostics, { "filename", path = 1 }, "searchcount", lsp_progress },
 		lualine_x = {
 			{ gitblame.get_current_blame_text, cond = gitblame.is_blame_text_available },
 			diff,
