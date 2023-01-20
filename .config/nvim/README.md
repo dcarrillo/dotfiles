@@ -15,3 +15,4 @@ Neovim conf heavily adapted to suit my needs, based on LunarVim's [basic ide](ht
 
 * stylua
 * python-cfn-lint
+* hadolint
