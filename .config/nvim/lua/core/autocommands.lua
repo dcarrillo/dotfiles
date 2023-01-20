@@ -3,7 +3,7 @@ vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTre
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	callback = function()
-		vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
+		vim.highlight.on_yank({ higroup = "Visual", timeout = 250 })
 	end,
 })
 
@@ -36,29 +36,3 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	end,
 })
 
--- Autostore session on VimExit
-local session = require("projections.session")
-vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
-	callback = function()
-		session.store(vim.loop.cwd())
-	end,
-})
-
--- If vim was started with arguments, do nothing
--- If in some project's root, attempt to restore that project's session
--- If not, restore last session
--- If no sessions, do nothing
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-	callback = function()
-		if vim.fn.argc() ~= 0 then
-			return
-		end
-		local session_info = session.info(vim.loop.cwd())
-		if session_info == nil then
-			session.restore_latest()
-		else
-			session.restore(vim.loop.cwd())
-		end
-	end,
-	desc = "Restore last session automatically",
-})

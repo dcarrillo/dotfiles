@@ -12,7 +12,8 @@ indent_blankline.setup({
 	buftype_exclude = { "terminal", "nofile" },
 	filetype_exclude = {
 		"help",
-		"packer",
+		"lazy",
+		"mason",
 		"neo-tree",
 	},
 })
