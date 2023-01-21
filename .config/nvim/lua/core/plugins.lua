@@ -44,6 +44,7 @@ lazy.setup({
 	},
 
 	-- Plugins
+	{ "lewis6991/impatient.nvim", lazy = false, priority = 990 },
 	{ "nvim-lua/plenary.nvim" },
 	{ "windwp/nvim-autopairs" },
 	{ "numToStr/Comment.nvim", version = "v0.*" },
@@ -52,7 +53,6 @@ lazy.setup({
 	{ "akinsho/bufferline.nvim", version = "v3.*" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim" },
-	{ "lewis6991/impatient.nvim", lazy = false, priority = 1000 },
 	{ "lukas-reineke/indent-blankline.nvim", version = "v2.*" },
 	{ "nvim-zh/auto-save.nvim" },
 	{ "gelguy/wilder.nvim" },
