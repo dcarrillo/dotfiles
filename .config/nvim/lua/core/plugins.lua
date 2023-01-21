@@ -18,6 +18,12 @@ if not status_ok then
 	return
 end
 
+local lazy_opts = {
+	ui = {
+		border = "rounded",
+	},
+}
+
 lazy.setup({
 	-- Colorschemes
 	{
@@ -46,7 +52,7 @@ lazy.setup({
 	{ "akinsho/bufferline.nvim", version = "v3.*" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim" },
-	{ "lewis6991/impatient.nvim" },
+	{ "lewis6991/impatient.nvim", lazy = false, priority = 1000 },
 	{ "lukas-reineke/indent-blankline.nvim", version = "v2.*" },
 	{ "nvim-zh/auto-save.nvim" },
 	{ "gelguy/wilder.nvim" },
@@ -57,7 +63,7 @@ lazy.setup({
 	{ "ray-x/sad.nvim" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		version = "v2.x",
 		dependencies = { "MunifTanjim/nui.nvim" },
 	},
 	{ "taybart/b64.nvim" },
@@ -125,4 +131,4 @@ lazy.setup({
 		end,
 		ft = { "markdown" },
 	},
-})
+}, lazy_opts)

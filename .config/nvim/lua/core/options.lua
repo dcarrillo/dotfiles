@@ -45,4 +45,3 @@ vim.opt.linebreak = true
 
 -- experimental
 vim.opt.cmdheight = 0 -- Number of screen lines to use for the command-line
-
