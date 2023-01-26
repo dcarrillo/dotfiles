@@ -44,7 +44,6 @@ lazy.setup({
 	},
 
 	-- Plugins
-	{ "lewis6991/impatient.nvim", lazy = false, priority = 990 },
 	{ "nvim-lua/plenary.nvim" },
 	{ "windwp/nvim-autopairs" },
 	{ "numToStr/Comment.nvim", version = "v0.*" },
