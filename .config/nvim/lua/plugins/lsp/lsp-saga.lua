@@ -7,9 +7,6 @@ lsp_saga.setup({
 	ui = {
 		border = "rounded",
 		code_action_icon = "",
-		colors = {
-			normal_bg = "#222436",
-		},
 	},
 	preview = {
 		lines_above = 5,

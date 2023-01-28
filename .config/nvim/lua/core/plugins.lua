@@ -44,52 +44,59 @@ lazy.setup({
 	},
 
 	-- Plugins
-	{ "nvim-lua/plenary.nvim" },
+	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "windwp/nvim-autopairs" },
 	{ "numToStr/Comment.nvim", version = "v0.*" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
-	{ "kyazdani42/nvim-web-devicons" },
-	{ "akinsho/bufferline.nvim", version = "v3.*" },
+	{ "kyazdani42/nvim-web-devicons", lazy = true },
+	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v3.*" },
 	{ "moll/vim-bbye" },
-	{ "nvim-lualine/lualine.nvim" },
-	{ "lukas-reineke/indent-blankline.nvim", version = "v2.*" },
-	{ "nvim-zh/auto-save.nvim" },
+	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
+	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", version = "v2.*" },
+	{ "nvim-zh/auto-save.nvim", event = "BufReadPost" },
 	{ "gelguy/wilder.nvim" },
 	{ "romgrk/fzy-lua-native" },
 	{ "mg979/vim-visual-multi", version = "v0.*" },
 	{ "gnikdroy/projections.nvim" },
-	{ "nvim-treesitter/nvim-treesitter" },
-	{ "ray-x/sad.nvim" },
+	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
+	{ "ray-x/sad.nvim", cmd = "Sad" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "v2.x",
 		dependencies = { "MunifTanjim/nui.nvim" },
 	},
-	{ "taybart/b64.nvim" },
+	{ "taybart/b64.nvim", event = "VeryLazy" },
 
 	-- cmp plugins
-	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "hrsh7th/cmp-nvim-lsp" },
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+	},
 
 	-- Snippets
 	{ "L3MON4D3/LuaSnip", version = "v1.*" },
 	{ "rafamadriz/friendly-snippets" },
 
 	-- LSP
-	{ "neovim/nvim-lspconfig" },
+	{
+		"neovim/nvim-lspconfig", event = "BufReadPre",
+	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "jose-elias-alvarez/null-ls.nvim" },
-	{ "RRethy/vim-illuminate" },
-	{ "folke/trouble.nvim" },
-	{ "glepnir/lspsaga.nvim" },
+	{ "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
+	{ "RRethy/vim-illuminate", event = "BufReadPost" },
+	{ "folke/trouble.nvim", cmd = { "TroubleToggle", "Trouble" } },
+	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
 
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim" },
+	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },
 	{ "nvim-telescope/telescope-ui-select.nvim" },
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
@@ -97,15 +104,15 @@ lazy.setup({
 	},
 
 	-- Git
-	{ "lewis6991/gitsigns.nvim", version = "v0.*" },
+	{ "lewis6991/gitsigns.nvim", event = "BufReadPre", version = "v0.*" },
 	{ "sindrets/diffview.nvim" },
 	{ "f-person/git-blame.nvim" },
 
 	-- DAP
-	{ "mfussenegger/nvim-dap", version = "0.*" },
-	{ "rcarriga/nvim-dap-ui", version = "v2.*" },
-	{ "ravenxrz/DAPInstall.nvim" },
-	{ "theHamsta/nvim-dap-virtual-text" },
+	{ "mfussenegger/nvim-dap", event = "VeryLazy", version = "0.*" },
+	{ "rcarriga/nvim-dap-ui", event = "VeryLazy", version = "v2.*" },
+	{ "ravenxrz/DAPInstall.nvim", event = "VeryLazy" },
+	{ "theHamsta/nvim-dap-virtual-text", event = "VeryLazy" },
 
 	-- Go
 	{ "ray-x/go.nvim" },

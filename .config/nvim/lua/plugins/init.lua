@@ -1,4 +1,3 @@
-require("plugins.impatient")
 require("plugins.cmp")
 require("plugins.telescope")
 require("plugins.treesitter")
