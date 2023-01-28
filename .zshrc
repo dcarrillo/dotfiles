@@ -48,6 +48,7 @@ alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
 alias rgh="rg --hidden -g '!.git/'"
 alias vim=nvim
 alias neovim=nvim
+alias disable-hl='ZSH_HIGHLIGHT_MAXLENGTH=0'
 
 ##### Functions to be used from command line #####
 
