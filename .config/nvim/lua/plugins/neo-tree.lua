@@ -6,6 +6,7 @@ end
 vim.g.neo_tree_remove_legacy_commands = true
 
 neotree.setup({
+	close_if_last_window = true,
 	popup_border_style = "rounded",
 	default_component_configs = {
 		indent = {
