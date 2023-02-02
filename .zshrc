@@ -43,6 +43,7 @@ alias dkillall='docker rm -f $(docker ps -qa)'
 alias k=kubectl
 alias icat='kitty +kitten icat --align=left'
 alias idiff='kitty +kitten diff'
+alias issh='kitty +kitten ssh'
 alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
 alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
 alias rgh="rg --hidden -g '!.git/'"
