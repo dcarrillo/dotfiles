@@ -1,5 +1,6 @@
 require("plugins.cmp")
 require("plugins.telescope")
+require("plugins.starter")
 require("plugins.treesitter")
 require("plugins.autopairs")
 require("plugins.comment")

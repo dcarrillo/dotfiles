@@ -42,13 +42,13 @@ lazy.setup({
 			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
-
 	-- Plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
+	{ "echasnovski/mini.starter", lazy = "VimEnter", version = "*" },
 	{ "windwp/nvim-autopairs" },
 	{ "numToStr/Comment.nvim", version = "v0.*" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
-	{ "kyazdani42/nvim-web-devicons", lazy = true },
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v3.*" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
@@ -85,7 +85,8 @@ lazy.setup({
 
 	-- LSP
 	{
-		"neovim/nvim-lspconfig", event = "BufReadPre",
+		"neovim/nvim-lspconfig",
+		event = "BufReadPre",
 	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },

@@ -11,5 +11,7 @@ illuminate.configure({
 		"Trouble",
 		"TelescopePrompt",
 		"lspsagafinder",
+		"mason",
+		"starter",
 	},
 })
