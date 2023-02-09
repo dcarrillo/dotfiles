@@ -3,6 +3,7 @@ local servers = {
 	"bashls",
 	"gopls",
 	"html",
+	"jdtls",
 	"jsonls",
 	"pyright",
 	"sumneko_lua",
