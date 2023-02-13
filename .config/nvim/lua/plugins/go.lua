@@ -6,6 +6,8 @@ end
 go.setup({
 	icons = { breakpoint = "", currentpos = "🏃" },
 	fillstruct = "fillstruct",
+	gofmt = "gofumpt",
+	lsp_gofumpt = true,
 })
 
 vim.cmd("autocmd FileType go nmap <Leader>gf :lua require('go.format').goimport()<CR>")
