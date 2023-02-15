@@ -95,6 +95,12 @@ lazy.setup({
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle", "Trouble" } },
 	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
+	{
+		"someone-stole-my-name/yaml-companion.nvim",
+		config = function()
+			require("telescope").load_extension("yaml_schema")
+		end,
+	},
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },

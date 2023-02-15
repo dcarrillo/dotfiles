@@ -26,6 +26,7 @@ local diff = {
 local filetype = {
 	"filetype",
 	colored = false,
+	separator = "",
 }
 
 local lsp_progress = {
@@ -54,6 +55,21 @@ local venv = function()
 	return ""
 end
 
+local get_schema = function()
+	local ft = vim.bo.filetype or ""
+
+	if ft == "yaml" then
+		local schema = require("yaml-companion").get_buf_schema(0)
+		if schema.result[1].name == "none" then
+			return ""
+		end
+
+		return "(" .. schema.result[1].name .. ")"
+	else
+		return ""
+	end
+end
+
 local gitblame_status_ok, gitblame = pcall(require, "gitblame")
 if not gitblame_status_ok then
 	return
@@ -77,6 +93,7 @@ lualine.setup({
 			spaces,
 			"encoding",
 			filetype,
+			{ get_schema, separator = "" },
 		},
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
