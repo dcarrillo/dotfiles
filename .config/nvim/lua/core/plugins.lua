@@ -84,10 +84,7 @@ lazy.setup({
 	{ "rafamadriz/friendly-snippets" },
 
 	-- LSP
-	{
-		"neovim/nvim-lspconfig",
-		event = "BufReadPre",
-	},
+	{ "neovim/nvim-lspconfig", event = "BufReadPre" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
@@ -95,20 +92,12 @@ lazy.setup({
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle", "Trouble" } },
 	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
-	{
-		"someone-stole-my-name/yaml-companion.nvim",
-		config = function()
-			require("telescope").load_extension("yaml_schema")
-		end,
-	},
+	{ "someone-stole-my-name/yaml-companion.nvim", event = "BufRead" },
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },
 	{ "nvim-telescope/telescope-ui-select.nvim" },
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-	},
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
 	-- Git
 	{ "lewis6991/gitsigns.nvim", event = "BufReadPre", version = "v0.*" },
