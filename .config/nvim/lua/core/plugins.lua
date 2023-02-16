@@ -66,6 +66,7 @@ lazy.setup({
 		dependencies = { "MunifTanjim/nui.nvim" },
 	},
 	{ "taybart/b64.nvim", event = "VeryLazy" },
+	{ "echasnovski/mini.align", event = "VeryLazy", version = "*" },
 
 	-- cmp plugins
 	{
