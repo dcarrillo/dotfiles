@@ -37,6 +37,11 @@ lazy.setup({
 					sidebars = "normal",
 					floats = "normal",
 				},
+				on_colors = function(colors)
+					colors.error = "#ff966c"
+					colors.gitSigns.add = "#c3e88d"
+					colors.gitSigns.change = "#779be9"
+				end,
 			})
 
 			vim.cmd([[colorscheme tokyonight]])
@@ -116,7 +121,6 @@ lazy.setup({
 	{
 		"ray-x/guihua.lua",
 		build = "cd lua/fzy && make",
-
 		config = function()
 			require("guihua.maps").setup({
 				maps = { close_view = "<C-x>" },
