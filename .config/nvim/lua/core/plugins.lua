@@ -72,6 +72,7 @@ lazy.setup({
 	},
 	{ "taybart/b64.nvim", event = "VeryLazy" },
 	{ "echasnovski/mini.align", event = "VeryLazy", version = "*" },
+	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 
 	-- cmp plugins
 	{
