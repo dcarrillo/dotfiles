@@ -43,10 +43,27 @@ lazy.setup({
 					colors.gitSigns.change = "#779be9"
 				end,
 			})
-
-			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
+	{
+		"projekt0n/github-nvim-theme",
+		lazy = false,
+		priorrity = 1000,
+		version = "v0.0.x",
+		config = function()
+			require("github-theme").setup({
+				colors = {
+					error = "#dd6861",
+					-- fg = "#c8d3f5",
+					-- syntax = {
+					-- 	comment = "#636da6",
+					-- },
+				},
+			})
+			vim.cmd([[colorscheme github_dimmed]])
+		end,
+	},
+
 	-- Plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "echasnovski/mini.starter", lazy = "VimEnter", version = "*" },
