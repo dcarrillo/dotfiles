@@ -50,12 +50,12 @@ M.setup = function()
 end
 
 M.on_attach = function(client)
-	if client.name == "tsserver" then
+	if client.name == "lua_ls" then
 		client.server_capabilities.document_formatting = false
 	end
 
-	if client.name == "lua_ls" then
-		client.server_capabilities.document_formatting = false
+	if client.name == "ruff-lsp" then
+		client.server_capabilities.hover = false
 	end
 
 	local status_ok, illuminate = pcall(require, "illuminate")
