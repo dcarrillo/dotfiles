@@ -7,7 +7,8 @@ vim.g.neo_tree_remove_legacy_commands = true
 
 neotree.setup({
 	close_if_last_window = true,
-	open_files_do_not_replace_filetypes = { "terminal", "trouble", "qf", "starter" }, -- when opening files, do not use windows containing these filetypes
+	auto_clean_after_session_restore = true,
+	open_files_do_not_replace_filetypes = { "terminal", "trouble", "qf", "starter" },
 	popup_border_style = "rounded",
 	default_component_configs = {
 		indent = {

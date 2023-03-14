@@ -54,10 +54,6 @@ lazy.setup({
 			require("github-theme").setup({
 				colors = {
 					error = "#dd6861",
-					-- fg = "#c8d3f5",
-					-- syntax = {
-					-- 	comment = "#636da6",
-					-- },
 				},
 			})
 			vim.cmd([[colorscheme github_dimmed]])

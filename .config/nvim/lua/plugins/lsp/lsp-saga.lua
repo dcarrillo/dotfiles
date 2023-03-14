@@ -9,10 +9,10 @@ lsp_saga.setup({
 		code_action_icon = "",
 	},
 	preview = {
-		lines_above = 5,
+		lines_above = 6,
 	},
 	outline = {
-		win_width = 45,
+		win_width = 55,
 		auto_preview = false,
 	},
 	symbol_in_winbar = {
