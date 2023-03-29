@@ -8,6 +8,14 @@ lsp_saga.setup({
 		border = "rounded",
 		code_action_icon = "",
 	},
+	finder = {
+		max_height = 0.5,
+		min_width = 30,
+		force_max_height = false,
+		keys = {
+			expand_or_jump = "<CR>",
+		},
+	},
 	preview = {
 		lines_above = 6,
 	},
