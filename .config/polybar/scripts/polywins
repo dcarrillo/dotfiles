@@ -54,7 +54,7 @@ get_icon_by_name()
 		[glrnvim]=
 		[code]=
 		[brave-browser]=
-		[firefox]=
+		[firefox]=
 		[librewolf]=
 		[chromium]=
 		[vivaldi-stable]=
