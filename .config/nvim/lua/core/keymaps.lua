@@ -15,6 +15,13 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Kitty navigation
+vim.g.kitty_navigator_no_mappings = 1
+keymap("n", "<A-Left>", ":KittyNavigateLeft<cr>")
+keymap("n", "<A-Down>", ":KittyNavigateDown<cr>")
+keymap("n", "<A-Up>", ":KittyNavigateUp<cr>")
+keymap("n", "<A-Right>", ":KittyNavigateRight<cr>")
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)

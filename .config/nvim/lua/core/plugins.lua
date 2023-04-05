@@ -48,7 +48,7 @@ lazy.setup({
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = false,
-		priorrity = 1000,
+		priority = 1000,
 		version = "v0.0.x",
 		config = function()
 			require("github-theme").setup({
@@ -86,6 +86,14 @@ lazy.setup({
 	{ "taybart/b64.nvim", event = "VeryLazy" },
 	{ "echasnovski/mini.align", event = "VeryLazy", version = "*" },
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
+	{
+		"ggandor/leap.nvim",
+		version = "*",
+		config = function()
+			require("leap").add_default_mappings()
+		end,
+	},
+	{ "knubie/vim-kitty-navigator", version = "*", build = "cp ./*.py ~/.config/kitty/" },
 
 	-- cmp plugins
 	{
