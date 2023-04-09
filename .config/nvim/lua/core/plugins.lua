@@ -93,7 +93,11 @@ lazy.setup({
 			require("leap").add_default_mappings()
 		end,
 	},
-	{ "knubie/vim-kitty-navigator", version = "*", build = "cp ./*.py ~/.config/kitty/" },
+	{
+		"knubie/vim-kitty-navigator",
+		version = "*",
+		build = "cp ./*.py ~/.config/kitty/",
+	},
 
 	-- cmp plugins
 	{

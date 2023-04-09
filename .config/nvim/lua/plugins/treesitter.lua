@@ -4,9 +4,18 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python", "go", "gomod", "gowork" },
-	ignore_install = { "" },
-	sync_install = false,
+	ensure_installed = {
+		"lua",
+		"markdown",
+		"markdown_inline",
+		"bash",
+		"python",
+		"go",
+		"gomod",
+		"gowork",
+		"json",
+		"yaml",
+	},
 	highlight = {
 		enable = true,
 		disable = { "css" },
@@ -14,8 +23,10 @@ configs.setup({
 	autopairs = {
 		enable = true,
 	},
-	indent = { enable = true, disable = { "python", "css" } },
-
+	indent = {
+		enable = true,
+		disable = { "python", "css" },
+	},
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
