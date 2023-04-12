@@ -1,8 +1,3 @@
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
-	return
-end
-
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
@@ -70,16 +65,13 @@ local get_schema = function()
 	end
 end
 
-local gitblame_status_ok, gitblame = pcall(require, "gitblame")
-if not gitblame_status_ok then
-	return
-end
+local gitblame = require("gitblame")
 
 vim.g.gitblame_date_format = "%r"
 vim.g.gitblame_display_virtual_text = 0
 vim.g.gitblame_message_template = "<author>, <date>"
 
-lualine.setup({
+require("lualine").setup({
 	options = {
 		globalstatus = true,
 	},

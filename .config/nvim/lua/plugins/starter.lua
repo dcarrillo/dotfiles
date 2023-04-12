@@ -1,8 +1,4 @@
-local status_ok, starter = pcall(require, "mini.starter")
-if not status_ok then
-	return
-end
-
+local starter = require("mini.starter")
 local pad = string.rep(" ", 4)
 local new_section = function(name, action, section)
 	return { name = name, action = action, section = pad .. section }

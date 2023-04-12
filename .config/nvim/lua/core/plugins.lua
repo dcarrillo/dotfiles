@@ -13,18 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local status_ok, lazy = pcall(require, "lazy")
-if not status_ok then
-	return
-end
-
 local lazy_opts = {
 	ui = {
 		border = "rounded",
 	},
 }
 
-lazy.setup({
+require("lazy").setup({
 	-- Colorschemes
 	{
 		"folke/tokyonight.nvim",

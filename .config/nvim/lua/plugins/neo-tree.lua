@@ -1,11 +1,6 @@
-local status_ok, neotree = pcall(require, "neo-tree")
-if not status_ok then
-	return
-end
-
 vim.g.neo_tree_remove_legacy_commands = true
 
-neotree.setup({
+require("neo-tree").setup({
 	close_if_last_window = true,
 	auto_clean_after_session_restore = true,
 	open_files_do_not_replace_filetypes = { "terminal", "trouble", "qf", "starter" },

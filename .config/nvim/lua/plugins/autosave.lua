@@ -1,9 +1,4 @@
-local status_ok, autosave = pcall(require, "auto-save")
-if not status_ok then
-	return
-end
-
-autosave.setup({
+require("auto-save").setup({
 	execution_message = {
 		message = function()
 			return ""

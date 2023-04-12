@@ -1,7 +1,4 @@
-local status_ok, wilder = pcall(require, "wilder")
-if not status_ok then
-	return
-end
+local wilder = require("wilder")
 
 wilder.setup({
 	modes = { ":" },
@@ -58,7 +55,6 @@ wilder.set_option(
 			border = "Normal",
 			gradient = gradient,
 		},
-
 		border = "rounded",
 		highlighter = wilder.highlighter_with_gradient({
 			wilder.lua_fzy_highlighter(),

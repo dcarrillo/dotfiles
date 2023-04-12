@@ -1,9 +1,4 @@
-local status_ok, go = pcall(require, "go")
-if not status_ok then
-	return
-end
-
-go.setup({
+require("go").setup({
 	icons = { breakpoint = "", currentpos = "🏃" },
 	fillstruct = "fillstruct",
 	gofmt = "gofumpt",

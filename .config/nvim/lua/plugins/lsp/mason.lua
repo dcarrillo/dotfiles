@@ -31,23 +31,17 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
-end
-
-local opts = {}
-
+local lspconfig = require("lspconfig")
 for _, server in pairs(servers) do
-	opts = {
+	local opts = {
 		on_attach = require("plugins.lsp.handlers").on_attach,
 		capabilities = require("plugins.lsp.handlers").capabilities,
 	}
 
 	server = vim.split(server, "@")[1]
 
-	local require_ok, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
-	if require_ok then
+	local config_exists, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
+	if config_exists then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
 
