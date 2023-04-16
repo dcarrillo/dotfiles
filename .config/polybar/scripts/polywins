@@ -56,6 +56,7 @@ get_icon_by_name()
 		[brave-browser]=
 		[firefox]=
 		[librewolf]=
+		[librewolf-default]=
 		[chromium]=
 		[vivaldi-stable]=
 		[tor]=
