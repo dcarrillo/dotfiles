@@ -139,15 +139,14 @@ require("lazy").setup({
 	{ "theHamsta/nvim-dap-virtual-text", event = "VeryLazy" },
 
 	-- Go
-	{ "ray-x/go.nvim" },
 	{
-		"ray-x/guihua.lua",
-		build = "cd lua/fzy && make",
-		config = function()
-			require("guihua.maps").setup({
-				maps = { close_view = "<C-x>" },
-			})
-		end,
+		"ray-x/go.nvim",
+		dependencies = {
+			"ray-x/guihua.lua",
+			build = "cd lua/fzy && make",
+		},
+		event = { "CmdlineEnter" },
+		ft = { "go", "gomod" },
 	},
 
 	-- Markdown
