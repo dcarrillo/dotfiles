@@ -133,7 +133,7 @@ eval "$(direnv hook zsh)"
 
 # Autocompletion
 
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
 # custom device
 
