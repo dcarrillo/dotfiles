@@ -73,6 +73,7 @@ get_icon_by_name()
 		[file-roller]=
 		[mailspring]=
 		[keepassxc]=
+		[seahorse]=
 		[steam]=
 		[skype]=
 		[slack]=
