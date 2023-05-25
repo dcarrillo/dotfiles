@@ -44,14 +44,29 @@ require("lazy").setup({
 		"projekt0n/github-nvim-theme",
 		lazy = false,
 		priority = 1000,
-		version = "v0.0.x",
+		version = "v1.0.x",
 		config = function()
-			require("github-theme").setup({
-				colors = {
-					error = "#dd6861",
+			local options = {
+				darken = {
+					floats = false,
+					sidebars = {
+						enable = false,
+						list = {},
+					},
 				},
-			})
-			vim.cmd([[colorscheme github_dimmed]])
+			}
+			local specs = {
+				github_dark_dimmed = {
+					syntax = {
+						keyword = "yellow.base",
+					},
+					diagnostic = {
+						error = "#dd6861",
+					},
+				},
+			}
+			require("github-theme").setup({ options = options, specs = specs })
+			vim.cmd("colorscheme github_dark_dimmed")
 		end,
 	},
 
@@ -93,6 +108,7 @@ require("lazy").setup({
 		version = "*",
 		build = "cp ./*.py ~/.config/kitty/",
 	},
+	{ "robbles/logstash.vim" },
 
 	-- cmp plugins
 	{
