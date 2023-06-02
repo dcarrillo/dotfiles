@@ -87,7 +87,6 @@ require("lazy").setup({
 	{ "mg979/vim-visual-multi", version = "v0.*" },
 	{ "gnikdroy/projections.nvim" },
 	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
-	{ "ray-x/sad.nvim", cmd = "Sad" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "v2.x",
@@ -108,7 +107,6 @@ require("lazy").setup({
 		version = "*",
 		build = "cp ./*.py ~/.config/kitty/",
 	},
-	{ "robbles/logstash.vim" },
 
 	-- cmp plugins
 	{

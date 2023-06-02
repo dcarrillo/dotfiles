@@ -65,7 +65,7 @@ keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async=true }<cr>", opts)
 keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 
 -- Better paste
-keymap("v", "p", '"_dP', opts)
+keymap("v", "p", "P", opts)
 
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
