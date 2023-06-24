@@ -2,7 +2,7 @@
 
 My dotfiles, including:
 
-- neovim (need neovim v0.8.x)
+- [neovim](.config/nvim/README.md) (need neovim v0.9.x)
 - kitty
 - polybar
 - zsh
@@ -15,4 +15,3 @@ Unmaintained because I don't use them anymore:
 - tilix (dconf)
 
 In addition to the dotfiles, some Gnome shell extension confs are included to make polybar and cli great again on Gnome.
-

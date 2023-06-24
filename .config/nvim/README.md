@@ -8,7 +8,6 @@ Neovim conf heavily adapted to suit my needs, based on LunarVim's [basic ide](ht
 * fd
 * git-delta
 * bat
-* sad
 * prettier
 
 ## Extra
