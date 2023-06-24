@@ -24,7 +24,7 @@ configuration {
    blackselect:      #303030;
    darkgray:         #848484;
    scrollbarcolor:   #FFCB81;
-   font: "Droid Sans Mono 16";
+   font: "RobotoMono Nerd Font Mono 18";
    background-color: @blackdarkest;
 }
 
