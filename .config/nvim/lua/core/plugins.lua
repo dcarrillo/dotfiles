@@ -85,7 +85,7 @@ require("lazy").setup({
 	{ "gelguy/wilder.nvim" },
 	{ "romgrk/fzy-lua-native" },
 	{ "mg979/vim-visual-multi", version = "v0.*" },
-	{ "gnikdroy/projections.nvim" },
+	{ "gnikdroy/projections.nvim", branch = "pre_release" },
 	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
