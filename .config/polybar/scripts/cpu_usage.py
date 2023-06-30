@@ -26,11 +26,11 @@ def show_cpu_usage():
     bar = ''
     global_count = 0
     for usage in cpu_usage.split(','):
-        value, key = str.lstrip(usage).split(' ')
-        count = round(float(value) / 10)
-        if count > 0 and key != 'id':
+        values = str.lstrip(usage).split(' ')
+        count = round(float(values[0]) / 10)
+        if count > 0 and values[1] != 'id':
             global_count += count
-            bar += '%{F' + colors[key] + '}' + '_' * count + '%{F-}'
+            bar += '%{F' + colors[values[1]] + '}' + '_' * count + '%{F-}'
 
     padding = ''
     if global_count < 10:
