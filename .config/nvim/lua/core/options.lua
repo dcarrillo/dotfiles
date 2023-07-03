@@ -36,13 +36,18 @@ vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h10" -- the font used in graphical neovim applications
-vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.linebreak = true
 vim.opt.numberwidth = 1
+
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldcolumn = "1"
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff: ]]
 
 -- experimental
 vim.opt.cmdheight = 0 -- Number of screen lines to use for the command-line

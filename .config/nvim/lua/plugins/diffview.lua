@@ -6,4 +6,4 @@ require("diffview").setup({
 	},
 })
 
-vim.opt.fillchars = "diff: "
+-- vim.opt.fillchars = "diff: "
