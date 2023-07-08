@@ -44,7 +44,6 @@ require("lazy").setup({
 		"projekt0n/github-nvim-theme",
 		lazy = false,
 		priority = 1000,
-		version = "v1.0.x",
 		config = function()
 			local options = {
 				darken = {
