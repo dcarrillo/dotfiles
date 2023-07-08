@@ -10,5 +10,6 @@ require("indent_blankline").setup({
 		"lazy",
 		"mason",
 		"neo-tree",
+		"TelescopePrompt",
 	},
 })
