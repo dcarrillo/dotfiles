@@ -40,6 +40,7 @@ for _, server in pairs(servers) do
 
 	server = vim.split(server, "@")[1]
 
+	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 	local config_exists, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
 	if config_exists then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
