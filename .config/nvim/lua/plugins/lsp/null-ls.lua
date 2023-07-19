@@ -23,5 +23,6 @@ null_ls.setup({
 		diagnostics.revive.with({
 			args = revive_args,
 		}),
+		diagnostics.cfn_lint,
 	},
 })

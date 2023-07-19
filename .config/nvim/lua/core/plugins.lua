@@ -131,9 +131,7 @@ require("lazy").setup({
 	{ "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
 	{ "RRethy/vim-illuminate", event = "BufReadPost" },
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle", "Trouble" } },
-	{ "glepnir/lspsaga.nvim",
-		event = "BufRead",
-	},
+	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
 	{ "someone-stole-my-name/yaml-companion.nvim", event = "BufRead" },
 
