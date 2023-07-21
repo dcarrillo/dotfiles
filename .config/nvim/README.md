@@ -2,18 +2,16 @@
 
 Neovim conf heavily adapted to suit my needs, based on LunarVim's [basic ide](https://github.com/LunarVim/nvim-basic-ide).
 
-## Requirements
+## Extra requeriments (Linux arch package names)
 
 * ripgrep
 * fd
 * git-delta
 * bat
 * prettier
-
-## Extra
-
 * stylua
 * python-cfn-lint
 * python-black
 * hadolint
 * revive
+* tree-sitter-cli
