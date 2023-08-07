@@ -56,9 +56,6 @@ require("lazy").setup({
 			}
 			local specs = {
 				github_dark_dimmed = {
-					syntax = {
-						keyword = "yellow.base",
-					},
 					diagnostic = {
 						error = "#dd6861",
 					},
