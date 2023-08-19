@@ -37,7 +37,8 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'git' \
   'aws' \
-  'fzf-tab'
+  'fzf-tab' \
+  'zsh-z'
 
 #
 # Editor
