@@ -79,6 +79,15 @@ kexec () {
   [ -n "$cid" ] && kubectl exec -ti "$cid" -- "${cmd[@]}"
 }
 
+siteinfo () {
+    local url="$1"
+    local ip="$(dig +short "$url" | tail -1)"
+
+    whois "$ip"
+    echo "Technology detected for $url with IP $ip"
+    httpx -silent -json -follow-redirects -ip -tech-detect -target "$url" | jq -rc '.tech'
+}
+
 ##### tilix #####
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]  ; then
