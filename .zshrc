@@ -47,6 +47,7 @@ alias issh='kitty +kitten ssh'
 alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
 alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
 alias rgh="rg --hidden -g '!.git/'"
+alias fdh='fd --hidden --exclude .git'
 alias vim=nvim
 alias neovim=nvim
 alias disable-hl='ZSH_HIGHLIGHT_MAXLENGTH=0'
@@ -80,12 +81,16 @@ kexec () {
 }
 
 siteinfo () {
-    local url="$1"
-    local ip="$(dig +short "$url" | tail -1)"
+  local url="$1"
+  local ip="$(dig +short "$url" | tail -1)"
 
-    whois "$ip"
-    echo "Technology detected for $url with IP $ip"
-    httpx -silent -json -follow-redirects -ip -tech-detect -target "$url" | jq -rc '.tech'
+  whois "$ip"
+  echo "Technology detected for $url with IP $ip"
+  httpx -silent -json -follow-redirects -ip -tech-detect -target "$url" | jq -rc '.tech'
+}
+
+remove_from_hist() {
+  LC_ALL=C sed -i "/$1/d" $HISTFILE
 }
 
 ##### tilix #####
@@ -121,8 +126,8 @@ fzf-file-widget-hidden () {
 export FZF_DEFAULT_COMMAND="fd --type file --follow"
 export FZF_DEFAULT_OPTS="-m --reverse \
                         --color 'info:#00AAFF,prompt:#FFFFFF,pointer:#00AAFF,hl:#1AE51A,hl+:#1AE51A' \
-                        --tabstop=4 \
-                        --bind 'ctrl-o:execute(xdg-open {})+abort,ctrl-e:execute({})+abort,ctrl-y:execute(echo {} | xclip -selection clipboard -in)+abort'"
+                        --tabstop=4"
+                        # --bind 'ctrl-o:execute(xdg-open {})+abort,ctrl-e:execute({})+abort,ctrl-y:execute(echo {} | xclip -selection clipboard -in)+abort'"
 export FZF_CTRL_T_OPTS="--no-height --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || pygmentize {} 2> /dev/null | head -500'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
