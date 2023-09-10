@@ -1,6 +1,6 @@
 # Neovim configuration files
 
-Neovim conf heavily adapted to suit my needs, based on LunarVim's [basic ide](https://github.com/LunarVim/nvim-basic-ide).
+Neovim conf heavily adapted to suit my needs, formerly based on LunarVim's [basic ide](https://github.com/LunarVim/nvim-basic-ide).
 
 ## Extra requeriments (Linux arch package names)
 
