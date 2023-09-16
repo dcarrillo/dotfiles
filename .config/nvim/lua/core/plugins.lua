@@ -117,8 +117,8 @@ require("lazy").setup({
 	},
 	{
 		"jcdickinson/codeium.nvim",
-         event = 'BufEnter'
-    },
+		event = "BufEnter",
+	},
 
 	-- Snippets
 	{ "L3MON4D3/LuaSnip", version = "v1.*" },
