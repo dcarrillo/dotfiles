@@ -3,6 +3,7 @@ require("go").setup({
 	fillstruct = "fillstruct",
 	gofmt = "gofumpt",
 	lsp_gofumpt = true,
+	diagnostic = false,
 })
 
 require("guihua.maps").setup({
