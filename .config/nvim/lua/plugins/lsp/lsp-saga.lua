@@ -3,6 +3,18 @@ require("lspsaga").setup({
 		border = "rounded",
 		code_action_icon = "",
 	},
+	lightbulb = {
+		sign = false,
+	},
+	code_action = {
+		show_server_name = true,
+	},
+	rename = {
+		auto_save = true,
+		keys = {
+			quit = "<ESC>",
+		},
+	},
 	finder = {
 		max_height = 0.5,
 		min_width = 30,
@@ -21,6 +33,6 @@ require("lspsaga").setup({
 	},
 	symbol_in_winbar = {
 		enable = false,
-		-- folder_level = 3,
+		folder_level = 3,
 	},
 })
