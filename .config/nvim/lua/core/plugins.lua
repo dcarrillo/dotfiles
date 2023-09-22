@@ -78,7 +78,13 @@ require("lazy").setup({
 	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", version = "v2.*" },
 	{ "nvim-zh/auto-save.nvim", event = "BufReadPost" },
-	{ "gelguy/wilder.nvim" },
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+	},
 	{ "romgrk/fzy-lua-native" },
 	{ "mg979/vim-visual-multi", version = "v0.*" },
 	{ "gnikdroy/projections.nvim", branch = "pre_release" },
