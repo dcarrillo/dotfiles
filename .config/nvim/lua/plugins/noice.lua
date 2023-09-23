@@ -16,6 +16,9 @@ require("noice").setup({
 			},
 		},
 	},
+	messages = {
+		view_search = false,
+	},
 	routes = {
 		{
 			filter = {
