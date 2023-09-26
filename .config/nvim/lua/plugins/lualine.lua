@@ -81,6 +81,7 @@ require("lualine").setup({
 		lualine_c = {
 			diagnostics,
 			{ "filename", path = 1 },
+			lsp_progress,
 			{
 				require("noice").api.status.search.get,
 				cond = require("noice").api.status.search.has,
