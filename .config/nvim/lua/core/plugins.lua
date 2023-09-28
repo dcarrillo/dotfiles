@@ -19,6 +19,16 @@ local lazy_opts = {
 	},
 }
 
+local projects = function ()
+	local file = io.open(os.getenv("HOME") .. "/.config/nvim/neovim-projects.json", "rb")
+	if not file then return {} end
+
+	local jsonString = file:read "*a"
+	file:close()
+
+	return vim.json.decode(jsonString)
+end
+
 require("lazy").setup({
 	-- Colorschemes
 	{
@@ -87,7 +97,20 @@ require("lazy").setup({
 	},
 	{ "romgrk/fzy-lua-native" },
 	{ "mg979/vim-visual-multi", version = "v0.*" },
-	{ "gnikdroy/projections.nvim", branch = "pre_release" },
+	{
+		"coffebar/neovim-project",
+		opts = {
+			projects = projects(),
+			last_session_on_startup = false,
+		},
+		init = function()
+			vim.opt.sessionoptions:append("globals")
+		end,
+		dependencies = {
+			{ "Shatur/neovim-session-manager" },
+		},
+		priority = 100,
+	},
 	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",

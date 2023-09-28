@@ -13,8 +13,3 @@ end, {})
 vim.api.nvim_create_user_command("RemoveTrailingSpaces", function()
 	vim.cmd("% s/\\s\\+$//e")
 end, {})
-
-local workspace = require("projections.workspace")
-vim.api.nvim_create_user_command("AddWorkspace", function()
-	workspace.add(vim.loop.cwd())
-end, {})

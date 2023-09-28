@@ -22,7 +22,7 @@ starter.setup({
 	header = logo,
 	footer = "",
 	items = {
-		new_section("Projects", "Telescope projections", "Telescope"),
+		new_section("Projects", "Telescope neovim-project discover", "Telescope"),
 		new_section("Recent files", "Telescope oldfiles", "Telescope"),
 		new_section("New file", "ene | startinsert", "Built-in"),
 		new_section("Quit", "qa", "Built-in"),

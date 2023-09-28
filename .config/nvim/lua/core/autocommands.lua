@@ -34,14 +34,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	end,
 })
 
--- -- Autostore session on VimExit
--- local Session = require("projections.session")
--- vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
--- 	callback = function()
--- 		Session.store(vim.loop.cwd())
--- 	end,
--- })
-
 -- Ensure terraform files use hcl LSP
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	pattern = { "*.tf" },

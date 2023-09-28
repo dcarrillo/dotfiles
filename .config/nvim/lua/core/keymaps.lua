@@ -93,8 +93,8 @@ keymap("x", "<leader>/", "<esc><cmd>lua require'Comment.api'.toggle.linewise(vim
 keymap("n", "<leader>df", ":DiffviewFileHistory %<cr>", opts)
 keymap("n", "<leader>dc", ":DiffviewClose<cr>", opts)
 
--- Projections
-keymap("n", "<leader>fp", ":Telescope projections<cr>", opts)
+-- Projects
+keymap("n", "<leader>fp", ":Telescope neovim-project discover<cr>", opts)
 
 -- Base64
 keymap("v", "<leader>64e", ":<c-u>lua require'b64'.encode()<cr>", opts)
