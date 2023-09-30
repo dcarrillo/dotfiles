@@ -36,7 +36,7 @@ def show_cpu_usage():
     if global_count < 10:
         padding = '%{F' + colors['id'] + '}' + '_' * (10 - global_count) + '%{F-}'
 
-    print("%{A1:$TERMINAL_CMD 'top -o %CPU' &:}%{T5}" + bar + padding + "%{T-}%{A}")
+    print("%{A1:$TERMINAL_CMD top -o %CPU &:}%{T5}" + bar + padding + "%{T-}%{A}")
 
 
 if __name__ == "__main__":

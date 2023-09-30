@@ -63,6 +63,7 @@ get_icon_by_name()
 		[gnome-terminal]=
 		[gpaste-ui]=
 		[keepassxc]=
+        [info]=
 		[kitty]=
 		[librewolf-default]=
 		[librewolf]=
@@ -77,7 +78,7 @@ get_icon_by_name()
  	 	[steam]=
 		[telegramdesktop]=
 		[thunderbird]=
-		[tilix]=
+		[vpn]=
 		[tor]=
 		[vivaldi-stable]=
 		[xterm]=

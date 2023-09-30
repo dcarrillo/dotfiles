@@ -2,7 +2,7 @@
 
 [ -f ~/.config/polybar/bar.env ] && . ~/.config/polybar/bar.env
 
-export TERMINAL_CMD=${TERMINAL_CMD:-"tilix --profile orange --new-process -e"}
+export TERMINAL_CMD=${TERMINAL_CMD:-"kitty --class=info --override='foreground=#c69026' "}
 export WM_CONTROL=${WM_CONTROL:-"~/.config/polybar/scripts/switch_window_state"}
 export ROFI_THEME=${ROFI_THEME:-orange}
 

@@ -10,6 +10,12 @@ import secretstorage
 
 from kitty.boss import Boss
 
+#
+# To add passwords to the Secret Service that can be retrieved for this kitten:
+#    secret-tool store --label user1 description "Kitty password" id $(uuidgen)
+#    secret-tool store --label user2 description "Kitty password" id $(uuidgen)
+# Add map to kitty.conf:
+#    map ctrl+alt+p      kitten secrets.py "description" "Kitty password"
 
 def main(args: List[str]) -> Optional[str]:
     secrets = get_secret_names(args[1], args[2])
