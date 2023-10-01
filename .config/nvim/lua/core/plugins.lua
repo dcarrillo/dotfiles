@@ -19,14 +19,32 @@ local lazy_opts = {
 	},
 }
 
-local projects = function ()
-	local file = io.open(os.getenv("HOME") .. "/.config/nvim/neovim-projects.json", "rb")
-	if not file then return {} end
+local uv = vim.loop
+local function readFile(path)
+	local fd = uv.fs_open(path, "r", 438)
+	if fd == nil then
+		return nil
+	end
+	local stat = uv.fs_fstat(fd)
+	if fd == nil then
+		return nil
+	end
+	local data = uv.fs_read(fd, stat.size, 0)
+	if data == nil then
+		return nil
+	end
+	assert(uv.fs_close(fd))
 
-	local jsonString = file:read "*a"
-	file:close()
+	return data
+end
 
-	return vim.json.decode(jsonString)
+local projects = function()
+	local data = readFile(os.getenv("HOME") .. "/.config/nvim/neovim-projects.json")
+	if data then
+		return vim.json.decode(data)
+	else
+		return {}
+	end
 end
 
 require("lazy").setup({
