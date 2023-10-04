@@ -10,9 +10,7 @@ require("bufferline").setup({
 			style = "underline",
 		},
 		hover = {
-			enabled = true,
-			delay = 200,
-			reveal = { "close" },
+			enabled = false,
 		},
 		separator_style = "slant",
 	},
