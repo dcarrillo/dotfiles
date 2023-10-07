@@ -1,4 +1,18 @@
-require("bufferline").setup({
+local bufferline = require("bufferline")
+
+local function is_buffer_loaded(name)
+	local bufs = vim.api.nvim_list_bufs()
+
+	for _, buffer in pairs(bufs) do
+		if vim.fn.getbufvar(buffer, "&filetype") == name then
+			return true
+		end
+	end
+
+	return false
+end
+
+bufferline.setup({
 	options = {
 		close_command = "Bdelete! %d",
 		right_mouse_command = "Bdelete! %d",
@@ -13,5 +27,16 @@ require("bufferline").setup({
 			enabled = false,
 		},
 		separator_style = "slant",
+
+		custom_areas = {
+			left = function()
+				local text = ""
+				if not is_buffer_loaded("neo-tree") then
+					text = "  " .. string.gsub(vim.loop.cwd(), "^" .. os.getenv("HOME"), "~") .. "  "
+				end
+
+				return { { text = text, fg = "#636E7B" } }
+			end,
+		},
 	},
 })
