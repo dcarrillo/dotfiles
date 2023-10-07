@@ -80,7 +80,17 @@ require("lualine").setup({
 		lualine_b = { "branch", venv },
 		lualine_c = {
 			diagnostics,
-			{ "filename", path = 1 },
+			{
+				"filename",
+				path = 1,
+				cond = function()
+					if vim.bo.filetype == "neo-tree" then
+						return false
+					end
+
+					return true
+				end
+			},
 			lsp_progress,
 			{
 				require("noice").api.status.search.get,
@@ -94,7 +104,7 @@ require("lualine").setup({
 			spaces,
 			"encoding",
 			filetype,
-			{ get_schema, separator = "" },
+			{ get_schema,                      separator = "" },
 		},
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
