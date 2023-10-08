@@ -89,7 +89,7 @@ require("lualine").setup({
 					end
 
 					return true
-				end
+				end,
 			},
 			lsp_progress,
 			{
@@ -104,7 +104,7 @@ require("lualine").setup({
 			spaces,
 			"encoding",
 			filetype,
-			{ get_schema,                      separator = "" },
+			{ get_schema, separator = "" },
 		},
 		lualine_y = { "progress" },
 		lualine_z = { "location" },

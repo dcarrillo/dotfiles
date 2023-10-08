@@ -132,7 +132,7 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		version = "v2.x",
+		version = "v3.x",
 		dependencies = { "MunifTanjim/nui.nvim" },
 	},
 	{ "taybart/b64.nvim", event = "VeryLazy" },
@@ -168,7 +168,7 @@ require("lazy").setup({
 	},
 
 	-- Snippets
-	{ "L3MON4D3/LuaSnip", version = "v1.*" },
+	{ "L3MON4D3/LuaSnip", version = "v2.*", event = "InsertEnter" },
 	{ "rafamadriz/friendly-snippets" },
 
 	-- LSP
@@ -194,7 +194,7 @@ require("lazy").setup({
 
 	-- DAP
 	{ "mfussenegger/nvim-dap", event = "VeryLazy", version = "0.*" },
-	{ "rcarriga/nvim-dap-ui", event = "VeryLazy", version = "v2.*" },
+	{ "rcarriga/nvim-dap-ui", event = "VeryLazy", version = "v3.*" },
 	{ "ravenxrz/DAPInstall.nvim", event = "VeryLazy" },
 	{ "theHamsta/nvim-dap-virtual-text", event = "VeryLazy" },
 
