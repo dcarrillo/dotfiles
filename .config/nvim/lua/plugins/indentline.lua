@@ -1,15 +1,22 @@
-require("indent_blankline").setup({
-	char = "▏",
-	show_trailing_blankline_indent = false,
-	show_first_indent_level = true,
-	use_treesitter = true,
-	show_current_context = true,
-	buftype_exclude = { "terminal", "nofile" },
-	filetype_exclude = {
-		"help",
-		"lazy",
-		"mason",
-		"neo-tree",
-		"TelescopePrompt",
+require("ibl").setup({
+	indent = {
+		char = "▏",
+		tab_char = "▏",
+	},
+	scope = {
+		enabled = true,
+		show_start = false,
+		show_end = false,
+	},
+	exclude = {
+		filetypes = {
+			"help",
+			"mini.starter",
+			"neo-tree",
+			"Trouble",
+			"lazy",
+			"mason",
+			"notify",
+		},
 	},
 })

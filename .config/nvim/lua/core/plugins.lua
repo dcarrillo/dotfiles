@@ -104,7 +104,7 @@ require("lazy").setup({
 	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v4.*" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
-	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", version = "v2.*" },
+	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", main = "ibl" },
 	{ "nvim-zh/auto-save.nvim", event = "BufReadPost" },
 	{
 		"folke/noice.nvim",
