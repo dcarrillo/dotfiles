@@ -101,7 +101,7 @@ require("lazy").setup({
 	{ "numToStr/Comment.nvim", version = "v0.*" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
-	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v3.*" },
+	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v4.*" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", version = "v2.*" },
