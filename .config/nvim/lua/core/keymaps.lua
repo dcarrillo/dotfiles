@@ -101,5 +101,12 @@ keymap("v", "<leader>64e", ":<c-u>lua require'b64'.encode()<cr>", opts)
 keymap("v", "<leader>64d", ":<c-u>lua require'b64'.decode()<cr>", opts)
 
 -- Illuminate
-keymap("n", "<a-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
-keymap("n", "<a-p>", '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
+keymap("n", "<A-n>", "<cmd>lua require'illuminate'.next_reference{wrap=true}<cr>", { noremap = true })
+keymap("n", "<A-p>", "<cmd>lua require'illuminate'.next_reference{reverse=true,wrap=true}<cr>", { noremap = true })
+
+-- Folding
+keymap("n", "zR", "<cmd>lua require'ufo'.openAllFolds()<cr>", { desc = "Open all folds" })
+keymap("n", "zM", "<cmd>lua require'ufo'.closeAllFolds()<cr>", { desc = "Close all folds" })
+keymap("n", "zr", "<cmd>lua require'ufo'.openFoldsExceptKinds()<cr>", { desc = "Fold less" })
+keymap("n", "zm", "<cmd>lua require'ufo'.closeFoldsWith()<cr>", { desc = "Fold more" })
+keymap("n", "zp", "<cmd>lua require'ufo'.peekFoldedLinesUnderCursor()<cr>", { desc = "Peek fold" })
