@@ -175,7 +175,7 @@ require("lazy").setup({
 	{ "neovim/nvim-lspconfig", event = "BufReadPre" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
+	{ "nvimtools/none-ls.nvim", event = "BufReadPre" },
 	{ "RRethy/vim-illuminate", event = "BufReadPost" },
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle", "Trouble" } },
 	{ "glepnir/lspsaga.nvim", event = "BufRead" },
