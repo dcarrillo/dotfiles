@@ -77,8 +77,7 @@ require("lazy").setup({
 				darken = {
 					floats = false,
 					sidebars = {
-						enable = false,
-						list = {},
+						enabled = false,
 					},
 				},
 			}
