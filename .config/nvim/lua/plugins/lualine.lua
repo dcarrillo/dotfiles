@@ -84,7 +84,15 @@ require("lualine").setup({
 				"filename",
 				path = 1,
 				cond = function()
-					if vim.bo.filetype == "neo-tree" then
+					if
+						vim.bo.filetype == "neo-tree"
+						or vim.bo.filetype == "mason"
+						or vim.bo.filetype == "lazy"
+						or vim.bo.filetype == "help"
+						or vim.bo.filetype == "starter"
+						or vim.bo.filetype == "TelescopePrompt"
+						or vim.bo.filetype == "noice"
+					then
 						return false
 					end
 
@@ -109,4 +117,5 @@ require("lualine").setup({
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
 	},
+	extensions = { "lazy", "mason", "trouble" },
 })
