@@ -55,6 +55,20 @@ M.on_attach = function(client)
 		client.server_capabilities.hover = false
 	end
 
+	if client.name == "gopls" then
+		if not client.server_capabilities.semanticTokensProvider then
+			local semantic = client.config.capabilities.textDocument.semanticTokens
+			client.server_capabilities.semanticTokensProvider = {
+				full = true,
+				legend = {
+					tokenTypes = semantic.tokenTypes,
+					tokenModifiers = semantic.tokenModifiers,
+				},
+				range = true,
+			}
+		end
+	end
+
 	require("illuminate").on_attach(client)
 end
 
