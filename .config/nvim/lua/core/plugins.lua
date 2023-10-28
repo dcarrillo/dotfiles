@@ -162,7 +162,7 @@ require("lazy").setup({
 		},
 	},
 	{
-		"jcdickinson/codeium.nvim",
+		"Exafunction/codeium.nvim",
 		event = "BufEnter",
 	},
 
