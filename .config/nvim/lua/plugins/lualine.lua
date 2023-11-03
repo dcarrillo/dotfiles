@@ -18,12 +18,6 @@ local diff = {
 	cond = hide_in_width,
 }
 
-local filetype = {
-	"filetype",
-	colored = false,
-	separator = "",
-}
-
 local lsp_progress = {
 	"lsp_progress",
 	display_components = { "spinner" },
@@ -50,18 +44,18 @@ local venv = function()
 	return ""
 end
 
-local get_schema = function()
+local get_filetype = function()
 	local ft = vim.bo.filetype or ""
 
 	if ft == "yaml" then
 		local schema = require("yaml-companion").get_buf_schema(0)
 		if schema.result[1].name == "none" then
-			return ""
+			return ft
 		end
 
-		return "(" .. schema.result[1].name .. ")"
+		return ft .. " (" .. schema.result[1].name .. ")"
 	else
-		return ""
+		return ft
 	end
 end
 
@@ -111,8 +105,7 @@ require("lualine").setup({
 			diff,
 			spaces,
 			"encoding",
-			filetype,
-			{ get_schema, separator = "" },
+			{ get_filetype, separator = "" },
 		},
 		lualine_y = { "progress" },
 		lualine_z = { "location" },

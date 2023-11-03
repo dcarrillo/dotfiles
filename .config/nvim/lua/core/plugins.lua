@@ -179,7 +179,6 @@ require("lazy").setup({
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle", "Trouble" } },
 	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
-	{ "someone-stole-my-name/yaml-companion.nvim", event = "BufRead" },
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },
@@ -190,6 +189,32 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim", event = "BufReadPre", version = "v0.*" },
 	{ "sindrets/diffview.nvim" },
 	{ "f-person/git-blame.nvim" },
+
+	-- YAML
+	{
+		"someone-stole-my-name/yaml-companion.nvim",
+		ft = { "yaml" },
+		opts = {
+			lspconfig = {
+				settings = {
+					redhat = {
+						telemetry = {
+							enabled = false,
+						},
+					},
+					-- 	yaml = {
+					-- 		schemas = {
+					-- 			["https://custom/github-workflow.json"] = "/.github/workflows/*",
+					-- 		},
+					-- 	},
+				},
+			},
+		},
+		config = function(_, opts)
+			local cfg = require("yaml-companion").setup(opts)
+			require("lspconfig")["yamlls"].setup(cfg)
+		end,
+	},
 
 	-- DAP
 	{ "mfussenegger/nvim-dap", event = "VeryLazy", version = "0.*" },
@@ -207,6 +232,9 @@ require("lazy").setup({
 		event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 	},
+
+	-- Typescript
+	{ "pmizio/typescript-tools.nvim", opts = {} },
 
 	-- Markdown
 	{ "mzlogin/vim-markdown-toc" },

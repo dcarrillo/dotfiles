@@ -33,18 +33,20 @@ require("mason-lspconfig").setup({
 
 local lspconfig = require("lspconfig")
 for _, server in pairs(servers) do
-	local opts = {
-		on_attach = require("plugins.lsp.handlers").on_attach,
-		capabilities = require("plugins.lsp.handlers").capabilities,
-	}
+	if server ~= "yamlls" then
+		local opts = {
+			on_attach = require("plugins.lsp.handlers").on_attach,
+			capabilities = require("plugins.lsp.handlers").capabilities,
+		}
 
-	server = vim.split(server, "@")[1]
+		server = vim.split(server, "@")[1]
 
-	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-	local config_exists, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
-	if config_exists then
-		opts = vim.tbl_deep_extend("force", conf_opts, opts)
+		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+		local config_exists, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
+		if config_exists then
+			opts = vim.tbl_deep_extend("force", conf_opts, opts)
+		end
+
+		lspconfig[server].setup(opts)
 	end
-
-	lspconfig[server].setup(opts)
 end
