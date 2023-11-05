@@ -5,6 +5,15 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
+-- resize splits if window got resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+	callback = function()
+		local current_tab = vim.fn.tabpagenr()
+		vim.cmd("tabdo wincmd =")
+		vim.cmd("tabnext " .. current_tab)
+	end,
+})
+
 -- Set expandtab=true in several file types
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "go", "makefile", "lua" },
@@ -15,12 +24,18 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "qf", "help", "man", "lspinfo" },
-	callback = function()
-		vim.cmd([[
-			nnoremap <silent> <buffer> q :close<CR>
-			set nobuflisted
-		]])
+	pattern = {
+		"help",
+		"lspinfo",
+		"man",
+		"notify",
+		"qf",
+		"query",
+		"checkhealth",
+	},
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
 	end,
 })
 
