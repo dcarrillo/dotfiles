@@ -1,7 +1,7 @@
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
-local opts = { silent = true }
+local opts = { noremap = true, silent = true }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -17,96 +17,259 @@ vim.g.mapleader = " "
 
 -- Kitty navigation
 vim.g.kitty_navigator_no_mappings = 1
-keymap("n", "<A-Left>", ":KittyNavigateLeft<cr>")
-keymap("n", "<A-Down>", ":KittyNavigateDown<cr>")
-keymap("n", "<A-Up>", ":KittyNavigateUp<cr>")
-keymap("n", "<A-Right>", ":KittyNavigateRight<cr>")
-
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<A-Left>", ":KittyNavigateLeft<cr>", vim.tbl_extend("force", opts, { desc = "Navigate left" }))
+keymap("n", "<A-Down>", ":KittyNavigateDown<cr>", vim.tbl_extend("force", opts, { desc = "Navigate down" }))
+keymap("n", "<A-Up>", ":KittyNavigateUp<cr>", vim.tbl_extend("force", opts, { desc = "Navigate up" }))
+keymap("n", "<A-Right>", ":KittyNavigateRight<cr>", vim.tbl_extend("force", opts, { desc = "Navigate right" }))
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<cr>", opts)
-keymap("n", "<C-Down>", ":resize +2<cr>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+keymap("n", "<C-Up>", ":resize -2<cr>", vim.tbl_extend("force", opts, { desc = "Window horizontal resize -2" }))
+keymap("n", "<C-Down>", ":resize +2<cr>", vim.tbl_extend("force", opts, { desc = "Window horizontal resize +2" }))
+keymap(
+	"n",
+	"<C-Left>",
+	":vertical resize -2<cr>",
+	vim.tbl_extend("force", opts, { desc = "Window vertical resize -2" })
+)
+keymap(
+	"n",
+	"<C-Right>",
+	":vertical resize +2<cr>",
+	vim.tbl_extend("force", opts, { desc = "Window vertical resize +2" })
+)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<cr>", opts)
-keymap("n", "<C-PageDown>", ":bnext<cr>", opts)
-keymap("n", "<S-h>", ":bprevious<cr>", opts)
-keymap("n", "<C-PageUp>", ":bprevious<cr>", opts)
+keymap(
+	"n",
+	"<C-PageDown>",
+	":bnext<cr>",
+	vim.tbl_extend("force", opts, { desc = "Navigate to the next buffer on the right" })
+)
+keymap(
+	"n",
+	"<C-PageUp>",
+	":bprevious<cr>",
+	vim.tbl_extend("force", opts, { desc = "Navigate to the previous buffer on the left" })
+)
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", opts)
+keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", vim.tbl_extend("force", opts, { desc = "Clear search highlights" }))
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<cr>", opts)
+keymap("n", "<S-q>", "<cmd>Bdelete!<cr>", vim.tbl_extend("force", opts, { desc = "Close buffer" }))
 
 -- LSP / Diagnostics
-keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
-keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
-keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
-keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
-keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
-keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-keymap("n", "E", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-keymap("n", "gd", "<cmd>Lspsaga finder<cr>", opts)
-keymap("n", "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", opts)
-keymap("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", opts)
-keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-keymap("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", opts)
-keymap("n", "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", opts)
-keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async=true }<cr>", opts)
-keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+keymap(
+	"n",
+	"<leader>xx",
+	"<cmd>TroubleToggle<cr>",
+	vim.tbl_extend("force", opts, { desc = "Toggle trouble diganostics" })
+)
+keymap(
+	"n",
+	"<leader>xw",
+	"<cmd>TroubleToggle workspace_diagnostics<cr>",
+	vim.tbl_extend("force", opts, { desc = "Toggle trouble workspace diganostics" })
+)
+keymap(
+	"n",
+	"<leader>xd",
+	"<cmd>TroubleToggle document_diagnostics<cr>",
+	vim.tbl_extend("force", opts, { desc = "Toggle trouble document diganostics" })
+)
+keymap(
+	"n",
+	"K",
+	"<cmd>Lspsaga hover_doc<cr>",
+	vim.tbl_extend("force", opts, { desc = "Show a hover window with the documentation" })
+)
+keymap(
+	"n",
+	"E",
+	"<cmd>Lspsaga show_line_diagnostics<cr>",
+	vim.tbl_extend("force", opts, { desc = "Show a hover window with the diagnostics of the error" })
+)
+keymap(
+	"n",
+	"gd",
+	"<cmd>Lspsaga finder<cr>",
+	vim.tbl_extend("force", opts, { desc = "Show a hover window with the usage of the directive under the cursor" })
+)
+keymap(
+	"n",
+	"<leader>ld",
+	"<cmd>Lspsaga goto_definition<cr>",
+	vim.tbl_extend("force", opts, { desc = "Navigate to the definition of the directive under the cursor" })
+)
+keymap(
+	"n",
+	"<leader>la",
+	"<cmd>Lspsaga code_action<cr>",
+	vim.tbl_extend("force", opts, { desc = "Show available code actions for the line under the cursor" })
+)
+keymap(
+	"n",
+	"<leader>lj",
+	"<cmd>Lspsaga diagnostic_jump_next<cr>",
+	vim.tbl_extend("force", opts, { desc = "Navigate to the next diagnostic in the buffer" })
+)
+keymap(
+	"n",
+	"<leader>lk",
+	"<cmd>Lspsaga diagnostic_jump_prev<cr>",
+	vim.tbl_extend("force", opts, { desc = "Navigate to the previous diagnostic in the buffer" })
+)
+keymap("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", vim.tbl_extend("force", opts, { desc = "Open a dialog to rename a code element" }))
+keymap(
+	"n",
+	"<leader>lp",
+	"<cmd>Lspsaga peek_definition<cr>",
+	vim.tbl_extend("force", opts, { desc = "Peek the definition of the directive under the cursor" })
+)
+keymap(
+	"n",
+	"<leader>lf",
+	"<cmd>lua vim.lsp.buf.format{ async=true }<cr>",
+	vim.tbl_extend("force", opts, { desc = "Format the current buffer or selection" })
+)
 
 -- Better paste
-keymap("v", "p", "P", opts)
+keymap("v", "p", "P", vim.tbl_extend("force", opts, { desc = "Paste" }))
 
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+keymap("i", "jk", "<ESC>", vim.tbl_extend("force", opts, { desc = "Enter in insert mode" }))
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- NeoTree
-keymap("n", "<leader>e", ":Neotree toggle<cr>", opts)
-keymap("n", "<leader>gg", ":Neotree float git_status<cr>", opts)
+keymap("n", "<leader>e", ":Neotree toggle<cr>", vim.tbl_extend("force", opts, { desc = "Toggle Neotree" }))
+keymap(
+	"n",
+	"<leader>gg",
+	":Neotree float git_status<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a float window with the git status" })
+)
 
 -- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
-keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
-keymap("n", "<leader>fc", ":Telescope commands<cr>", opts)
+keymap(
+	"n",
+	"<leader>ff",
+	":Telescope find_files<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a Telescope prompt to search for files" })
+)
+keymap(
+	"n",
+	"<C-p>",
+	":Telescope find_files<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a Telescope prompt to search for files" })
+)
+keymap(
+	"n",
+	"<leader>fg",
+	":Telescope live_grep<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a Telescope prompt to search for text in all files" })
+)
+keymap(
+	"n",
+	"<leader>fk",
+	":Telescope keymaps<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a Telescope prompt to show all keymaps" })
+)
+keymap(
+	"n",
+	"<leader>fc",
+	":Telescope commands<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a Telescope prompt to show all commands" })
+)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require'Comment.api'.toggle.linewise.current()<cr>", opts)
-keymap("x", "<leader>/", "<esc><cmd>lua require'Comment.api'.toggle.linewise(vim.fn.visualmode())<cr>", opts)
+keymap(
+	"n",
+	"<leader>/",
+	"<cmd>lua require'Comment.api'.toggle.linewise.current()<cr>",
+	vim.tbl_extend("force", opts, { desc = "Comment/Uncomment code lines" })
+)
+keymap(
+	"x",
+	"<leader>/",
+	"<esc><cmd>lua require'Comment.api'.toggle.linewise(vim.fn.visualmode())<cr>",
+	vim.tbl_extend(
+		"force",
+		opts,
+		{ desc = "Comment/Uncomment code lines on visual block mode" }
+	)
+)
 
 -- Gitdiff
-keymap("n", "<leader>df", ":DiffviewFileHistory %<cr>", opts)
-keymap("n", "<leader>dc", ":DiffviewClose<cr>", opts)
+keymap(
+	"n",
+	"<leader>df",
+	":DiffviewFileHistory %<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open diff view file history for the current buffer" })
+)
+keymap("n", "<leader>dc", ":DiffviewClose<cr>", vim.tbl_extend("force", opts, { desc = "Close diff view" }))
 
 -- Projects
-keymap("n", "<leader>fp", ":Telescope neovim-project discover<cr>", opts)
+keymap(
+	"n",
+	"<leader>fp",
+	":Telescope neovim-project discover<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a Telescope prompt to search for projects" })
+)
 
 -- Base64
-keymap("v", "<leader>64e", ":<c-u>lua require'b64'.encode()<cr>", opts)
-keymap("v", "<leader>64d", ":<c-u>lua require'b64'.decode()<cr>", opts)
+keymap(
+	"v",
+	"<leader>64e",
+	":<c-u>lua require'b64'.encode()<cr>",
+	vim.tbl_extend("force", opts, { desc = "Encode the visual selected text to base64" })
+)
+keymap(
+	"v",
+	"<leader>64d",
+	":<c-u>lua require'b64'.decode()<cr>",
+	vim.tbl_extend("force", opts, { desc = "Decode the visual selected text from base64" })
+)
 
 -- Illuminate
-keymap("n", "<A-n>", "<cmd>lua require'illuminate'.next_reference{wrap=true}<cr>", { noremap = true })
-keymap("n", "<A-p>", "<cmd>lua require'illuminate'.next_reference{reverse=true,wrap=true}<cr>", { noremap = true })
+keymap(
+	"n",
+	"<A-n>",
+	"<cmd>lua require'illuminate'.next_reference{wrap=true}<cr>",
+	vim.tbl_extend("force", opts, { desc = "Navigate to the next selected text by illuminate" })
+)
+keymap(
+	"n",
+	"<A-p>",
+	"<cmd>lua require'illuminate'.next_reference{reverse=true,wrap=true}<cr>",
+	vim.tbl_extend("force", opts, { desc = "Navigate to the previous selected text by illuminate" })
+)
 
 -- Folding
-keymap("n", "zR", "<cmd>lua require'ufo'.openAllFolds()<cr>", { desc = "Open all folds" })
-keymap("n", "zM", "<cmd>lua require'ufo'.closeAllFolds()<cr>", { desc = "Close all folds" })
-keymap("n", "zr", "<cmd>lua require'ufo'.openFoldsExceptKinds()<cr>", { desc = "Fold less" })
-keymap("n", "zm", "<cmd>lua require'ufo'.closeFoldsWith()<cr>", { desc = "Fold more" })
-keymap("n", "zp", "<cmd>lua require'ufo'.peekFoldedLinesUnderCursor()<cr>", { desc = "Peek fold" })
+keymap(
+	"n",
+	"zR",
+	"<cmd>lua require'ufo'.openAllFolds()<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open all folds" })
+)
+keymap(
+	"n",
+	"zM",
+	"<cmd>lua require'ufo'.closeAllFolds()<cr>",
+	vim.tbl_extend("force", opts, { desc = "Close all folds" })
+)
+keymap(
+	"n",
+	"zr",
+	"<cmd>lua require'ufo'.openFoldsExceptKinds()<cr>",
+	vim.tbl_extend("force", opts, { desc = "Fold less" })
+)
+keymap("n", "zm", "<cmd>lua require'ufo'.closeFoldsWith()<cr>", vim.tbl_extend("force", opts, { desc = "Fold more" }))
+keymap(
+	"n",
+	"zp",
+	"<cmd>lua require'ufo'.peekFoldedLinesUnderCursor()<cr>",
+	vim.tbl_extend("force", opts, { desc = "Peek fold" })
+)
