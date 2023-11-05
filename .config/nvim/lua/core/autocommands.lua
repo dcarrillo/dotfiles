@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 			vim.cmd("IBLDisable")
 			vim.cmd("LspStop")
 			if ts_was_active then
-				vim.notify("File larger than 1MB; syntax highlighting and heavy CPU use plugins turned off.")
+				vim.notify("File larger than 1MB; syntax highlighting and heavy CPU use plugins are turned off.")
 			end
 		end
 	end,

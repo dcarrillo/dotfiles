@@ -35,5 +35,17 @@ require("noice").setup({
 			},
 			opts = { skip = true },
 		},
+		{
+			view = "popup",
+			filter = {
+				find = "File larger than",
+			},
+			opts = {
+				size = {
+					width = 100,
+					height = 4,
+				},
+			},
+		},
 	},
 })
