@@ -119,7 +119,12 @@ keymap(
 	"<cmd>Lspsaga diagnostic_jump_prev<cr>",
 	vim.tbl_extend("force", opts, { desc = "Navigate to the previous diagnostic in the buffer" })
 )
-keymap("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", vim.tbl_extend("force", opts, { desc = "Open a dialog to rename a code element" }))
+keymap(
+	"n",
+	"<leader>lr",
+	"<cmd>Lspsaga rename<cr>",
+	vim.tbl_extend("force", opts, { desc = "Open a dialog to rename a code element" })
+)
 keymap(
 	"n",
 	"<leader>lp",
@@ -195,11 +200,7 @@ keymap(
 	"x",
 	"<leader>/",
 	"<esc><cmd>lua require'Comment.api'.toggle.linewise(vim.fn.visualmode())<cr>",
-	vim.tbl_extend(
-		"force",
-		opts,
-		{ desc = "Comment/Uncomment code lines on visual block mode" }
-	)
+	vim.tbl_extend("force", opts, { desc = "Comment/Uncomment code lines on visual block mode" })
 )
 
 -- Gitdiff
