@@ -11,8 +11,11 @@ require("noice").setup({
 			backend = "mini",
 			align = "message-left",
 			position = {
-				row = -1,
+				row = "98%",
 				col = "0%",
+			},
+			border = {
+				style = "rounded",
 			},
 		},
 	},
