@@ -3,6 +3,7 @@ local servers = {
 	"bashls",
 	"gopls",
 	"html",
+	-- "kotlin_language_server",
 	"jdtls",
 	"jsonls",
 	"lua_ls",
