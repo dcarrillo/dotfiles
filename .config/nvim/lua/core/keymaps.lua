@@ -132,7 +132,7 @@ keymap(
 	vim.tbl_extend("force", opts, { desc = "Peek the definition of the directive under the cursor" })
 )
 keymap(
-	"n",
+	{"n", "v"},
 	"<leader>lf",
 	"<cmd>lua vim.lsp.buf.format{ async=true }<cr>",
 	vim.tbl_extend("force", opts, { desc = "Format the current buffer or selection" })
