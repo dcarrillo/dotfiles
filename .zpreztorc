@@ -26,7 +26,6 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'editor' \
-  'history' \
   'directory' \
   'spectrum' \
   'utility' \
@@ -50,9 +49,9 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # History
 #
 
-zstyle ':prezto:module:history' histfile "~/.zsh_history"
-zstyle ':prezto:module:history' histsize "100000"
-zstyle ':prezto:module:history' histignorespace "true"
+# zstyle ':prezto:module:history' histfile "~/.zsh_history"
+# zstyle ':prezto:module:history' histsize "100000"
+# zstyle ':prezto:module:history' histignorespace "true"
 
 #
 # Prompt

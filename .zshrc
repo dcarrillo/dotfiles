@@ -19,9 +19,9 @@ setopt clobber
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' special-dirs true
 
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=100000
-export HISTSIZE=100000
+# export HISTFILE=~/.zsh_history
+# export HISTFILESIZE=100000
+# export HISTSIZE=100000
 
 unsetopt correct
 unsetopt correctall
@@ -90,7 +90,8 @@ siteinfo () {
 }
 
 remove_from_hist() {
-  LC_ALL=C sed -i "/$1/d" $HISTFILE
+  # LC_ALL=C sed -i "/$1/d" $HISTFILE
+  atuin search --delete $1
 }
 
 ##### tilix #####
@@ -145,9 +146,9 @@ fi
 
 eval "$(direnv hook zsh)"
 
-# Autocompletion
+# Atuin zsh history
 
-# autoload -U compinit && compinit
+eval "$(atuin init zsh)"
 
 # custom device
 
