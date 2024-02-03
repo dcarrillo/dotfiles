@@ -80,9 +80,16 @@ require("lazy").setup({
 						enabled = false,
 					},
 				},
+				styles = {
+					comments = "italic",
+					keywords = "italic",
+				},
 			}
 			local specs = {
 				github_dark_dimmed = {
+					syntax = {
+						builtin1 = "#96d0ff",
+					},
 					diagnostic = {
 						error = "#dd6861",
 					},
@@ -245,9 +252,9 @@ require("lazy").setup({
 		"pmizio/typescript-tools.nvim",
 		opts = {
 			settings = {
-				complete_function_calls = true
-			}
-		}
+				complete_function_calls = true,
+			},
+		},
 	},
 
 	-- Markdown
