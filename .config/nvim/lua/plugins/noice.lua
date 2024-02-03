@@ -10,6 +10,7 @@ require("noice").setup({
 		mini = {
 			backend = "mini",
 			align = "message-left",
+			focusable = false,
 			position = {
 				row = "98%",
 				col = "0%",
@@ -21,6 +22,13 @@ require("noice").setup({
 	},
 	messages = {
 		view_search = false,
+	},
+	lsp = {
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+			["cmp.entry.get_documentation"] = true,
+		},
 	},
 	routes = {
 		{

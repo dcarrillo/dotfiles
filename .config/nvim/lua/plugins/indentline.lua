@@ -14,6 +14,7 @@ require("ibl").setup({
 			"mini.starter",
 			"neo-tree",
 			"Trouble",
+			"trouble",
 			"lazy",
 			"mason",
 			"notify",

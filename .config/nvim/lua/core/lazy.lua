@@ -232,9 +232,23 @@ require("lazy").setup({
 		event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 	},
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/neotest-go",
+			"antoinemadec/FixCursorHold.nvim",
+		},
+	},
 
 	-- Typescript
-	{ "pmizio/typescript-tools.nvim", opts = {} },
+	{
+		"pmizio/typescript-tools.nvim",
+		opts = {
+			settings = {
+				complete_function_calls = true
+			}
+		}
+	},
 
 	-- Markdown
 	{ "mzlogin/vim-markdown-toc" },
