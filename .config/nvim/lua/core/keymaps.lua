@@ -138,11 +138,25 @@ keymap(
 	vim.tbl_extend("force", opts, { desc = "Format the current buffer or selection" })
 )
 
+-- Neotest
+keymap(
+	"n",
+	"<leader>tr",
+	"<cmd>RunTest<cr>",
+	vim.tbl_extend("force", opts, { desc = "Run test on the current function" })
+)
+keymap(
+	"n",
+	"<leader>tf",
+	"<cmd>RunTestFile<cr>",
+	vim.tbl_extend("force", opts, { desc = "Run tests on the current file" })
+)
+
 -- Better paste
 keymap("v", "p", "P", vim.tbl_extend("force", opts, { desc = "Paste" }))
 
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", vim.tbl_extend("force", opts, { desc = "Enter in insert mode" }))
+-- Press jk fast to exit insert mode
+keymap("i", "jk", "<ESC>", vim.tbl_extend("force", opts, { desc = "Exit insert mode" }))
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
