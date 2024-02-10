@@ -41,6 +41,11 @@ local venv = function()
 		return string.format(" %s", string.match(venv, "[^/]+$"))
 	end
 
+	venv = require("venv-selector").get_active_venv()
+	if venv then
+		return string.format(" %s", string.match(venv, "[^/]+$"))
+	end
+
 	return ""
 end
 

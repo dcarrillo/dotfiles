@@ -12,6 +12,7 @@ Neovim conf heavily adapted to suit my needs, formerly based on LunarVim's [basi
 * stylua
 * python-cfn-lint
 * python-black
+* python-debugpy
 * hadolint
 * revive
 * tree-sitter-cli

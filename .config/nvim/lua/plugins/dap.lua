@@ -1,7 +1,9 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
-require("dap-install").config("python", {})
+local debugpyPythonPath = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python3"
+require("dap-python").setup(debugpyPythonPath, {})
+
 dapui.setup({
 	layouts = {
 		{

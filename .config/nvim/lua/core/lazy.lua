@@ -226,8 +226,19 @@ require("lazy").setup({
 	-- DAP
 	{ "mfussenegger/nvim-dap", event = "VeryLazy", version = "0.*" },
 	{ "rcarriga/nvim-dap-ui", event = "VeryLazy", version = "v3.*" },
-	{ "ravenxrz/DAPInstall.nvim", event = "VeryLazy" },
 	{ "theHamsta/nvim-dap-virtual-text", event = "VeryLazy" },
+
+	-- Python
+	{
+		"linux-cultist/venv-selector.nvim",
+		dependencies = {
+			"mfussenegger/nvim-dap-python",
+		},
+		opts = {
+			dap_enabled = true,
+		},
+		event = "VeryLazy",
+	},
 
 	-- Go
 	{
@@ -239,6 +250,8 @@ require("lazy").setup({
 		event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 	},
+
+	-- Testing
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
