@@ -5,7 +5,7 @@ OUTPUT=""
 openvpn=$(pgrep -c openvpn$)
 [ "$openvpn" -gt 0 ] && OUTPUT=$(eval printf "%.0s" "{1..$openvpn}")
 
-openfortivpn=$(pgrep -c openfortivpn$)
-[ "$openfortivpn" -gt 0 ] && OUTPUT=${OUTPUT}$(eval printf '%.0s' "{1..$openfortivpn}")
+globalprotect=$(pgrep -c gpclient$)
+[ "$globalprotect" -gt 0 ] && OUTPUT=${OUTPUT}$(eval printf '%.0s' "{1..$globalprotect}")
 
 echo "$OUTPUT" | sed -e 's/\(.\)/\1 /g'
