@@ -15,7 +15,6 @@ vim.api.nvim_create_user_command("CopyDirectoryPath", function()
 	vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
 
-
 local neotest = require("neotest")
 
 neotest.setup({
@@ -30,11 +29,10 @@ neotest.setup({
 	},
 })
 
-
 vim.api.nvim_create_user_command("RunTest", function()
-    neotest.run.run()
+	neotest.run.run()
 end, {})
 
 vim.api.nvim_create_user_command("RunTestFile", function()
-    neotest.run.run(vim.fn.expand('%'))
+	neotest.run.run(vim.fn.expand("%"))
 end, {})

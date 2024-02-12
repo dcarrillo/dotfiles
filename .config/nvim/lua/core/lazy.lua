@@ -168,10 +168,10 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lsp",
 		},
 	},
-	{
-		"Exafunction/codeium.nvim",
-		event = "BufEnter",
-	},
+	-- {
+	-- 	"Exafunction/codeium.nvim",
+	-- 	event = "BufEnter",
+	-- },
 
 	-- Snippets
 	{ "L3MON4D3/LuaSnip", version = "v2.*", event = "InsertEnter" },
@@ -281,6 +281,24 @@ require("lazy").setup({
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
+	},
+
+	-- Copilot
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+	},
+	{ "zbirenbaum/copilot-cmp" },
+	{ "AndreM222/copilot-lualine" },
+	{
+		"copilotc-nvim/copilotchat.nvim",
+		opts = {
+			show_help = "yes",
+			debug = false,
+			disable_extra_info = "yes",
+		},
+		event = "VeryLazy",
 	},
 
 	-- Folding

@@ -1,5 +1,5 @@
 require("plugins.cmp")
-require("plugins.codeium")
+require("plugins.copilot")
 require("plugins.telescope")
 require("plugins.starter")
 require("plugins.treesitter")

@@ -35,7 +35,7 @@ bufferline.setup({
 					text = "  " .. string.gsub(vim.loop.cwd(), "^" .. os.getenv("HOME"), "~") .. "  "
 				end
 
-				return { { text = text, fg = "#636E7B" } }
+				return { { text = text, fg = "#adbac7" } }
 			end,
 		},
 	},

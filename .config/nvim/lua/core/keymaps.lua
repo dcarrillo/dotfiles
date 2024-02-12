@@ -122,7 +122,7 @@ keymap(
 keymap(
 	"n",
 	"<leader>lr",
-	"<cmd>Lspsaga rename<cr>",
+	"<cmd>Lspsaga rename mode=n<cr>",
 	vim.tbl_extend("force", opts, { desc = "Open a dialog to rename a code element" })
 )
 keymap(
@@ -132,7 +132,7 @@ keymap(
 	vim.tbl_extend("force", opts, { desc = "Peek the definition of the directive under the cursor" })
 )
 keymap(
-	{"n", "v"},
+	{ "n", "v" },
 	"<leader>lf",
 	"<cmd>lua vim.lsp.buf.format{ async=true }<cr>",
 	vim.tbl_extend("force", opts, { desc = "Format the current buffer or selection" })
@@ -150,6 +150,20 @@ keymap(
 	"<leader>tf",
 	"<cmd>RunTestFile<cr>",
 	vim.tbl_extend("force", opts, { desc = "Run tests on the current file" })
+)
+
+-- Copilot
+keymap(
+	"n",
+	"<leader>coe",
+	"<cmd>CopilotChatExplain<cr>",
+	vim.tbl_extend("force", opts, { desc = "CopilotChat - Explain code" })
+)
+keymap(
+	"n",
+	"<leader>cot",
+	"<cmd>CopilotChatTests<cr>",
+	vim.tbl_extend("force", opts, { desc = "CopilotChat - Generate tests" })
 )
 
 -- Better paste

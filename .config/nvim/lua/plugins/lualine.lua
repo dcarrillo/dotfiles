@@ -98,6 +98,7 @@ require("lualine").setup({
 					return true
 				end,
 			},
+			"copilot",
 			lsp_progress,
 			{
 				require("noice").api.status.search.get,

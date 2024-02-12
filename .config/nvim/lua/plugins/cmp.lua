@@ -103,7 +103,7 @@ cmp.setup({
 				nvim_lsp = "[lsp]",
 				luasnip = "[snip]",
 				buffer = "[local]",
-				codeium = "[AI]",
+				copilot = "[AI]",
 				path = "",
 				emoji = "",
 			})[entry.source.name]
@@ -115,7 +115,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "codeium" },
+		{ name = "copilot" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
