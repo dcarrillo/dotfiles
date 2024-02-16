@@ -153,18 +153,12 @@ keymap(
 )
 
 -- Copilot
-keymap(
-	"n",
-	"<leader>coe",
-	"<cmd>CopilotChatExplain<cr>",
-	vim.tbl_extend("force", opts, { desc = "CopilotChat - Explain code" })
-)
-keymap(
-	"n",
-	"<leader>cot",
-	"<cmd>CopilotChatTests<cr>",
-	vim.tbl_extend("force", opts, { desc = "CopilotChat - Generate tests" })
-)
+keymap("n", "<leader>coa", function()
+	require("CopilotChat.code_actions").show_help_actions()
+end, vim.tbl_extend("force", opts, { desc = "CopilotChat - Help actions" }))
+keymap("n", "<leader>cop", function()
+	require("CopilotChat.code_actions").show_prompt_actions()
+end, vim.tbl_extend("force", opts, { desc = "CopilotChat - Prompt actions" }))
 
 -- Better paste
 keymap("v", "p", "P", vim.tbl_extend("force", opts, { desc = "Paste" }))

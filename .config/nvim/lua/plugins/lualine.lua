@@ -54,7 +54,7 @@ local get_filetype = function()
 
 	if ft == "yaml" then
 		local schema = require("yaml-companion").get_buf_schema(0)
-		if schema.result[1].name == "none" then
+		if not schema or not schema.result or not schema.result[1].name then
 			return ft
 		end
 
@@ -98,7 +98,20 @@ require("lualine").setup({
 					return true
 				end,
 			},
-			"copilot",
+			{
+				"copilot",
+				symbols = {
+					status = {
+						icons = {
+							enabled = " ",
+							sleep = " ",
+							disabled = " ",
+							warning = " ",
+							unknown = " ",
+						},
+					},
+				},
+			},
 			lsp_progress,
 			{
 				require("noice").api.status.search.get,

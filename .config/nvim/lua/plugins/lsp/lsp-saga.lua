@@ -8,6 +8,7 @@ require("lspsaga").setup({
 	},
 	code_action = {
 		show_server_name = true,
+		extend_gitsigns = true,
 	},
 	rename = {
 		auto_save = true,

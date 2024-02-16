@@ -120,7 +120,7 @@ require("lazy").setup({
 		},
 	},
 	{ "romgrk/fzy-lua-native" },
-	{ "mg979/vim-visual-multi", version = "v0.*" },
+	{ "mg979/vim-visual-multi" },
 	{
 		"coffebar/neovim-project",
 		opts = {
@@ -263,11 +263,6 @@ require("lazy").setup({
 	-- Typescript
 	{
 		"pmizio/typescript-tools.nvim",
-		opts = {
-			settings = {
-				complete_function_calls = true,
-			},
-		},
 	},
 
 	-- Markdown
@@ -293,11 +288,6 @@ require("lazy").setup({
 	{ "AndreM222/copilot-lualine" },
 	{
 		"copilotc-nvim/copilotchat.nvim",
-		opts = {
-			show_help = "yes",
-			debug = false,
-			disable_extra_info = "yes",
-		},
 		event = "VeryLazy",
 	},
 
