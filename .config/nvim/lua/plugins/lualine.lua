@@ -110,6 +110,7 @@ require("lualine").setup({
 							unknown = " ",
 						},
 					},
+					spinners = require("copilot-lualine.spinners").dots,
 				},
 			},
 			lsp_progress,

@@ -33,4 +33,5 @@ require("CopilotChat").setup({
 	debug = false,
 	disable_extra_info = "yes",
 	prompts = prompts,
+	temperature = 0.1,
 })
