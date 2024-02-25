@@ -91,7 +91,7 @@ siteinfo () {
 
 remove_from_hist() {
   # LC_ALL=C sed -i "/$1/d" $HISTFILE
-  atuin search --delete $1
+  atuin search --delete --search-mode=full-text $1
 }
 
 ##### tilix #####
