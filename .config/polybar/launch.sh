@@ -3,6 +3,7 @@
 [ -f ~/.config/polybar/bar.env ] && . ~/.config/polybar/bar.env
 
 export TERMINAL_CMD=${TERMINAL_CMD:-"kitty --class=info --override='foreground=#c69026' "}
+export BROWSER_CMD=${BROWSER_CMD:-"librewolf"}
 export WM_CONTROL=${WM_CONTROL:-"~/.config/polybar/scripts/switch_window_state"}
 export ROFI_THEME=${ROFI_THEME:-orange}
 
