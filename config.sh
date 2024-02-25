@@ -11,7 +11,7 @@ copy_dotfiles()
         --exclude ".git*" \
         --exclude "$(basename "$0")" \
         --exclude "LICENSE" \
-        --exclude "README.md" \
+        --exclude "README.md" "$@" \
         -hlav --no-perms . ~
 
     echo ""
@@ -63,11 +63,13 @@ main()
             dconf_dumper
         ;;
         --install)
-            copy_dotfiles
+            shift
+            copy_dotfiles "$@"
             dconf_loader
         ;;
         --install-dotfiles)
-            copy_dotfiles
+            shift
+            copy_dotfiles "$@"
         ;;
         --install-dconf)
             dconf_loader
@@ -80,5 +82,5 @@ main()
     cd - > /dev/null
 }
 
-main "$1"
+main "$@"
 
