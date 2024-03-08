@@ -14,7 +14,7 @@ none_ls.setup({
 	debug = false,
 	sources = {
 		formatting.black.with({
-			extra_args = { "--fast" },
+			extra_args = { "--fast", "--line-length", "100" },
 		}),
 		formatting.stylua,
 		formatting.prettier,
