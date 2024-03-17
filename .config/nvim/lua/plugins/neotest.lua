@@ -26,6 +26,7 @@ neotest.setup({
 			},
 			args = { "-count=1" },
 		}),
+		require("neotest-python")({}),
 	},
 })
 

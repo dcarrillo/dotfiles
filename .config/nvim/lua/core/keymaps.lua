@@ -153,11 +153,13 @@ keymap(
 )
 
 -- Copilot
-keymap("n", "<leader>coa", function()
-	require("CopilotChat.code_actions").show_help_actions()
+keymap({ "n", "v" }, "<leader>coa", function()
+	local actions = require("CopilotChat.actions")
+	require("CopilotChat.integrations.telescope").pick(actions.help_actions())
 end, vim.tbl_extend("force", opts, { desc = "CopilotChat - Help actions" }))
-keymap("n", "<leader>cop", function()
-	require("CopilotChat.code_actions").show_prompt_actions()
+keymap("n", "<leader>coh", function()
+	local actions = require("CopilotChat.actions")
+	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
 end, vim.tbl_extend("force", opts, { desc = "CopilotChat - Prompt actions" }))
 
 -- Better paste

@@ -3,7 +3,7 @@
 URL=${1:-1.0.0.1}
 
 output=$(fping --quiet --outage --count=5 "$URL" 2>&1)
-outage_output=""
+outage_output=" "
 outage_color="FFFFFF"
 avg_output=""
 avg_color="FFFFFF"

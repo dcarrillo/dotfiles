@@ -96,7 +96,14 @@ require("lazy").setup({
 				},
 			}
 			require("github-theme").setup({ options = options, specs = specs })
-			vim.cmd("colorscheme github_dark_dimmed")
+		end,
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		lazy = false,
+		config = function()
+			vim.cmd("colorscheme rose-pine-moon")
 		end,
 	},
 
@@ -256,6 +263,7 @@ require("lazy").setup({
 		"nvim-neotest/neotest",
 		dependencies = {
 			"nvim-neotest/neotest-go",
+			"nvim-neotest/neotest-python",
 			"antoinemadec/FixCursorHold.nvim",
 		},
 	},
@@ -288,6 +296,7 @@ require("lazy").setup({
 	{ "AndreM222/copilot-lualine" },
 	{
 		"copilotc-nvim/copilotchat.nvim",
+		branch = "canary",
 		event = "VeryLazy",
 	},
 
@@ -317,4 +326,6 @@ require("lazy").setup({
 			},
 		},
 	},
+
+	{ "robbles/logstash.vim" },
 }, lazy_opts)

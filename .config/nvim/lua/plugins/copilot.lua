@@ -14,25 +14,16 @@ require("copilot").setup({
 	},
 })
 
-require("copilot_cmp").setup()
-
 local prompts = {
-	-- Code related prompts
-	Explain = "Please explain how the following code works.",
-	Review = "Please review the following code and provide suggestions for improvement.",
-	Tests = "Please explain how the selected code works, then generate unit tests for it.",
-	Refactor = "Please refactor the following code to improve its clarity and readability.",
-	FixCode = "Please fix the following code to make it work as intended.",
-	BetterNamings = "Please provide better names for the following variables and functions.",
-	-- Text related prompts
-	Spelling = "Please correct any grammar and spelling errors in the following text. Respect the markdown format when provided",
-	Wording = "Please improve the grammar and wording of the following text. Respect the markdown format when provided",
+	Spelling = {
+		prompt = "/Spelling Please correct any grammar and spelling errors in the following text. Respect the markdown format when provided",
+	},
 }
+
+require("copilot_cmp").setup()
 require("CopilotChat").setup({
-	show_help = "yes",
 	debug = false,
-	disable_extra_info = "yes",
-	clear_chat_on_new_prompt = "yes",
+	show_user_selection = false,
+	clear_chat_on_new_prompt = true,
 	prompts = prompts,
-	temperature = 0.1,
 })
