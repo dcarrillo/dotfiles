@@ -264,6 +264,7 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-neotest/neotest-go",
 			"nvim-neotest/neotest-python",
+			"nvim-neotest/nvim-nio",
 			"antoinemadec/FixCursorHold.nvim",
 		},
 	},
