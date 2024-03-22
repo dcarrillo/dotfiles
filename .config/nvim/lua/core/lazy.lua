@@ -233,7 +233,7 @@ require("lazy").setup({
 
 	-- DAP
 	{ "mfussenegger/nvim-dap", event = "VeryLazy", version = "0.*" },
-	{ "rcarriga/nvim-dap-ui", event = "VeryLazy", version = "v3.*" },
+	{ "rcarriga/nvim-dap-ui", event = "VeryLazy", version = "v4.*" },
 	{ "theHamsta/nvim-dap-virtual-text", event = "VeryLazy" },
 
 	-- Python
