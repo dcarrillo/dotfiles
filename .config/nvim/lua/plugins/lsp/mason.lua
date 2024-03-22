@@ -7,7 +7,7 @@ local servers = {
 	"jdtls",
 	"jsonls",
 	"lua_ls",
-	"pyright",
+	"basedpyright",
 	"ruff_lsp",
 	"terraformls",
 	"yamlls",
