@@ -47,7 +47,7 @@ alias issh='kitten ssh'
 alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
 alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
 alias rgh="rg --hidden --glob '!.git/'"
-alias fdh='fd --hidden --exclude .git'
+alias fdh='fd --hidden --no-ignore --exclude .git'
 alias vim=nvim
 alias neovim=nvim
 alias disable-hl='ZSH_HIGHLIGHT_MAXLENGTH=0'
