@@ -13,6 +13,8 @@ return {
 					reportMissingTypeStubs = "information",
 					reportUnknownMemberType = "information",
 					reportUnknownVariableType = "information",
+					reportArgumentType = "information",
+					reportIndexIssues = "information",
 				},
 			},
 		},
