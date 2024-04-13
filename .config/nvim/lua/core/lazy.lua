@@ -191,7 +191,7 @@ require("lazy").setup({
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "nvimtools/none-ls.nvim", event = "BufReadPre" },
 	{ "RRethy/vim-illuminate", event = "BufReadPost" },
-	{ "folke/trouble.nvim", cmd = { "TroubleToggle", "Trouble" } },
+	{ "folke/trouble.nvim", branch = "dev" },
 	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
 

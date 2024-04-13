@@ -62,20 +62,14 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<cr>", vim.tbl_extend("force", opts, { desc =
 keymap(
 	"n",
 	"<leader>xx",
-	"<cmd>TroubleToggle<cr>",
+	"<cmd>Trouble diagnostics toggle<cr>",
 	vim.tbl_extend("force", opts, { desc = "Toggle trouble diganostics" })
 )
 keymap(
 	"n",
-	"<leader>xw",
-	"<cmd>TroubleToggle workspace_diagnostics<cr>",
-	vim.tbl_extend("force", opts, { desc = "Toggle trouble workspace diganostics" })
-)
-keymap(
-	"n",
 	"<leader>xd",
-	"<cmd>TroubleToggle document_diagnostics<cr>",
-	vim.tbl_extend("force", opts, { desc = "Toggle trouble document diganostics" })
+	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+	vim.tbl_extend("force", opts, { desc = "Toggle trouble buffer diganostics" })
 )
 keymap(
 	"n",

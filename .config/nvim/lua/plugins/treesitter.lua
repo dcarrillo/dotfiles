@@ -4,6 +4,7 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"markdown_inline",
 		"bash",
+		"diff",
 		"python",
 		"go",
 		"gomod",
