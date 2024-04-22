@@ -11,6 +11,7 @@ return {
 					-- reportAny = true
 					reportOptionalIterable = "warning",
 					reportArgumentType = "warning",
+					reportAssignmentType = "warning",
 				},
 			},
 		},
