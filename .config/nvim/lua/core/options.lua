@@ -25,8 +25,7 @@ vim.opt.number = true
 vim.opt.laststatus = 3
 vim.opt.showcmd = false
 vim.opt.ruler = false
--- vim.opt.cc = "80"
-vim.opt.listchars = "tab: ,trail:Ç"
+vim.opt.listchars = "tab: ,trail:Ç"
 vim.opt.list = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
@@ -47,6 +46,4 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldcolumn = "1"
 vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff: ]]
-
--- experimental
 vim.opt.cmdheight = 0 -- Number of screen lines to use for the command-line
