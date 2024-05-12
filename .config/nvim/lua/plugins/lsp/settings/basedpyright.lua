@@ -12,6 +12,7 @@ return {
 					reportOptionalIterable = "warning",
 					reportArgumentType = "warning",
 					reportAssignmentType = "warning",
+					reportIndexIssue = "warning",
 				},
 			},
 		},
