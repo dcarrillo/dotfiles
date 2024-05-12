@@ -49,13 +49,13 @@ get_icon_by_name()
 	name=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 	declare -A ICON_MAP=(
 		[10]=
-		[brave-browser]=
+		[brave-browser]=
 		[chromium]=
 		[code]=
 		[eog]=
 		[evince]=
 		[file-roller]=
-		[firefox]=
+		[firefox]=
 		[glrnvim]=
 		[gnome-calculator]=
 		[gnome-calendar]=
@@ -65,8 +65,6 @@ get_icon_by_name()
 		[keepassxc]=
         [info]=
 		[kitty]=
-		[librewolf-default]=
-		[librewolf]=
 		[nautilus]=
 		[nextcloud]=
 		[nuclear]=󰋋
