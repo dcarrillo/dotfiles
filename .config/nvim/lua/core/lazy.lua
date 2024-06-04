@@ -191,7 +191,7 @@ require("lazy").setup({
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "nvimtools/none-ls.nvim", event = "BufReadPre" },
 	{ "RRethy/vim-illuminate", event = "BufReadPost" },
-	{ "folke/trouble.nvim", branch = "dev" },
+	{ "folke/trouble.nvim" },
 	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
 
@@ -242,10 +242,13 @@ require("lazy").setup({
 		dependencies = {
 			"mfussenegger/nvim-dap-python",
 		},
-		opts = {
-			dap_enabled = true,
-		},
-		event = "VeryLazy",
+		lazy = false,
+		branch = "regexp",
+		config = function()
+			require("venv-selector").setup({
+				dap_enabled = true,
+			})
+		end,
 	},
 
 	-- Go
