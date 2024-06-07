@@ -235,13 +235,11 @@ require("lazy").setup({
 	{ "mfussenegger/nvim-dap", event = "VeryLazy", version = "0.*" },
 	{ "rcarriga/nvim-dap-ui", event = "VeryLazy", version = "v4.*" },
 	{ "theHamsta/nvim-dap-virtual-text", event = "VeryLazy" },
+	{ "mfussenegger/nvim-dap-python" },
 
 	-- Python
 	{
 		"linux-cultist/venv-selector.nvim",
-		dependencies = {
-			"mfussenegger/nvim-dap-python",
-		},
 		lazy = false,
 		branch = "regexp",
 		config = function()

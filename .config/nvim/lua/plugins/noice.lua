@@ -47,6 +47,13 @@ require("noice").setup({
 			opts = { skip = true },
 		},
 		{
+			filter = {
+				event = "notify",
+				kind = "debug",
+			},
+			opts = { skip = true },
+		},
+		{
 			view = "popup",
 			filter = {
 				find = "File larger than",
