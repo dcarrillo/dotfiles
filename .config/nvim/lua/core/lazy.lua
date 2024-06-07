@@ -172,18 +172,9 @@ require("lazy").setup({
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 		},
 	},
-	-- {
-	-- 	"Exafunction/codeium.nvim",
-	-- 	event = "BufEnter",
-	-- },
-
-	-- Snippets
-	{ "L3MON4D3/LuaSnip", version = "v2.*", event = "InsertEnter" },
-	{ "rafamadriz/friendly-snippets" },
 
 	-- LSP
 	{ "neovim/nvim-lspconfig", event = "BufReadPre" },
