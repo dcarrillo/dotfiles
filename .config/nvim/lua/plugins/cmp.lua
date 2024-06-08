@@ -45,9 +45,9 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-q>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm(),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			cmp.select_next_item()
-		end),
+		-- ["<Tab>"] = cmp.mapping(function(fallback)
+		-- 	cmp.select_next_item()
+		-- end),
 		["<C-CR>"] = function(fallback)
 			cmp.abort()
 			fallback()

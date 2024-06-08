@@ -114,7 +114,7 @@ require("lazy").setup({
 	{ "numToStr/Comment.nvim", version = "v0.*" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
-	{ "akinsho/bufferline.nvim", event = "VeryLazy", branch = "main" }, -- version = "v4.*" },
+	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v4.*" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", main = "ibl" },
@@ -185,6 +185,11 @@ require("lazy").setup({
 	{ "folke/trouble.nvim" },
 	{ "glepnir/lspsaga.nvim", event = "BufRead" },
 	{ "arkav/lualine-lsp-progress" },
+	{
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+	},
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },

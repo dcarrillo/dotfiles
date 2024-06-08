@@ -1,6 +1,4 @@
 local none_ls = require("null-ls")
--- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-local formatting = none_ls.builtins.formatting
 -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = none_ls.builtins.diagnostics
 
@@ -13,11 +11,6 @@ end
 none_ls.setup({
 	debug = false,
 	sources = {
-		formatting.black.with({
-			extra_args = { "--fast", "--line-length", "100" },
-		}),
-		formatting.stylua,
-		formatting.prettier,
 		diagnostics.hadolint,
 		diagnostics.markdownlint,
 		diagnostics.revive.with({
