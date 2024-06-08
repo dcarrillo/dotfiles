@@ -140,7 +140,7 @@ require("lazy").setup({
 		dependencies = {
 			{ "Shatur/neovim-session-manager" },
 		},
-		priority = 100,
+		event = "VeryLazy",
 	},
 	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
 	{
@@ -163,6 +163,10 @@ require("lazy").setup({
 		"knubie/vim-kitty-navigator",
 		version = "*",
 		build = "cp ./*.py ~/.config/kitty/",
+	},
+	{
+		"MagicDuck/grug-far.nvim",
+		event = "VeryLazy",
 	},
 
 	-- cmp plugins

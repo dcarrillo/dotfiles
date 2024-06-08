@@ -34,6 +34,10 @@ vim.api.nvim_create_user_command("RunTest", function()
 	neotest.run.run()
 end, {})
 
+vim.api.nvim_create_user_command("DebugTest", function()
+	neotest.run.run({ strategy = "dap" })
+end, {})
+
 vim.api.nvim_create_user_command("RunTestFile", function()
 	neotest.run.run(vim.fn.expand("%"))
 end, {})
