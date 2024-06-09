@@ -81,12 +81,12 @@ kexec () {
 }
 
 siteinfo () {
-  local url="$1"
+  local url=$(echo "$1" | sed 's#^https\?://##')
   local ip="$(dig +short "$url" | tail -1)"
 
   whois "$ip"
   echo "Technology detected for $url with IP $ip"
-  httpx -silent -json -follow-redirects -ip -tech-detect -target "$url" | jq -rc '.tech'
+  httpx-toolkit -silent -json -follow-redirects -ip -tech-detect -target "$url" | jq -rc '.tech'
 }
 
 remove_from_hist() {
