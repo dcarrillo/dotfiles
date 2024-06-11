@@ -25,14 +25,14 @@ local lsp_progress = {
 }
 
 local spaces = function()
-	local expandtab = vim.api.nvim_buf_get_option(0, "expandtab")
+	local expandtab = vim.api.nvim_get_option_value("expandtab", { buf = 0 })
 
 	local title = "spaces: "
 	if not expandtab then
 		title = "tab: "
 	end
 
-	return title .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+	return title .. vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
 end
 
 local venv = function()
