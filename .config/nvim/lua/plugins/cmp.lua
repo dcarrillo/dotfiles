@@ -39,20 +39,35 @@ local kind_icons = {
 }
 
 cmp.setup({
-	mapping = cmp.mapping.preset.insert({
-		["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+	mapping = {
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-k>"] = cmp.mapping.scroll_docs(-1),
+		["<C-j>"] = cmp.mapping.scroll_docs(1),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-q>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm(),
-		-- ["<Tab>"] = cmp.mapping(function(fallback)
-		-- 	cmp.select_next_item()
-		-- end),
-		["<C-CR>"] = function(fallback)
-			cmp.abort()
-			fallback()
-		end,
-	}),
+		["<C-q>"] = cmp.mapping.close(),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Insert,
+			select = true,
+		}),
+
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+	},
+
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)

@@ -133,6 +133,7 @@ require("lazy").setup({
 		opts = {
 			projects = projects(),
 			last_session_on_startup = false,
+			filetype_autocmd_timeout = 0,
 		},
 		init = function()
 			vim.opt.sessionoptions:append("globals")
