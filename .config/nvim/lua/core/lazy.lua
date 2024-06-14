@@ -19,34 +19,6 @@ local lazy_opts = {
 	},
 }
 
-local uv = vim.loop
-local function readFile(path)
-	local fd = uv.fs_open(path, "r", 438)
-	if fd == nil then
-		return nil
-	end
-	local stat = uv.fs_fstat(fd)
-	if fd == nil then
-		return nil
-	end
-	local data = uv.fs_read(fd, stat.size, 0)
-	if data == nil then
-		return nil
-	end
-	assert(uv.fs_close(fd))
-
-	return data
-end
-
-local projects = function()
-	local data = readFile(os.getenv("HOME") .. "/.config/nvim/neovim-projects.json")
-	if data then
-		return vim.json.decode(data)
-	else
-		return {}
-	end
-end
-
 require("lazy").setup({
 	-- Colorschemes
 	{
@@ -111,7 +83,7 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "echasnovski/mini.starter", lazy = "VimEnter", version = "*" },
 	{ "windwp/nvim-autopairs" },
-	{ "numToStr/Comment.nvim", version = "v0.*" },
+	{ "numToStr/Comment.nvim" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v4.*" },
@@ -130,14 +102,6 @@ require("lazy").setup({
 	{ "mg979/vim-visual-multi" },
 	{
 		"coffebar/neovim-project",
-		opts = {
-			projects = projects(),
-			last_session_on_startup = false,
-			filetype_autocmd_timeout = 0,
-		},
-		init = function()
-			vim.opt.sessionoptions:append("globals")
-		end,
 		dependencies = {
 			{ "Shatur/neovim-session-manager" },
 		},
@@ -154,7 +118,6 @@ require("lazy").setup({
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 	{
 		"ggandor/leap.nvim",
-		version = "*",
 		config = function()
 			require("leap").add_default_mappings()
 			vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
@@ -162,7 +125,6 @@ require("lazy").setup({
 	},
 	{
 		"knubie/vim-kitty-navigator",
-		version = "*",
 		build = "cp ./*.py ~/.config/kitty/",
 	},
 	{
