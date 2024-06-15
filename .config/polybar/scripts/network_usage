@@ -22,7 +22,7 @@ get_icon_by_device()
         ;;
     esac
 
-    echo $icon
+    echo "$icon"
 }
 
 while true; do
@@ -58,9 +58,9 @@ while true; do
             output="  0.01  0.01"
         fi
 
-        echo "$icon$output"
+        echo "%{T2}$icon%{T-}$output"
     else
-        echo "$icon--  --"
+        echo "%{T2}$icon%{T-} --  --"
     fi
 
     echo "$current_values">$COUNTER_FILE

@@ -3,6 +3,6 @@
 while true; do
     UPDATES=$(checkupdates 2>/dev/null | wc -l)
 
-    [ "$UPDATES" -gt 0 ] && echo " $UPDATES" && sleep 30
+    [ "$UPDATES" -gt 0 ] && echo "%{T2} %{T-}$UPDATES" && sleep 30
     [ "$UPDATES" -eq 0 ] && echo "" && sleep 300
 done

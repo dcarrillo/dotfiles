@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+output=""
+while IFS="[ .]" read -r connected paused;  do
+    if [ "$paused" == "true" ]; then
+        output="${output} "
+        continue
+    fi
+
+    if [ "$connected" == "false" ]; then
+        output="${output}󰅤  "
+    else
+        output="${output}  "
+    fi
+done <<-EOF
+    $(syncthing cli show connections | jq -r '.connections[] | "\(.connected) \(.paused)"')
+EOF
+
+printf "%s" "%{T2}${output%?}%{T-}"

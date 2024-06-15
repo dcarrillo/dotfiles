@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-OUTPUT=""
+openvpn_icon="%{T2}%{T-}"
+globalprotect_icon="%{T2}%{T-}"
 
-openvpn=$(pgrep -c openvpn$)
-[ "$openvpn" -gt 0 ] && OUTPUT=$(eval printf "%.0s" "{1..$openvpn}")
+output=""
+if pgrep openvpn >/dev/null; then
+    output=${openvpn_icon}
+fi
 
-globalprotect=$(pgrep -c gpclient$)
-[ "$globalprotect" -gt 0 ] && OUTPUT=${OUTPUT}$(eval printf '%.0s' "{1..$globalprotect}")
+if pgrep gpclient >/dev/null; then
+    output="${output} ${globalprotect_icon}"
+fi
 
-echo "$OUTPUT" | sed -e 's/\(.\)/\1 /g'
+echo "$output"

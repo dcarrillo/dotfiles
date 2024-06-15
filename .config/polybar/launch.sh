@@ -15,7 +15,7 @@ function wait_for_polybar
     fi
 
     while [ "$(pgrep -u "$(id -u)" -x polybar >/dev/null)" = $condition ]; do
-        sleep 0.2
+        sleep 1
     done
 }
 
