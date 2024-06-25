@@ -51,6 +51,8 @@ alias fdh='fd --hidden --no-ignore --exclude .git'
 alias vim=nvim
 alias neovim=nvim
 alias disable-hl='ZSH_HIGHLIGHT_MAXLENGTH=0'
+alias atuin_delete='atuin search --delete --search-mode=full-text $1'
+alias atuin_search='atuin search --search-mode=full-text $1'
 
 ##### Functions to be used from command line #####
 
@@ -89,12 +91,7 @@ siteinfo () {
   httpx-toolkit -silent -json -follow-redirects -ip -tech-detect -target "$url" | jq -rc '.tech'
 }
 
-remove_from_hist() {
-  # LC_ALL=C sed -i "/$1/d" $HISTFILE
-  atuin search --delete --search-mode=full-text $1
-}
-
-##### tilix #####
+##### tilix ####
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]  ; then
     source /etc/profile.d/vte.sh
