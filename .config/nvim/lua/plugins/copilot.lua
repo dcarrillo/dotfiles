@@ -25,6 +25,6 @@ require("copilot_cmp").setup()
 require("CopilotChat").setup({
 	debug = false,
 	show_user_selection = false,
-	clear_chat_on_new_prompt = true,
+	clear_chat_on_new_prompt = false,
 	prompts = prompts,
 })
