@@ -34,8 +34,6 @@ require("lazy").setup({
 				},
 				on_colors = function(colors)
 					colors.error = "#ff966c"
-					colors.gitSigns.add = "#c3e88d"
-					colors.gitSigns.change = "#779be9"
 				end,
 			})
 		end,

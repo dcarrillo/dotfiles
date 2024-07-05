@@ -4,7 +4,8 @@ require("lspsaga").setup({
 		code_action_icon = "",
 	},
 	lightbulb = {
-		sign = false,
+		sign = true,
+		enable = false,
 	},
 	code_action = {
 		show_server_name = true,
