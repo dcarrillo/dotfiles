@@ -249,6 +249,11 @@ require("lazy").setup({
 		end,
 		ft = { "markdown" },
 	},
+	{
+		"MeanderingProgrammer/markdown.nvim",
+		main = "render-markdown",
+		name = "render-markdown",
+	},
 
 	-- Copilot
 	{
