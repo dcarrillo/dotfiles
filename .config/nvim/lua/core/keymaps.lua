@@ -14,6 +14,10 @@ vim.g.mapleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+--
+
+-- Apply q macro
+keymap("n", "<F9>", "@q", vim.tbl_extend("force", opts, { desc = "Run default macro" }))
 
 -- Kitty navigation
 vim.g.kitty_navigator_no_mappings = 1
