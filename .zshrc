@@ -30,29 +30,29 @@ PROMPT_EOL_MARK=''
 
 ##### aliases ######
 
+alias atuin_delete='atuin search --delete --search-mode=full-text $1'
+alias atuin_search='atuin search --search-mode=full-text $1'
+alias bat='bat --style=plain --paging=never --theme=Nord $*'
+alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
 alias chromium-socks='chromium --proxy-server=socks://localhost:3000'
-alias curlmobile='curl -A "Mozilla/5.0 (Linux; Android 9; AR 4G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36"'
-alias curlr='curl -o /dev/null -w "\n\nCode:   \t%{http_code}\n\nDNS:    \t%{time_namelookup}\nConnect:\t%{time_connect}\nStartTransfer:\t%{time_starttransfer} (PreTransfer:%{time_pretransfer})\nTotal:   \t%{time_total}\n\n"'
 alias curlh='curl -sD - -o /dev/null'
-alias duh='du -sch .[!.]* *'
-alias gb="git checkout \$(git branch -avv | fzf +m | awk '{print \$1}')"
-alias open='xdg-open'
-alias yayU='yay -Suy --noconfirm'
-alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
+alias curlr='curl -o /dev/null -w "\n\nCode:   \t%{http_code}\n\nDNS:    \t%{time_namelookup}\nConnect:\t%{time_connect}\nStartTransfer:\t%{time_starttransfer} (PreTransfer:%{time_pretransfer})\nTotal:   \t%{time_total}\n\n"'
+alias disable-hl='ZSH_HIGHLIGHT_MAXLENGTH=0'
 alias dkillall='docker rm -f $(docker ps -qa)'
-alias k=kubectl
+alias duh='du -sch .[!.]* *'
+alias fdh='fd --hidden --no-ignore --exclude .git'
+alias gb="git checkout \$(git branch -avv | fzf +m | awk '{print \$1}')"
 alias icat='kitten icat --align=left'
 alias idiff='kitten diff'
 alias issh='kitten ssh'
+alias k=kubectl
 alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
-alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
-alias rgh="rg --hidden --glob '!.git/'"
-alias fdh='fd --hidden --no-ignore --exclude .git'
-alias vim=nvim
+alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias neovim=nvim
-alias disable-hl='ZSH_HIGHLIGHT_MAXLENGTH=0'
-alias atuin_delete='atuin search --delete --search-mode=full-text $1'
-alias atuin_search='atuin search --search-mode=full-text $1'
+alias open='xdg-open'
+alias rgh="rg --hidden --glob '!.git/'"
+alias vim=nvim
+alias yayU='yay -Suy --noconfirm'
 
 ##### Functions to be used from command line #####
 
