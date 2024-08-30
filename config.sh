@@ -7,7 +7,6 @@ copy_dotfiles()
     echo "[INFO] Installing dot files..."
 
     rsync --exclude "dconf/" \
-        --exclude ".vscode/" \
         --exclude ".git*" \
         --exclude "$(basename "$0")" \
         --exclude "LICENSE" \
