@@ -10,10 +10,15 @@ end
 require("neovim-project").setup({
 	projects = projects(),
 	last_session_on_startup = false,
-	dashboard_mode = true,
+	dashboard_mode = false,
 	filetype_autocmd_timeout = 0,
-	autosave_ignore_filetypes = {
-		"neo-tree",
-		"trouble",
+	session_manager_opts = {
+		autosave_ignore_filetypes = {
+			"neo-tree",
+			"trouble",
+			"grug-far",
+			"copilot-chat",
+			"trouble",
+		},
 	},
 })
