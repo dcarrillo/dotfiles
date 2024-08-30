@@ -73,6 +73,14 @@ require("lazy").setup({
 		name = "rose-pine",
 		lazy = false,
 		config = function()
+			require("rose-pine").setup({
+				palette = {
+					moon = {
+						gold = "#faf4ed",
+					},
+				},
+			})
+
 			vim.cmd("colorscheme rose-pine-moon")
 		end,
 	},
