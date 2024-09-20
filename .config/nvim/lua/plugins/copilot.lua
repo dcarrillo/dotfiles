@@ -2,14 +2,15 @@ require("copilot").setup({
 	suggestion = { enabled = false },
 	panel = { enabled = false },
 	filetypes = {
-		javascript = true,
-		typescript = true,
 		go = true,
+		hcl = true,
+		javascript = true,
+		json = true,
 		lua = true,
 		python = true,
 		sh = true,
+		typescript = true,
 		yaml = true,
-		json = true,
 		["*"] = false,
 	},
 })
