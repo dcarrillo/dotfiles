@@ -48,6 +48,10 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 		]])
 	end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "hcl",
+	command = "setlocal shiftwidth=2 tabstop=2",
+})
 
 -- Disable some plugins on very large files
 vim.api.nvim_create_autocmd({ "BufEnter" }, {

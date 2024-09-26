@@ -8,6 +8,7 @@ require("conform").setup({
 		python = { "isort", "black" },
 		typescript = { "prettier" },
 		yaml = { "prettier" },
+		hcl = { "terraform_fmt" },
 	},
 	formatters = {
 		{
@@ -16,7 +17,7 @@ require("conform").setup({
 		},
 	},
 	format_on_save = function(bufnr)
-		local filetypes = { "go", "typescript", "lua" }
+		local filetypes = { "go", "typescript", "lua", "hcl" }
 		if not vim.tbl_contains(filetypes, vim.bo[bufnr].filetype) then
 			return
 		end
