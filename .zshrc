@@ -14,7 +14,8 @@ fi
 
 # ZSH customs
 
-export PATH=$PATH:~/bin
+export PATH="${PATH}:${HOME}/bin:${HOME}/.krew/bin:${HOME}/go/bin:${HOME}/.local/bin"
+
 setopt clobber
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' special-dirs true
@@ -54,6 +55,7 @@ alias open='xdg-open'
 alias rgh="rg --hidden --glob '!.git/'"
 alias vim=nvim
 alias yayU='yay -Suy --noconfirm'
+alias export_sso_creds='eval $(aws-export-credentials --env-export)'
 
 ##### Functions to be used from command line #####
 
@@ -103,7 +105,6 @@ fi
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
-export BROWSER='/usr/bin/vivaldi-stable'
 
 ##### venvs ######
 
@@ -147,6 +148,9 @@ eval "$(direnv hook zsh)"
 # Atuin zsh history
 
 eval "$(atuin init zsh)"
+
+# aws cli zsh autocomplete
+source /usr/bin/aws_zsh_completer.sh
 
 # custom device
 
