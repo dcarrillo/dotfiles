@@ -42,6 +42,7 @@ alias curlr='curl -o /dev/null -w "\n\nCode:   \t%{http_code}\n\nDNS:    \t%{tim
 alias disable-hl='ZSH_HIGHLIGHT_MAXLENGTH=0'
 alias dkillall='docker rm -f $(docker ps -qa)'
 alias duh='du -sch .[!.]* *'
+alias export_sso_creds='eval $(aws-export-credentials --env-export)'
 alias fdh='fd --hidden --no-ignore --exclude .git'
 alias gb="git checkout \$(git branch -avv | fzf +m | awk '{print \$1}')"
 alias icat='kitten icat --align=left'
@@ -53,9 +54,11 @@ alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias neovim=nvim
 alias open='xdg-open'
 alias rgh="rg --hidden --glob '!.git/'"
+alias tf=terraform
+alias tfa='terraform apply -auto-approve'
+alias tfp='terraform plan'
 alias vim=nvim
 alias yayU='yay -Suy --noconfirm'
-alias export_sso_creds='eval $(aws-export-credentials --env-export)'
 
 ##### Functions to be used from command line #####
 
