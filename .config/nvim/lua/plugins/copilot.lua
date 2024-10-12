@@ -7,6 +7,7 @@ require("copilot").setup({
 		javascript = true,
 		json = true,
 		lua = true,
+		markdown = true,
 		python = true,
 		sh = true,
 		typescript = true,

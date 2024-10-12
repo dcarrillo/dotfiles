@@ -56,6 +56,8 @@ keymap(
 	vim.tbl_extend("force", opts, { desc = "Navigate to the previous buffer on the left" })
 )
 
+keymap("n", "<bs>", ":edit #<cr>", vim.tbl_extend("force", opts, { desc = "Back to previous file", silent = true }))
+
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", vim.tbl_extend("force", opts, { desc = "Clear search highlights" }))
 
@@ -298,12 +300,4 @@ keymap(
 	"zp",
 	"<cmd>lua require'ufo'.peekFoldedLinesUnderCursor()<cr>",
 	vim.tbl_extend("force", opts, { desc = "Peek fold" })
-)
-
--- Markdown
-keymap(
-	"n",
-	"<leader>m",
-	":RenderMarkdown toggle<cr>",
-	vim.tbl_extend("force", opts, { desc = "Toggle markdown rendering" })
 )
