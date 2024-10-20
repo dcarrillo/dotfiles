@@ -37,7 +37,7 @@ def expand_prompt() -> None:
     if buffer.complete_state:
         buffer.complete_next()
     else:
-        buffer.start_completion(select_first=False)
+        buffer.start_completion(select_first=True)
 
 
 def get_secret_names(attribute: str, value: str) -> Dict[str, str]:
