@@ -88,6 +88,18 @@ kexec () {
   [ -n "$cid" ] && kubectl exec -ti "$cid" -- "${cmd[@]}"
 }
 
+knodes () {
+    kubectl get node -o json \
+    | jq -r '.items[] | {
+        name:.metadata.name,
+        type:.metadata.labels."beta.kubernetes.io/instance-type",
+        karpenter:.metadata.labels."karpenter.sh/nodepool",
+        capacity:.metadata.labels."karpenter.sh/capacity-type",
+        registered:.metadata.labels."karpenter.sh/registered",
+        initialized:.metadata.labels."karpenter.sh/initialized",
+    } | [.name,.type,.karpenter,.capacity,.registered,.initialized] | @tsv'
+}
+
 siteinfo () {
   local url=$(echo "$1" | sed 's#^https\?://##')
   local ip="$(dig +short "$url" | tail -1)"
