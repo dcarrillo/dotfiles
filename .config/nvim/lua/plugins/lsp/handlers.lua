@@ -51,7 +51,7 @@ M.on_attach = function(client)
 		client.server_capabilities.document_formatting = false
 	end
 
-	if client.name == "ruff-lsp" then
+	if client.name == "ruff" then
 		client.server_capabilities.hover = false
 	end
 

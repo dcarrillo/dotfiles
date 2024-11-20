@@ -90,7 +90,7 @@ require("lualine").setup({
 						or vim.bo.filetype == "help"
 						or vim.bo.filetype == "starter"
 						or vim.bo.filetype == "TelescopePrompt"
-						or vim.bo.filetype == "noice"
+						-- or vim.bo.filetype == "noice"
 					then
 						return false
 					end
@@ -114,16 +114,16 @@ require("lualine").setup({
 				},
 			},
 			lsp_progress,
-			{
-				require("noice").api.statusline.mode.get,
-				cond = require("noice").api.statusline.mode.has,
-				color = { fg = "#ff9e64" },
-			},
-			{
-				require("noice").api.status.search.get,
-				cond = require("noice").api.status.search.has,
-				color = { fg = "#c69026" },
-			},
+			-- {
+			-- 	require("noice").api.statusline.mode.get,
+			-- 	cond = require("noice").api.statusline.mode.has,
+			-- 	color = { fg = "#ff9e64" },
+			-- },
+			-- {
+			-- 	require("noice").api.status.search.get,
+			-- 	cond = require("noice").api.status.search.has,
+			-- 	color = { fg = "#c69026" },
+			-- },
 		},
 		lualine_x = {
 			{ gitblame.get_current_blame_text, cond = gitblame.is_blame_text_available },

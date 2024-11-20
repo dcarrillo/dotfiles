@@ -97,13 +97,13 @@ require("lazy").setup({
 	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", main = "ibl" },
 	{ "nvim-zh/auto-save.nvim", event = "BufReadPost" },
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		},
-	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- },
 	{ "romgrk/fzy-lua-native" },
 	{ "mg979/vim-visual-multi" },
 	{
@@ -271,7 +271,9 @@ require("lazy").setup({
 	{ "AndreM222/copilot-lualine" },
 	{
 		"copilotc-nvim/copilotchat.nvim",
-		branch = "canary",
+		-- commit = "82604838fa511d1cbf8174e99f2fbc3a0dc0abe4",
+		-- branch = "canary",
+		version = "v3.*",
 		event = "VeryLazy",
 	},
 
