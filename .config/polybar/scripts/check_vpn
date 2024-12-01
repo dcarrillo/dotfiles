@@ -12,4 +12,4 @@ if pgrep gpclient >/dev/null; then
     output="${output} ${globalprotect_icon}"
 fi
 
-echo "$output"
+echo "%{F#e7c111}$output%{F-}"
