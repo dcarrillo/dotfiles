@@ -271,7 +271,7 @@ require("lazy").setup({
 	{ "AndreM222/copilot-lualine" },
 	{
 		"copilotc-nvim/copilotchat.nvim",
-		branch = "canary",
+		branch = "main",
 		event = "VeryLazy",
 	},
 
