@@ -31,10 +31,10 @@ PROMPT_EOL_MARK=''
 
 ##### aliases ######
 
-alias atuin_delete='atuin search --delete --search-mode=full-text $1'
-alias atuin_search='atuin search --search-mode=full-text $1'
-alias bat='bat --style=plain --paging=never --theme=Nord $*'
-alias batdiff='bat --style=changes --paging=never --theme=Nord $*'
+alias atuin_delete='atuin search --delete --search-mode=full-text'
+alias atuin_search='atuin search --search-mode=full-text'
+alias bat='bat --style=plain --paging=never --theme=Nord'
+alias batdiff='bat --style=changes --paging=never --theme=Nord'
 alias bkpwd='rm -rf ${PWD}.bak ; cp -a $PWD{,.bak}'
 alias chromium-socks='chromium --proxy-server=socks://localhost:3000'
 alias curlh='curl -sD - -o /dev/null'
@@ -49,6 +49,8 @@ alias icat='kitten icat --align=left'
 alias idiff='kitten diff'
 alias issh='kitten ssh'
 alias k=kubectl
+alias kgy='kubectl get -o yaml'
+alias kready='kubectl get --raw="/readyz?verbose"'
 alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
 alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias neovim=nvim
@@ -98,6 +100,10 @@ knodes () {
         registered:.metadata.labels."karpenter.sh/registered",
         initialized:.metadata.labels."karpenter.sh/initialized",
     } | [.name,.type,.karpenter,.capacity,.registered,.initialized] | @tsv'
+}
+
+kpretty () {
+    kubectl get -o yaml $* | kubectl neat | bat --language=yaml
 }
 
 siteinfo () {
