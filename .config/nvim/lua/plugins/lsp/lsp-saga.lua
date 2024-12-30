@@ -21,7 +21,7 @@ require("lspsaga").setup({
 		max_height = 0.5,
 		min_width = 30,
 		force_max_height = false,
-		default = "def+tyd+ref+imp",
+		default = "tyd+ref+imp",
 		keys = {
 			toggle_or_open = "<CR>",
 		},
