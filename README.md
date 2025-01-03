@@ -2,7 +2,7 @@
 
 My dotfiles, including:
 
-- [neovim](.config/nvim/README.md) (need neovim v0.9.x)
+- [neovim](.config/nvim/README.md) (needs neovim >= v0.10.1)
 - kitty
 - polybar
 - zsh

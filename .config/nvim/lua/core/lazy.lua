@@ -260,6 +260,11 @@ require("lazy").setup({
 	{
 		"jghauser/follow-md-links.nvim",
 	},
+	{
+		"MeanderingProgrammer/markdown.nvim",
+		name = "render-markdown",
+		version = "v7",
+	},
 
 	-- Copilot
 	{

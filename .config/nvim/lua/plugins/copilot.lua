@@ -25,6 +25,9 @@ local prompts = {
 
 require("copilot_cmp").setup()
 require("CopilotChat").setup({
+	highlight_headers = false,
+	separator = "———",
+	error_header = "> [!ERROR] Error",
 	debug = false,
 	show_user_selection = false,
 	clear_chat_on_new_prompt = false,

@@ -301,3 +301,10 @@ keymap(
 	"<cmd>lua require'ufo'.peekFoldedLinesUnderCursor()<cr>",
 	vim.tbl_extend("force", opts, { desc = "Peek fold" })
 )
+
+keymap(
+	"n",
+	"<leader>m",
+	":RenderMarkdown toggle<cr>",
+	vim.tbl_extend("force", opts, { desc = "Toggle markdown rendering" })
+)
