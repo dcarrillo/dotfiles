@@ -268,6 +268,20 @@ require("lazy").setup({
 
 	-- Copilot
 	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		lazy = false,
+		version = false,
+		opts = {
+			provider = "copilot",
+			auto_suggestions_provider = "copilot",
+		},
+		build = "make",
+		dependencies = {
+			"stevearc/dressing.nvim",
+		},
+	},
+	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
