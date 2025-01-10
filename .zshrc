@@ -91,15 +91,19 @@ kexec () {
 }
 
 knodes () {
-    kubectl get node -o json \
-    | jq -r '.items[] | {
-        name:.metadata.name,
-        type:.metadata.labels."beta.kubernetes.io/instance-type",
-        karpenter:.metadata.labels."karpenter.sh/nodepool",
-        capacity:.metadata.labels."karpenter.sh/capacity-type",
-        registered:.metadata.labels."karpenter.sh/registered",
-        initialized:.metadata.labels."karpenter.sh/initialized",
-    } | [.name,.type,.karpenter,.capacity,.registered,.initialized] | @tsv'
+    {
+        echo -e "Name\tType\tNodePool\tNodeClass\tCapacity\tRegistered\tInitialized"
+        kubectl get node -o json \
+        | jq -r '.items[] | {
+            name:.metadata.name,
+            type:.metadata.labels."beta.kubernetes.io/instance-type",
+            karpenter:.metadata.labels."karpenter.sh/nodepool",
+            nodeclass:.metadata.labels."eks.amazonaws.com/nodeclass",
+            capacity:.metadata.labels."karpenter.sh/capacity-type",
+            registered:.metadata.labels."karpenter.sh/registered",
+            initialized:.metadata.labels."karpenter.sh/initialized",
+        } | [.name,.type,.karpenter,.nodeclass,.capacity,.registered,.initialized] | @tsv'
+    } | column -t
 }
 
 kpretty () {
