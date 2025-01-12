@@ -19,7 +19,7 @@ from kitty.boss import Boss
 
 def main(args: List[str]) -> Optional[str]:
     secrets = get_secret_names(args[1], args[2])
-    entries = WordCompleter(secrets)
+    entries = WordCompleter(list(secrets.keys()))
     session = PromptSession(completer=entries)
     try:
         entry = session.prompt('> ', pre_run=expand_prompt)
@@ -54,7 +54,7 @@ def get_secret_names(attribute: str, value: str) -> Dict[str, str]:
     return secrets
 
 
-def handle_result(args: List[str], answer: str, target_window_id: int, boss: Boss) -> None:
+def handle_result(_: List[str], answer: str, target_window_id: int, boss: Boss) -> None:
     window = boss.window_id_map.get(target_window_id)
     if window is not None:
         window.paste(answer)
