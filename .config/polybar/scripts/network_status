@@ -1,35 +1,43 @@
 #!/usr/bin/env bash
 
-URL=${1:-1.0.0.1}
+DEFAULT_HOST="1.0.0.1"
+PING_COUNT=5
+RED="#FF0000"
+ORANGE="#FFA500"
+YELLOW="#FFFF00"
+OUTAGE_SYMBOL=""
+LATENCY_SYMBOL=""
 
-output=$(fping --quiet --outage --count=5 "$URL" 2>&1)
-outage_output=""
-outage_color="FFFFFF"
-avg_output=""
-avg_color="FFFFFF"
+format_output() {
+    local color=$1
+    local symbol=$2
+    echo "%{F$color}%{T2}$symbol%{F-}%{T-}"
+}
 
-avg=$(echo "$output" | cut -d "," -f 3 | cut -d "=" -f 2 | cut -d "/" -f 2 | cut -d "." -f 1)
-outage=$(echo "$output" | cut -d "," -f 2 | cut -d "=" -f 2 | tr -d " " | cut -d "." -f 1)
+get_ping_stats() {
+    fping --quiet --stats --count="$PING_COUNT" "$1" 2>&1
+}
 
-if [ "$outage" -eq 0 ] || [ -z "$outage" ]; then
-    outage_output=""
-elif [ "$outage" -lt 30 ]; then
-    outage_color=F5A70A
+host=${1:-$DEFAULT_HOST}
+stats=$(get_ping_stats "$host")
+output=""
+
+unreachable=$(awk '/unreachable/ {print $1}' <<< "$stats")
+if [ "$unreachable" -eq 1 ]; then
+    output=$(format_output "$RED" "$OUTAGE_SYMBOL")
 else
-    outage_color=FF0000
+    avg=$(awk '/avg round/ {print $1}' <<< "$stats")
+    avg=${avg%.*}
+
+    if [ "$avg" -gt 90 ]; then
+        color=$RED
+    elif [ "$avg" -gt 75 ]; then
+        color=$ORANGE
+    elif [ "$avg" -gt 60 ]; then
+        color=$YELLOW
+    fi
+
+    [ "$avg" -gt 60 ] && output=$(format_output "$color" "$LATENCY_SYMBOL")
 fi
 
-if [ -z "$avg" ] || [ "$avg" -gt 60 ]; then
-    avg_color=FF0000
-elif [ "$avg" -lt 40 ]; then
-    avg_output=""
-else
-    avg_color=F5A70A
-fi
-
-if [ -n "$outage_output" ] || [ -n "$avg_output" ]; then
-    echo "%{F#$outage_color}%{T2}${outage_output}%{F-}%{T-}%{F#$avg_color}%{T2} ${avg_output}%{F-}%{T-}"
-else
-    echo ""
-fi
-
+echo "$output"
