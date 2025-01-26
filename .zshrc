@@ -154,12 +154,6 @@ bindkey '^P' fzf-file-widget
 zle     -N   fzf-file-widget-hidden
 bindkey '^H' fzf-file-widget-hidden
 
-## SSH agent
-
-if [ -z $SSH_AUTH_SOCK ] && [ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]; then
-   export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-fi
-
 ## direnv
 
 eval "$(direnv hook zsh)"

@@ -35,6 +35,7 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'python' \
   'git' \
+  'ssh' \
   'aws' \
   'fzf-tab' \
   'zsh-z'
