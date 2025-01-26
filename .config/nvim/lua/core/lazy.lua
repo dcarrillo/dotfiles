@@ -274,7 +274,7 @@ require("lazy").setup({
 		version = false,
 		opts = {
 			provider = "copilot",
-			auto_suggestions_provider = "copilot",
+			auto_suggestions_provider = "claude",
 		},
 		build = "make",
 		dependencies = {
@@ -320,6 +320,6 @@ require("lazy").setup({
 			},
 		},
 	},
-
+	{ "towolf/vim-helm", ft = "helm" },
 	{ "robbles/logstash.vim" },
 }, lazy_opts)

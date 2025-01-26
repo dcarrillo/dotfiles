@@ -2,6 +2,7 @@ local servers = {
 	"ansiblels",
 	"bashls",
 	"gopls",
+	"helm_ls",
 	"html",
 	-- "kotlin_language_server",
 	"jdtls",

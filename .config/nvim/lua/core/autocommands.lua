@@ -53,6 +53,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal shiftwidth=2 tabstop=2",
 })
 
+-- helm files indentation
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "helm",
+	command = "setlocal shiftwidth=2 tabstop=2",
+})
+
 -- Disable some plugins on very large files
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	pattern = { "*" },
