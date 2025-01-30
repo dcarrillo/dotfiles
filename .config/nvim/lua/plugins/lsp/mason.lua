@@ -8,6 +8,7 @@ local servers = {
 	"jdtls",
 	"jsonls",
 	"lua_ls",
+	"marksman",
 	"basedpyright",
 	"ruff",
 	"terraformls",

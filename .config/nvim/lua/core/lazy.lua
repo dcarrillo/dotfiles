@@ -120,7 +120,6 @@ require("lazy").setup({
 		dependencies = { "MunifTanjim/nui.nvim" },
 	},
 	{ "taybart/b64.nvim", event = "VeryLazy" },
-	{ "echasnovski/mini.align", event = "VeryLazy", version = "*" },
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 	{
 		"ggandor/leap.nvim",
@@ -246,7 +245,6 @@ require("lazy").setup({
 	},
 
 	-- Markdown
-	{ "mzlogin/vim-markdown-toc" },
 	{
 		"iamcco/markdown-preview.nvim",
 		build = function()
@@ -256,9 +254,6 @@ require("lazy").setup({
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
-	},
-	{
-		"jghauser/follow-md-links.nvim",
 	},
 	{
 		"MeanderingProgrammer/markdown.nvim",
