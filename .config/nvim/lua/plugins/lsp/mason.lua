@@ -38,8 +38,7 @@ local lspconfig = require("lspconfig")
 for _, server in pairs(servers) do
 	if server ~= "yamlls" then
 		local opts = {
-			on_attach = require("plugins.lsp.handlers").on_attach,
-			capabilities = require("plugins.lsp.handlers").capabilities,
+			capabilities = require("blink.cmp").get_lsp_capabilities(),
 		}
 
 		server = vim.split(server, "@")[1]

@@ -1,4 +1,4 @@
-require("plugins.cmp")
+require("plugins.blink")
 require("plugins.copilot")
 require("plugins.telescope")
 require("plugins.starter")

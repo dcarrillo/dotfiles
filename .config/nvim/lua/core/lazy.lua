@@ -140,12 +140,10 @@ require("lazy").setup({
 
 	-- cmp plugins
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		"saghen/blink.cmp",
+		version = "*",
 		dependencies = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lsp",
+			"fang2hou/blink-copilot",
 		},
 	},
 
@@ -282,7 +280,6 @@ require("lazy").setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 	},
-	{ "zbirenbaum/copilot-cmp" },
 	{ "AndreM222/copilot-lualine" },
 	{
 		"copilotc-nvim/copilotchat.nvim",

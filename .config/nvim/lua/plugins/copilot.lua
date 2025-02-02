@@ -26,7 +26,6 @@ local prompts = {
 	},
 }
 
-require("copilot_cmp").setup()
 require("CopilotChat").setup({
 	highlight_headers = false,
 	separator = "———",
