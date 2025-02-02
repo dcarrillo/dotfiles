@@ -88,6 +88,7 @@ require("lazy").setup({
 	-- Plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "echasnovski/mini.starter", lazy = "VimEnter", version = "*" },
+	{ "echasnovski/mini.animate", version = "*" },
 	{ "windwp/nvim-autopairs" },
 	{ "numToStr/Comment.nvim" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
