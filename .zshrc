@@ -165,10 +165,6 @@ eval "$(atuin init zsh)"
 # aws cli zsh autocomplete
 source /usr/bin/aws_zsh_completer.sh
 
-# asdf
-
-source /opt/asdf-vm/asdf.sh
-
 # custom device
 
 source ~/.zshrc_custom
