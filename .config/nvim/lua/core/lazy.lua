@@ -266,10 +266,6 @@ require("lazy").setup({
 		event = "VeryLazy",
 		lazy = false,
 		version = false,
-		opts = {
-			provider = "copilot",
-			auto_suggestions_provider = "claude",
-		},
 		build = "make",
 		dependencies = {
 			"stevearc/dressing.nvim",

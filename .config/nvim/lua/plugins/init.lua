@@ -1,5 +1,6 @@
 require("plugins.blink")
 require("plugins.copilot")
+require("plugins.avante")
 require("plugins.telescope")
 require("plugins.starter")
 require("plugins.treesitter")

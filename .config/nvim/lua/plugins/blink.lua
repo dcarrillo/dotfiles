@@ -1,4 +1,11 @@
 require("blink.cmp").setup({
+	-- disable completion for certain filetypes
+	enabled = function()
+		return not vim.tbl_contains({ "sagarename" }, vim.bo.filetype)
+			and vim.bo.buftype ~= "prompt"
+			and vim.b.completion ~= false
+	end,
+
 	appearance = {
 		use_nvim_cmp_as_default = false,
 	},
@@ -9,6 +16,11 @@ require("blink.cmp").setup({
 			},
 		},
 		menu = {
+			-- don't show completion menu automatically when searching
+			auto_show = function(ctx)
+				return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
+			end,
+
 			border = "single",
 			draw = {
 				treesitter = { "lsp" },
