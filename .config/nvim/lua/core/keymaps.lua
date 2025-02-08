@@ -135,6 +135,8 @@ keymap({ "n", "v" }, "<leader>lf", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, vim.tbl_extend("force", opts, { desc = "Format the current buffer or selection" }))
 
+keymap({ "n", "v" }, "<leader>o", "<cmd>Outline<CR>", vim.tbl_extend("force", opts, { desc = "Toogle Outline" }))
+
 -- Neotest
 keymap(
 	"n",
@@ -214,20 +216,6 @@ keymap(
 	"<leader>fc",
 	":Telescope commands<cr>",
 	vim.tbl_extend("force", opts, { desc = "Open a Telescope prompt to show all commands" })
-)
-
--- Comment
-keymap(
-	"n",
-	"<leader>/",
-	"<cmd>lua require'Comment.api'.toggle.linewise.current()<cr>",
-	vim.tbl_extend("force", opts, { desc = "Comment/Uncomment code lines" })
-)
-keymap(
-	"x",
-	"<leader>/",
-	"<esc><cmd>lua require'Comment.api'.toggle.linewise(vim.fn.visualmode())<cr>",
-	vim.tbl_extend("force", opts, { desc = "Comment/Uncomment code lines on visual block mode" })
 )
 
 -- Gitdiff

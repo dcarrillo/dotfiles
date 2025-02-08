@@ -1,9 +1,11 @@
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"bash",
+		"comment",
 		"diff",
 		"go",
 		"gomod",
+		"gosum",
 		"gowork",
 		"java",
 		"javascript",

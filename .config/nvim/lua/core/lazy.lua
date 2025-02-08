@@ -87,11 +87,13 @@ require("lazy").setup({
 
 	-- Plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
+	{ "echasnovski/mini.animate", event = "VeryLazy", version = "*" },
+	{ "echasnovski/mini.comment", event = "VeryLazy", version = "*" },
+	{ "echasnovski/mini.pairs", event = "VeryLazy", version = "*" },
 	{ "echasnovski/mini.starter", lazy = "VimEnter", version = "*" },
-	{ "echasnovski/mini.animate", version = "*" },
-	{ "windwp/nvim-autopairs" },
-	{ "numToStr/Comment.nvim" },
-	{ "JoosepAlviste/nvim-ts-context-commentstring" },
+	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true, opts = {
+		enable_autocmd = false,
+	} },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v4.*" },
 	{ "moll/vim-bbye" },
@@ -161,6 +163,7 @@ require("lazy").setup({
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 	},
+	{ "hedyhli/outline.nvim", opts = {} },
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },
