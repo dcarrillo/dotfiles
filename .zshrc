@@ -55,7 +55,7 @@ alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
 alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias neovim=nvim
 alias open='xdg-open'
-alias rgh="rg --hidden --glob '!.git/'"
+alias rgh="rg --hidden --glob '!.git/' --no-ignore-vcs"
 alias tf=terraform
 alias tfa='terraform apply -auto-approve'
 alias tfp='terraform plan'
