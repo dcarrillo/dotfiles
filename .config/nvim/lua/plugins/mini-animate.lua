@@ -8,7 +8,7 @@ for _, scroll in ipairs({ "Up", "Down" }) do
 end
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "grug-far", "ministarter" },
+	pattern = { "grug-far", "ministarter", "neo-tree" },
 	callback = function()
 		vim.b.minianimate_disable = true
 	end,
