@@ -8,7 +8,7 @@ local servers = {
 	"jdtls",
 	"jsonls",
 	"lua_ls",
-	-- "marksman",
+	"marksman",
 	"basedpyright",
 	"ruff",
 	"terraformls",
@@ -52,15 +52,3 @@ for _, server in pairs(servers) do
 		lspconfig[server].setup(opts)
 	end
 end
-
-local configs = require("lspconfig.configs")
-configs.md_lsp = {
-	default_config = {
-		name = "md-lsp",
-		cmd = { "md-lsp" },
-		filetypes = { "markdown" },
-		root_dir = lspconfig.util.root_pattern(".git"),
-		single_file_support = true,
-	},
-}
-lspconfig.md_lsp.setup({})

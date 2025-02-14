@@ -263,6 +263,10 @@ require("lazy").setup({
 		name = "render-markdown",
 		version = "v7",
 	},
+	{ "mzlogin/vim-markdown-toc" },
+	{
+		"jghauser/follow-md-links.nvim",
+	},
 
 	-- Copilot
 	{
