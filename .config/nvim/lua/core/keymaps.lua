@@ -131,6 +131,12 @@ keymap(
 	"<cmd>Lspsaga peek_definition<cr>",
 	vim.tbl_extend("force", opts, { desc = "Peek the definition of the directive under the cursor" })
 )
+keymap(
+	"n",
+	"<leader>lt",
+	"<cmd>Lspsaga peek_type_definition<cr>",
+	vim.tbl_extend("force", opts, { desc = "Peek the type definition of the directive under the cursor" })
+)
 keymap({ "n", "v" }, "<leader>lf", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, vim.tbl_extend("force", opts, { desc = "Format the current buffer or selection" }))
@@ -152,10 +158,6 @@ keymap(
 )
 
 -- Copilot
-keymap({ "n", "v" }, "<leader>coh", function()
-	local actions = require("CopilotChat.actions")
-	require("CopilotChat.integrations.telescope").pick(actions.help_actions())
-end, vim.tbl_extend("force", opts, { desc = "CopilotChat - Help actions" }))
 keymap({ "n", "v" }, "<leader>cop", function()
 	local actions = require("CopilotChat.actions")
 	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())

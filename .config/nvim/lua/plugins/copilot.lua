@@ -28,10 +28,18 @@ local prompts = {
 
 require("CopilotChat").setup({
 	highlight_headers = false,
-	separator = "———",
+	-- separator = "———",
 	error_header = "> [!ERROR] Error",
 	debug = false,
 	show_user_selection = false,
 	clear_chat_on_new_prompt = false,
 	prompts = prompts,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "copilot-chat",
+	callback = function()
+		vim.opt_local.relativenumber = false
+		vim.opt_local.number = false
+	end,
 })

@@ -7,6 +7,7 @@ require("nvim-treesitter.configs").setup({
 		"gomod",
 		"gosum",
 		"gowork",
+		"helm",
 		"java",
 		"javascript",
 		"json",

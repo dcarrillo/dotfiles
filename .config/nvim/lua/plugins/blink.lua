@@ -15,6 +15,10 @@ require("blink.cmp").setup({
 				enabled = false,
 			},
 		},
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 200,
+		},
 		menu = {
 			-- don't show completion menu automatically when searching
 			auto_show = function(ctx)

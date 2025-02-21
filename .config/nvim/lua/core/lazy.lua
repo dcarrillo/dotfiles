@@ -264,9 +264,6 @@ require("lazy").setup({
 		version = "v7",
 	},
 	{ "mzlogin/vim-markdown-toc" },
-	{
-		"jghauser/follow-md-links.nvim",
-	},
 
 	-- Copilot
 	{
@@ -288,6 +285,7 @@ require("lazy").setup({
 	{
 		"copilotc-nvim/copilotchat.nvim",
 		branch = "main",
+		build = "make tiktoken",
 		event = "VeryLazy",
 	},
 
