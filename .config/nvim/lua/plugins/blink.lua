@@ -18,6 +18,7 @@ require("blink.cmp").setup({
 		documentation = {
 			auto_show = true,
 			auto_show_delay_ms = 200,
+			window = { border = "single" },
 		},
 		menu = {
 			-- don't show completion menu automatically when searching
@@ -45,7 +46,6 @@ require("blink.cmp").setup({
 				score_offset = 100,
 				async = true,
 				opts = {
-					kind = "IA",
 					max_completions = 3,
 				},
 			},
