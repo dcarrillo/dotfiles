@@ -2,6 +2,7 @@
 
 openvpn_icon="%{T2}%{T-}"
 globalprotect_icon="%{T2}%{T-}"
+wireguard_icon="%{T2}󰒃%{T-}"
 
 output=""
 if pgrep openvpn >/dev/null; then
@@ -12,4 +13,8 @@ if pgrep gpclient >/dev/null; then
     output="${output} ${globalprotect_icon}"
 fi
 
-echo "%{F#e7c111}$output%{F-}"
+if ip route list | grep 'dev wg0 proto kernel scope link' >/dev/null; then
+    output="${output} ${wireguard_icon}"
+fi
+
+echo "%{F#43a047}$output%{F-}"
