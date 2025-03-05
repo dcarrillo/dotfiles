@@ -34,6 +34,7 @@ require("CopilotChat").setup({
 	show_user_selection = false,
 	clear_chat_on_new_prompt = false,
 	prompts = prompts,
+	model = "claude-3.7-sonnet-thought",
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
