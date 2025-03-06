@@ -36,6 +36,7 @@ require("lazy").setup({
 					colors.error = "#ff966c"
 				end,
 			})
+		    vim.cmd("colorscheme tokyonight-moon")
 		end,
 	},
 	{
@@ -80,8 +81,6 @@ require("lazy").setup({
 					},
 				},
 			})
-
-			vim.cmd("colorscheme rose-pine-moon")
 		end,
 	},
 
