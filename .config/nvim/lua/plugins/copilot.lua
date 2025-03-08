@@ -4,6 +4,8 @@ require("copilot").setup({
 	filetypes = {
 		dockerfile = true,
 		go = true,
+		gothtmltmpl = true,
+		gotexttmpl = true,
 		hcl = true,
 		helm = true,
 		javascript = true,
