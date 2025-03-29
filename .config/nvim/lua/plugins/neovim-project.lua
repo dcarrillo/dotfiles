@@ -14,7 +14,7 @@ require("neovim-project").setup({
 	filetype_autocmd_timeout = 0,
 	session_manager_opts = {
 		autosave_ignore_filetypes = {
-			"neo-tree",
+			"snacks_picker_list",
 			"trouble",
 			"grug-far",
 			"copilot-chat",

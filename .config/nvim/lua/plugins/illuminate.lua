@@ -6,7 +6,7 @@ require("illuminate").configure({
 		"avante",
 		"lspsagafinder",
 		"mason",
-		"neo-tree",
+		"snacks_picker_list",
 		"packer",
 		"starter",
 	},

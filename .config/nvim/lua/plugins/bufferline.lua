@@ -17,7 +17,7 @@ bufferline.setup({
 		close_command = "Bdelete! %d",
 		right_mouse_command = "Bdelete! %d",
 		offsets = {
-			{ filetype = "neo-tree", text = "", padding = 1 },
+			{ filetype = "snacks_picker_list", text = "", padding = 1 },
 			{ filetype = "dapui_scopes", text = "", padding = 1 },
 		},
 		indicator = {
@@ -30,10 +30,7 @@ bufferline.setup({
 
 		custom_areas = {
 			left = function()
-				local text = ""
-				if not is_buffer_loaded("neo-tree") then
-					text = "  " .. string.gsub(vim.loop.cwd(), "^" .. os.getenv("HOME"), "~") .. "  "
-				end
+				local text = "  " .. string.gsub(vim.loop.cwd(), "^" .. os.getenv("HOME"), "~") .. "  "
 
 				return { { text = text, fg = "#adbac7" } }
 			end,

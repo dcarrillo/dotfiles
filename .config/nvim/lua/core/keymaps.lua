@@ -193,14 +193,15 @@ keymap("i", "jk", "<ESC>", vim.tbl_extend("force", opts, { desc = "Exit insert m
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- NeoTree
-keymap("n", "<leader>e", ":Neotree toggle<cr>", vim.tbl_extend("force", opts, { desc = "Toggle Neotree" }))
-keymap(
-	"n",
-	"<leader>gg",
-	":Neotree float git_status<cr>",
-	vim.tbl_extend("force", opts, { desc = "Open a float window with the git status" })
-)
+-- FileTree
+keymap("n", "<leader>e", function()
+	Snacks.explorer()
+end, vim.tbl_extend("force", opts, { desc = "Toggle file explorer" }))
+
+-- Git browse
+keymap({ "n", "v" }, "<leader>go", function()
+	Snacks.gitbrowse()
+end, vim.tbl_extend("force", opts, { desc = "Git Browse" }))
 
 -- Telescope
 keymap(
