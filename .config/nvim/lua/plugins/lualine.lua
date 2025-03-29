@@ -6,7 +6,7 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = "!" },
+	symbols = { error = " ", warn = " " },
 	colored = false,
 	always_visible = true,
 }
@@ -84,7 +84,7 @@ require("lualine").setup({
 				path = 1,
 				cond = function()
 					if
-						vim.bo.filetype == "neo-tree"
+						vim.bo.filetype == "snacks_picker_list"
 						or vim.bo.filetype == "mason"
 						or vim.bo.filetype == "lazy"
 						or vim.bo.filetype == "help"

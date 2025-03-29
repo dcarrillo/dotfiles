@@ -90,7 +90,6 @@ require("lazy").setup({
 
 	-- Plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
-	{ "echasnovski/mini.animate", event = "VeryLazy", version = "*" },
 	{ "echasnovski/mini.comment", event = "VeryLazy", version = "*" },
 	{ "echasnovski/mini.pairs", event = "VeryLazy", version = "*" },
 	{ "echasnovski/mini.surround", event = "VeryLazy", version = "*" },
@@ -102,7 +101,6 @@ require("lazy").setup({
 	{ "akinsho/bufferline.nvim", event = "VeryLazy", version = "v4.*" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
-	{ "lukas-reineke/indent-blankline.nvim", event = "BufReadPost", main = "ibl" },
 	{ "nvim-zh/auto-save.nvim", event = "BufReadPost" },
 	{
 		"folke/noice.nvim",
@@ -122,9 +120,9 @@ require("lazy").setup({
 	},
 	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		version = "v3.x",
-		dependencies = { "MunifTanjim/nui.nvim" },
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
 	},
 	{ "taybart/b64.nvim", event = "VeryLazy" },
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
@@ -318,6 +316,6 @@ require("lazy").setup({
 			},
 		},
 	},
+
 	{ "towolf/vim-helm", ft = "helm" },
-	{ "robbles/logstash.vim" },
 }, lazy_opts)
