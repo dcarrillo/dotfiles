@@ -278,6 +278,12 @@ require("lazy").setup({
 		},
 	},
 	{
+		"ravitemer/mcphub.nvim",
+		-- cmd = "MCPHub", -- lazy load by default
+		-- uncomment this if you don't want mcp-hub to be available globally or can't use -g
+		build = "bundled_build.lua", -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
+	},
+	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",

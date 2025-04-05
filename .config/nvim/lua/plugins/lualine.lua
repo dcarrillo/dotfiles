@@ -120,6 +120,9 @@ require("lualine").setup({
 				color = { fg = "#ff9e64" },
 			},
 			{
+				require("mcphub.extensions.lualine"),
+			},
+			{
 				require("noice").api.status.search.get,
 				cond = require("noice").api.status.search.has,
 				color = { fg = "#c69026" },

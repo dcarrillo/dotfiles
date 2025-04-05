@@ -1,7 +1,7 @@
 require("blink.cmp").setup({
 	-- disable completion for certain filetypes
 	enabled = function()
-		return not vim.tbl_contains({ "sagarename" }, vim.bo.filetype)
+		return not vim.tbl_contains({ "sagarename", "DressingIngput" }, vim.bo.filetype)
 			and vim.bo.buftype ~= "prompt"
 			and vim.b.completion ~= false
 	end,
@@ -12,7 +12,7 @@ require("blink.cmp").setup({
 	completion = {
 		accept = {
 			auto_brackets = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 		documentation = {
@@ -36,7 +36,11 @@ require("blink.cmp").setup({
 			},
 		},
 	},
-	signature = { window = { border = "single" } },
+	signature = {
+		window = {
+			border = "single",
+		},
+	},
 	sources = {
 		default = { "lsp", "path", "buffer", "copilot" },
 		providers = {
