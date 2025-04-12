@@ -5,9 +5,9 @@ require("avante").setup({
 	-- claude = {
 	-- 	api_key_name = "cmd:secret-tool lookup description ANTHROPIC_API_KEY",
 	-- },
-	web_search_engine = {
-		provider = "tavily",
-	},
+	-- web_search_engine = {
+	-- 	provider = "tavily",
+	-- },
 	hints = { enabled = false },
 	behaviour = {
 		enable_claude_text_editor_tool_mode = true,

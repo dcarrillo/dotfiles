@@ -1,10 +1,13 @@
 local projects = function()
-	local data = require("util.files").read(os.getenv("HOME") .. "/.config/nvim/neovim-projects.json")
+	local projects_path = vim.fn.expand("~/.config/nvim/neovim-projects.json")
+	local data = require("util.files").read(projects_path)
+
 	if data then
-		return vim.json.decode(data)
-	else
-		return {}
+		local ok, decoded = pcall(vim.json.decode, data)
+		return ok and decoded or {}
 	end
+
+	return {}
 end
 
 require("neovim-project").setup({
