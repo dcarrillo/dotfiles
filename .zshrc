@@ -92,7 +92,7 @@ kexec () {
 
 knodes () {
     {
-        echo -e "Name\tType\tNodePool\tNodeClass\tCapacity\tRegistered\tInitialized\tCreationTime"
+        echo -e "Name\tType\tNodePool\tNodeClass\tCapacity\tRegistered\tInitialized\tCreationTime\tImage"
         kubectl get node -o json \
         | jq -r '.items[] | {
             name:.metadata.name,
@@ -103,7 +103,8 @@ knodes () {
             registered:.metadata.labels."karpenter.sh/registered",
             initialized:.metadata.labels."karpenter.sh/initialized",
             creationTimestamp:.metadata.creationTimestamp,
-        } | [.name,.type,.karpenter,.nodeclass,.capacity,.registered,.initialized,.creationTimestamp] | @tsv'
+            image:.status.nodeInfo.osImage,
+        } | [.name,.type,.karpenter,.nodeclass,.capacity,.registered,.initialized,.creationTimestamp,.image] | @tsv'
     } | column -t
 }
 
