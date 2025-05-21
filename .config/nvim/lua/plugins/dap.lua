@@ -1,7 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
-local debugpyPythonPath = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python3"
+local debugpyPythonPath = vim.fn.exepath("debugpy") .. "/venv/bin/python3"
 require("dap-python").setup(debugpyPythonPath, {})
 
 dapui.setup({
