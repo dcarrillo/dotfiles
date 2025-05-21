@@ -93,7 +93,6 @@ require("lazy").setup({
 	{ "echasnovski/mini.comment", event = "VeryLazy", version = "*" },
 	{ "echasnovski/mini.pairs", event = "VeryLazy", version = "*" },
 	{ "echasnovski/mini.surround", event = "VeryLazy", version = "*" },
-	{ "echasnovski/mini.starter", lazy = "VimEnter", version = "*" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true, opts = {
 		enable_autocmd = false,
 	} },
