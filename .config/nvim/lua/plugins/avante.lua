@@ -1,6 +1,9 @@
 require("avante").setup({
 	provider = "copilot",
-	copilot = { model = "claude-3.7-sonnet" },
+	copilot = {
+		model = "claude-3.7-sonnet",
+		timeout = 120000,
+	},
 	-- provider = "claude",
 	-- claude = {
 	-- 	api_key_name = "cmd:secret-tool lookup description ANTHROPIC_API_KEY",
@@ -15,7 +18,7 @@ require("avante").setup({
 
 	system_prompt = function()
 		local hub = require("mcphub").get_hub_instance()
-		return hub:get_active_servers_prompt()
+		return hub and hub:get_active_servers_prompt() or ""
 	end,
 	custom_tools = function()
 		return {
