@@ -1,13 +1,11 @@
 require("avante").setup({
 	provider = "copilot",
-	copilot = {
-		model = "claude-3.7-sonnet",
-		timeout = 120000,
+	providers = {
+		copilot = {
+			model = "claude-3.7-sonnet",
+			timeout = 120000,
+		},
 	},
-	-- provider = "claude",
-	-- claude = {
-	-- 	api_key_name = "cmd:secret-tool lookup description ANTHROPIC_API_KEY",
-	-- },
 	-- web_search_engine = {
 	-- 	provider = "tavily",
 	-- },

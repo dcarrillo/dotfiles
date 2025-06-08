@@ -1,6 +1,7 @@
 require("copilot").setup({
 	suggestion = { enabled = false },
 	panel = { enabled = false },
+	copilot_model = "claude-3.7-sonnet-thought",
 	filetypes = {
 		dockerfile = true,
 		go = true,
