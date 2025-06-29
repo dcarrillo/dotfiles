@@ -82,7 +82,7 @@ kexec () {
   local cmd=("$@")
 
   if [ -z "$1" ]; then
-    cmd=(bash)
+    cmd=(sh)
   fi
 
   cid=$(kubectl get pods | sed 1d | fzf -1 | awk '{print $1}')
