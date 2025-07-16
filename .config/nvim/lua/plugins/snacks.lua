@@ -21,7 +21,7 @@ require("snacks").setup({
 		sections = {
 			{ section = "header" },
 
-			{ icon = "", desc = "Projects", action = ":Telescope neovim-project", key = "p", padding = 1 },
+			{ icon = "", desc = "Projects", action = ":NeovimProjectDiscover history", key = "p", padding = 1 },
 
 			{ icon = "", key = "n", desc = "New File", action = ":ene | startinsert" },
 			{

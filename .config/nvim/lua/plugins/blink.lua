@@ -1,9 +1,10 @@
 require("blink.cmp").setup({
 	-- disable completion for certain filetypes
 	enabled = function()
-		return not vim.tbl_contains({ "sagarename", "DressingInput", "AvanteInput" }, vim.bo.filetype)
-			and vim.bo.buftype ~= "prompt"
-			and vim.b.completion ~= false
+		return not vim.tbl_contains(
+			{ "sagarename", "DressingInput", "AvanteInput", "AvantePromptInput" },
+			vim.bo.filetype
+		) and vim.bo.buftype ~= "prompt" and vim.b.completion ~= false
 	end,
 
 	appearance = {

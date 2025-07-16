@@ -3,6 +3,7 @@ require("avante").setup({
 	providers = {
 		copilot = {
 			model = "claude-3.7-sonnet",
+			-- model = "gpt-4.1",
 			timeout = 120000,
 		},
 	},
@@ -25,16 +26,16 @@ require("avante").setup({
 	end,
 
 	-- using the MCP server
-	disabled_tools = {
-		"list_files",
-		"search_files",
-		"read_file",
-		"create_file",
-		"rename_file",
-		"delete_file",
-		"create_dir",
-		"rename_dir",
-		"delete_dir",
-		"bash",
-	},
+	-- disabled_tools = {
+	-- 	"list_files",
+	-- 	"search_files",
+	-- 	"read_file",
+	-- 	"create_file",
+	-- 	"rename_file",
+	-- 	"delete_file",
+	-- 	"create_dir",
+	-- 	"rename_dir",
+	-- 	"delete_dir",
+	-- 	"bash",
+	-- },
 })

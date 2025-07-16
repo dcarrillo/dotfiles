@@ -1,7 +1,7 @@
 require("copilot").setup({
 	suggestion = { enabled = false },
 	panel = { enabled = false },
-	copilot_model = "claude-3.7-sonnet-thought",
+	copilot_model = "claude-4",
 	filetypes = {
 		dockerfile = true,
 		go = true,
@@ -37,7 +37,7 @@ require("CopilotChat").setup({
 	show_user_selection = false,
 	clear_chat_on_new_prompt = false,
 	prompts = prompts,
-	model = "claude-3.7-sonnet-thought",
+	model = "gpt-4.1",
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {

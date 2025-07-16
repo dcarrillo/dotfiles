@@ -17,6 +17,8 @@ require("neovim-project").setup({
 	filetype_autocmd_timeout = 0,
 	session_manager_opts = {
 		autosave_ignore_filetypes = {
+			"AvanteInput",
+			"AvantePromptInput",
 			"snacks_picker_list",
 			"trouble",
 			"grug-far",
