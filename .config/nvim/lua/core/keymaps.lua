@@ -26,12 +26,12 @@ keymap(
 	"<cmd>quit!<cr>",
 	vim.tbl_extend("force", opts, { desc = "Quit current buffer, even if there's unsaved work" })
 )
-keymap(
-	"n",
-	"<leader>qa",
-	"<cmd>quitall!<cr>",
-	vim.tbl_extend("force", opts, { desc = "Quit all buffers, even those with unsaved work" })
-)
+-- keymap(
+-- 	"n",
+-- 	"<leader>qa",
+-- 	"<cmd>quitall!<cr>",
+-- 	vim.tbl_extend("force", opts, { desc = "Quit all buffers, even those with unsaved work" })
+-- )
 
 -- Kitty navigation
 vim.g.kitty_navigator_no_mappings = 1
