@@ -2,7 +2,8 @@ require("avante").setup({
 	provider = "copilot",
 	providers = {
 		copilot = {
-			model = "claude-3.7-sonnet",
+			-- model = "claude-3.7-sonnet",
+			model = "claude-sonnet-4",
 			-- model = "gpt-4.1",
 			timeout = 120000,
 		},
@@ -10,7 +11,10 @@ require("avante").setup({
 	-- web_search_engine = {
 	-- 	provider = "tavily",
 	-- },
-	hints = { enabled = false },
+	selection = {
+		enabled = false,
+		-- hint_display = "delayed",
+	},
 	behaviour = {
 		enable_claude_text_editor_tool_mode = true,
 	},
