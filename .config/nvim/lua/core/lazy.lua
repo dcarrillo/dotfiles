@@ -249,14 +249,10 @@ require("lazy").setup({
 
 	-- Markdown
 	{
-		"iamcco/markdown-preview.nvim",
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
+		"brianhuster/live-preview.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
 	},
 	{
 		"MeanderingProgrammer/markdown.nvim",
