@@ -59,7 +59,7 @@ require("blink.cmp").setup({
 
 	keymap = {
 		preset = "enter",
-		["<C-q>"] = { "hide", "fallback" },
+		["<C-q>"] = { "hide" },
 		["<S-Tab>"] = { "select_prev", "fallback" },
 		["<Tab>"] = { "select_next", "fallback" },
 	},
