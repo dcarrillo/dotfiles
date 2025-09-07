@@ -212,7 +212,7 @@ require("lazy").setup({
 	{
 		"linux-cultist/venv-selector.nvim",
 		lazy = false,
-		branch = "regexp",
+		branch = "main",
 		config = function()
 			require("venv-selector").setup({
 				dap_enabled = true,
