@@ -178,27 +178,9 @@ require("lazy").setup({
 
 	-- YAML
 	{
-		"someone-stole-my-name/yaml-companion.nvim",
-		ft = { "yaml" },
-		opts = {
-			lspconfig = {
-				settings = {
-					redhat = {
-						telemetry = {
-							enabled = false,
-						},
-					},
-					-- 	yaml = {
-					-- 		schemas = {
-					-- 			["https://custom/github-workflow.json"] = "/.github/workflows/*",
-					-- 		},
-					-- 	},
-				},
-			},
-		},
-		config = function(_, opts)
-			local cfg = require("yaml-companion").setup(opts)
-			require("lspconfig")["yamlls"].setup(cfg)
+		"cenk1cenk2/schema-companion.nvim",
+		config = function()
+			require("schema-companion").setup({})
 		end,
 	},
 

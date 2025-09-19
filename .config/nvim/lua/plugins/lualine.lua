@@ -53,12 +53,12 @@ local get_filetype = function()
 	local ft = vim.bo.filetype or ""
 
 	if ft == "yaml" then
-		local schema = require("yaml-companion").get_buf_schema(0)
-		if not schema or not schema.result or not schema.result[1].name then
+		local schema = require("schema-companion").get_current_schemas() or ""
+		if schema == "" then
 			return ft
 		end
 
-		return ft .. " (" .. schema.result[1].name .. ")"
+		return ft .. " (" .. schema:sub(0, 50) .. ")"
 	else
 		return ft
 	end

@@ -34,9 +34,8 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
-local lspconfig = require("lspconfig")
 for _, server in pairs(servers) do
-	if server ~= "yamlls" then
+	if server ~= "ty" then
 		local opts = {
 			capabilities = require("blink.cmp").get_lsp_capabilities(),
 		}
@@ -49,6 +48,6 @@ for _, server in pairs(servers) do
 			opts = vim.tbl_deep_extend("force", conf_opts, opts)
 		end
 
-		lspconfig[server].setup(opts)
+		vim.lsp.config(server, opts)
 	end
 end

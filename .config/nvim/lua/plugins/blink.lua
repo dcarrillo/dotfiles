@@ -22,9 +22,9 @@ require("blink.cmp").setup({
 			window = { border = "single" },
 		},
 		menu = {
-			-- don't show completion menu automatically when searching
+
 			auto_show = function(ctx)
-				return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
+				return vim.fn.getcmdtype() == ":"
 			end,
 
 			border = "single",
