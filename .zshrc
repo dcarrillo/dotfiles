@@ -93,7 +93,7 @@ kexec () {
 knodes () {
     {
         echo -e "Name\tType\tNodePool\tNodeClass\tCapacity\tRegistered\tInitialized\tCreationTime\tImage"
-        kubectl get node -o json \
+        kubectl get node --sort-by metadata.creationTimestamp -o json \
         | jq -r '.items[] | {
             name:.metadata.name,
             type:.metadata.labels."beta.kubernetes.io/instance-type",
