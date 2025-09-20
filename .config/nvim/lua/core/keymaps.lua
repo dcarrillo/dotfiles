@@ -171,18 +171,6 @@ keymap(
 	vim.tbl_extend("force", opts, { desc = "Run tests on the current file" })
 )
 
--- Copilot
-keymap({ "n", "v" }, "<leader>cop", function()
-	local actions = require("CopilotChat.actions")
-	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-end, vim.tbl_extend("force", opts, { desc = "CopilotChat - Prompt actions" }))
-keymap("n", "<leader>coq", function()
-	local input = vim.fn.input("Quick Chat: ")
-	if input ~= "" then
-		require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-	end
-end, vim.tbl_extend("force", opts, { desc = "CopilotChat - Quick chat" }))
-
 -- Better paste
 keymap("v", "p", "P", vim.tbl_extend("force", opts, { desc = "Paste" }))
 

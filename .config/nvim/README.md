@@ -16,4 +16,3 @@ Neovim conf heavily adapted to suit my needs, formerly based on LunarVim's [basi
 * hadolint
 * revive
 * tree-sitter-cli
-* Optional for copilotchat: `sudo luarocks install --lua-version 5.1 tiktoken_core`

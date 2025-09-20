@@ -266,12 +266,6 @@ require("lazy").setup({
 		event = "InsertEnter",
 	},
 	{ "AndreM222/copilot-lualine" },
-	{
-		"copilotc-nvim/copilotchat.nvim",
-		branch = "main",
-		build = "make tiktoken",
-		event = "VeryLazy",
-	},
 
 	-- Folding
 	{
