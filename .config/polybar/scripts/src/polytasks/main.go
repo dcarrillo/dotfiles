@@ -31,6 +31,7 @@ var iconMap = map[string]string{
 	"org.gnome.evince":     "",
 	"org.gnome.fileroller": "",
 	"org.gnome.nautilus":   "",
+	"org.gnome.papers":     "",
 	"org.gnome.settings":   "",
 	"org.telegram.desktop": "",
 	"seahorse":             "",
@@ -107,7 +108,7 @@ func getWindowList(conn *dbus.Conn) ([]WindowInfo, error) {
 
 	success, value, err := evalJS(conn, js)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get window list: %w", err)
+		return nil, fmt.Errorf("failed to eval for getting window list: %w", err)
 	}
 
 	var allWindows []WindowInfo
@@ -136,10 +137,10 @@ func getActiveWindow(conn *dbus.Conn) (int, error) {
 
 	success, value, err := evalJS(conn, js)
 	if err != nil {
-		return 0, fmt.Errorf("failed to get active window: %w", err)
+		return 0, fmt.Errorf("failed to eval for getting active window: %w", err)
 	}
 
-	if success {
+	if success && value != "" {
 		var id int
 		if err := json.Unmarshal([]byte(value), &id); err != nil {
 			return 0, fmt.Errorf("failed to parse active window ID: %w", err)
@@ -199,21 +200,11 @@ func focusOrMinimize(conn *dbus.Conn, windowID int) error {
 	return nil
 }
 
-func polyPrintWindowList(conn *dbus.Conn) error {
-	windows, err := getWindowList(conn)
-	if err != nil {
-		return fmt.Errorf("failed to get window list: %w", err)
-	}
-
+func polyPrintWindowList(windows []WindowInfo, activeID int) {
 	if len(windows) > 0 {
 		fmt.Print("%{T4}Tasks: %{T-}")
 	}
 	for _, win := range windows {
-		activeID, err := getActiveWindow(conn)
-		if err != nil {
-			return fmt.Errorf("failed to get active window: %w", err)
-		}
-
 		icon := getIcon(win.Class)
 		if win.ID == activeID {
 			icon = fmt.Sprintf("%s%s%s", activeLeft, icon, activeRight)
@@ -223,8 +214,6 @@ func polyPrintWindowList(conn *dbus.Conn) error {
 		fmt.Printf("%%{T6}%s%%{T-}%%{A}%%{A}", icon)
 	}
 	fmt.Println()
-
-	return nil
 }
 
 func handleCLICommands(conn *dbus.Conn, args []string) error {
@@ -290,19 +279,20 @@ func main() {
 
 		windows, err := getWindowList(conn)
 		if err != nil {
+			fmt.Println("Error getting window list:", err)
 			continue
 		}
 
 		activeID, err := getActiveWindow(conn)
 		if err != nil {
+			fmt.Println("Error getting active window:", err)
 			continue
 		}
 
 		if len(windows) != lastWindowCount || activeID != lastActiveWindow {
-			if err := polyPrintWindowList(conn); err == nil {
-				lastWindowCount = len(windows)
-				lastActiveWindow = activeID
-			}
+			polyPrintWindowList(windows, activeID)
+			lastWindowCount = len(windows)
+			lastActiveWindow = activeID
 		}
 	}
 }

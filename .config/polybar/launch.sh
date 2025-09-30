@@ -29,19 +29,19 @@ function kill_polybar
 
 function compile_src
 {
-    pushd $POLYBAR_PATH/scripts/src/polytasks || return
+    pushd $POLYBAR_PATH/scripts/src/polytasks > /dev/null || return
     echo "Compiling polytasks..."
     go build -buildvcs=false -ldflags="-s -w" -o $POLYBAR_PATH/scripts/polytasks .
-    popd || return
+    popd > /dev/null || return
 }
 
 function launch_polybar
 {
+    compile_src
     for monitor in $(polybar --list-monitors | cut -d":" -f1); do
         export MONITOR=$monitor
         polybar top -c $POLYBAR_PATH/bar.ini >/dev/null  &
     done
-    compile_src
     wait_for_polybar started
 }
 
