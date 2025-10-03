@@ -239,7 +239,6 @@ require("lazy").setup({
 	{
 		"MeanderingProgrammer/markdown.nvim",
 		name = "render-markdown",
-		version = "v7",
 	},
 	{ "mzlogin/vim-markdown-toc" },
 

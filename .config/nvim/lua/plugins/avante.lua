@@ -2,9 +2,10 @@ require("avante").setup({
 	provider = "copilot",
 	providers = {
 		copilot = {
-			-- model = "claude-3.7-sonnet",
-			model = "claude-sonnet-4",
 			-- model = "gpt-4.1",
+			-- model = "claude-3.7-sonnet",
+			-- model = "claude-sonnet-4",
+			model = "claude-sonnet-4.5",
 			timeout = 120000,
 		},
 	},

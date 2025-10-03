@@ -1,3 +1,3 @@
 require("render-markdown").setup({
-	file_types = { "markdown", "copilot-chat", "Avante" },
+	file_types = { "markdown", "Avante" },
 })

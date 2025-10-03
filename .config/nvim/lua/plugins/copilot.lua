@@ -2,6 +2,13 @@ require("copilot").setup({
 	suggestion = { enabled = false },
 	panel = { enabled = false },
 	copilot_model = "claude-4",
+	server_opts_overrides = {
+		settings = {
+			telemetry = {
+				telemetryLevel = "NotAuthorized",
+			},
+		},
+	},
 	filetypes = {
 		dockerfile = true,
 		go = true,
