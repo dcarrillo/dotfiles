@@ -1,0 +1,32 @@
+[
+    Cpu([
+        RunChart(
+            color: accent_blue,
+            aspect_ratio: 1.5,
+        ),
+        BarGlobal(
+            color: accent_blue,
+            aspect_ratio: 0.5,
+        ),
+    ]),
+    Mem([
+        RunChart(
+            color_back: accent_green,
+            color_front: accent_purple,
+            aspect_ratio: 1.5,
+        ),
+        BarChart(
+            color_left: accent_green,
+            color_right: accent_purple,
+            spacing: 2.5,
+            aspect_ratio: 0.5,
+        ),
+    ]),
+    Net([
+        RunChart(
+            color_back: accent_red,
+            color_front: accent_yellow,
+            aspect_ratio: 1.5,
+        ),
+    ]),
+]

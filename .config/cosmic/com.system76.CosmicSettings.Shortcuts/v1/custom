@@ -1,0 +1,65 @@
+{
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Down",
+    ): Minimize,
+    (
+        modifiers: [
+            Ctrl,
+            Alt,
+        ],
+        key: "h",
+        description: Some("clipshow"),
+    ): Spawn("kitty --class=info --override=\'foreground=#c69026\' ~/bin/clipshow"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "t",
+    ): Spawn("xdg-open https://www.deepl.com/en/write"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Left",
+    ): Orientation(Vertical),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "m",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Up",
+    ): Maximize,
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "F4",
+    ): Close,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Disable,
+    (
+        modifiers: [
+            Ctrl,
+        ],
+        key: "Print",
+        description: Some("flameshot"),
+    ): Spawn("flameshot gui"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "g",
+    ): Spawn("xdg-open https://app.grammarly.com/ddocs/2858393323"),
+}
