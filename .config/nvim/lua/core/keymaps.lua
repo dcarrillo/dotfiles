@@ -303,3 +303,7 @@ keymap(
 	":RenderMarkdown toggle<cr>",
 	vim.tbl_extend("force", opts, { desc = "Toggle markdown rendering" })
 )
+
+-- Leap
+keymap({ "n", "x", "o" }, "s", "<Plug>(leap)")
+keymap("n", "S", "<Plug>(leap-from-window)")
