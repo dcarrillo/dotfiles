@@ -1,5 +1,5 @@
 Some(([
-    "com.system76.CosmicAppletPower",
+    "com.system76.CosmicAppletTiling",
     "com.system76.CosmicAppList",
 ], [
     "com.nick42d.CosmicAppletArch",
@@ -7,4 +7,5 @@ Some(([
     "com.system76.CosmicAppletAudio",
     "com.system76.CosmicAppletNetwork",
     "com.system76.CosmicAppletStatusArea",
+    "com.system76.CosmicAppletPower",
 ]))
