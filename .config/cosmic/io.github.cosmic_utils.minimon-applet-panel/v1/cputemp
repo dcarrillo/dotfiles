@@ -156,5 +156,6 @@
             ),
         ),
     ),
-    unit: Celcius,
+    unit: Celsius,
+    min_temp: 0.0,
 )
