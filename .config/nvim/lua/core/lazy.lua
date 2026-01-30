@@ -43,50 +43,6 @@ require("lazy").setup({
 			vim.cmd("colorscheme tokyonight-moon")
 		end,
 	},
-	{
-		"projekt0n/github-nvim-theme",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			local options = {
-				darken = {
-					floats = false,
-					sidebars = {
-						enable = false,
-					},
-				},
-				styles = {
-					comments = "italic",
-					keywords = "italic",
-				},
-			}
-			local specs = {
-				github_dark_dimmed = {
-					syntax = {
-						builtin1 = "#96d0ff",
-					},
-					diagnostic = {
-						error = "#dd6861",
-					},
-				},
-			}
-			require("github-theme").setup({ options = options, specs = specs })
-		end,
-	},
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		lazy = false,
-		config = function()
-			require("rose-pine").setup({
-				palette = {
-					moon = {
-						gold = "#faf4ed",
-					},
-				},
-			})
-		end,
-	},
 
 	-- Plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
@@ -126,7 +82,7 @@ require("lazy").setup({
 	{ "taybart/b64.nvim", event = "VeryLazy" },
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 	{
-		"ggandor/leap.nvim",
+		"https://codeberg.org/andyg/leap.nvim",
 		config = function()
 			-- require("leap").add_default_mappings()
 			vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
