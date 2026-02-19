@@ -6,7 +6,7 @@ require("avante").setup({
 			-- model = "claude-3.7-sonnet",
 			-- model = "claude-sonnet-4",
 			-- model = "claude-sonnet-4.5",
-			model = "claude-opus-4.5",
+			model = "claude-opus-4.6",
 			timeout = 120000,
 		},
 	},
