@@ -2,6 +2,7 @@ Some(([
     "com.system76.CosmicAppletTiling",
     "com.system76.CosmicAppList",
 ], [
+    "es.dcarrillo.StocksApplet",
     "com.nick42d.CosmicAppletArch",
     "io.github.cosmic_utils.minimon-applet",
     "com.system76.CosmicAppletAudio",
