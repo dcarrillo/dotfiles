@@ -41,7 +41,6 @@ require("snacks").setup({
 				key = "l",
 				indent = 2,
 			},
-			{ icon = "󰐻", desc = "MCPHub", action = ":MCPHub", key = "h", indent = 2 },
 			{ icon = "", desc = "Mason", action = ":Mason", key = "m", indent = 2 },
 			{ icon = "", desc = "Tree-sitter", action = ":TSUpdate", key = "t", indent = 2, padding = 2 },
 

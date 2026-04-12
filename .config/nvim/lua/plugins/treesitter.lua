@@ -1,4 +1,4 @@
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter.config").setup({
 	ensure_installed = {
 		"bash",
 		"comment",
@@ -26,6 +26,7 @@ require("nvim-treesitter.configs").setup({
 		"vimdoc",
 		"yaml",
 	},
+	auto_install = true,
 	highlight = {
 		enable = true,
 		disable = { "css" },

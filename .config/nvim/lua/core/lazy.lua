@@ -73,7 +73,7 @@ require("lazy").setup({
 		},
 		event = "VeryLazy",
 	},
-	{ "nvim-treesitter/nvim-treesitter", event = "BufReadPost" },
+	{ "nvim-treesitter/nvim-treesitter", branch = "main", event = "BufReadPost" },
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
@@ -208,12 +208,6 @@ require("lazy").setup({
 		dependencies = {
 			"stevearc/dressing.nvim",
 		},
-	},
-	{
-		"ravitemer/mcphub.nvim",
-		-- cmd = "MCPHub", -- lazy load by default
-		-- uncomment this if you don't want mcp-hub to be available globally or can't use -g
-		build = "bundled_build.lua", -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
 	},
 	{
 		"zbirenbaum/copilot.lua",
