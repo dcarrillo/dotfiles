@@ -198,17 +198,7 @@ require("lazy").setup({
 	},
 	{ "mzlogin/vim-markdown-toc" },
 
-	-- Copilot
-	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		lazy = false,
-		version = false,
-		build = "make",
-		dependencies = {
-			"stevearc/dressing.nvim",
-		},
-	},
+	-- AI
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
