@@ -61,6 +61,7 @@ alias tfa='terraform apply -auto-approve'
 alias tfp='terraform plan'
 alias vim=nvim
 alias yayU='yay -Suy --noconfirm'
+alias inlyne='inlyne --scale 2 --theme dark'
 
 ##### Functions to be used from command line #####
 

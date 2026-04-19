@@ -82,6 +82,11 @@ require("lazy").setup({
 	{ "taybart/b64.nvim", event = "VeryLazy" },
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 	{
+		"nemanjamalesija/smart-paste.nvim",
+		event = "VeryLazy",
+		config = true,
+	},
+	{
 		"https://codeberg.org/andyg/leap.nvim",
 		config = function()
 			-- require("leap").add_default_mappings()
