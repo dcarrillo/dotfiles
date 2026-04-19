@@ -48,3 +48,4 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldcolumn = "1"
 vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff: ]]
 vim.opt.cmdheight = 0 -- Number of screen lines to use for the command-line
+vim.o.autoread = true -- Required by Opencode plugin for `opts.events.reload`

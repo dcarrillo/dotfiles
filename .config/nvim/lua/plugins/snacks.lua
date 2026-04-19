@@ -9,6 +9,18 @@ require("snacks").setup({
 				ignored = true,
 			},
 		},
+		actions = {
+			opencode_send = function(...)
+				return require("opencode").snacks_picker_send(...)
+			end,
+		},
+		win = {
+			input = {
+				keys = {
+					["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
+				},
+			},
+		},
 	},
 	indent = {
 		indent = { char = "▏" },
@@ -42,7 +54,7 @@ require("snacks").setup({
 				indent = 2,
 			},
 			{ icon = "", desc = "Mason", action = ":Mason", key = "m", indent = 2 },
-			-- { icon = "", desc = "Tree-sitter", action = ":TSUpdate", key = "t", indent = 2, padding = 2 },
+			{ icon = "", desc = "Tree-sitter", action = ":TSManager", key = "t", indent = 2, padding = 2 },
 
 			{ section = "startup" },
 		},

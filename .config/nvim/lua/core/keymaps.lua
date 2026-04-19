@@ -307,3 +307,20 @@ keymap(
 -- Leap
 keymap({ "n", "x", "o" }, "s", "<Plug>(leap)")
 keymap("n", "S", "<Plug>(leap-from-window)")
+
+-- Recommended/example keymaps
+keymap({ "n", "x" }, "<leader>aa", function()
+	require("opencode").ask("@this: ", { submit = true })
+end, { desc = "Ask opencode…" })
+-- keymap({ "n", "x" }, "<leader>ax", function()
+-- 	require("opencode").select()
+-- end, { desc = "Execute opencode action…" })
+-- keymap({ "n", "t" }, "<leader>at", function()
+-- 	require("opencode").toggle()
+-- end, { desc = "Toggle opencode" })
+keymap({ "n", "x" }, "<leader>ar", function()
+	return require("opencode").operator("@this ")
+end, { desc = "Add range to opencode", expr = true })
+keymap("n", "<leader>al", function()
+	return require("opencode").operator("@this ") .. "_"
+end, { desc = "Add line to opencode", expr = true })

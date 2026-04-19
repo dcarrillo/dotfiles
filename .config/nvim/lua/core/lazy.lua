@@ -220,6 +220,10 @@ require("lazy").setup({
 		event = "InsertEnter",
 	},
 	{ "AndreM222/copilot-lualine" },
+	{
+		"nickjvandyke/opencode.nvim",
+		version = "*", -- Latest stable release
+	},
 
 	-- Folding
 	{
