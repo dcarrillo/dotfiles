@@ -42,7 +42,7 @@ require("snacks").setup({
 				indent = 2,
 			},
 			{ icon = "", desc = "Mason", action = ":Mason", key = "m", indent = 2 },
-			{ icon = "", desc = "Tree-sitter", action = ":TSUpdate", key = "t", indent = 2, padding = 2 },
+			-- { icon = "", desc = "Tree-sitter", action = ":TSUpdate", key = "t", indent = 2, padding = 2 },
 
 			{ section = "startup" },
 		},

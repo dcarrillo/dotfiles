@@ -1,4 +1,4 @@
-require("nvim-treesitter.config").setup({
+require("tree-sitter-manager").setup({
 	ensure_installed = {
 		"bash",
 		"comment",
@@ -30,12 +30,5 @@ require("nvim-treesitter.config").setup({
 	highlight = {
 		enable = true,
 		disable = { "css" },
-	},
-	autopairs = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-		disable = { "python", "css" },
 	},
 })
