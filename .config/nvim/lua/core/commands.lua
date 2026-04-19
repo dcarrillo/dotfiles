@@ -17,3 +17,7 @@ end, {})
 vim.api.nvim_create_user_command("SetSchema", function()
 	require("schema-companion").select_schema()
 end, {})
+
+vim.api.nvim_create_user_command("MarkdownViewer", function()
+	vim.fn.jobstart("inlyne --scale 2 --theme dark " .. vim.fn.shellescape(vim.fn.expand("%:p")))
+end, {})
