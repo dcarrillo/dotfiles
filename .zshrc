@@ -52,7 +52,6 @@ alias k=kubectl
 alias kgy='kubectl get -o yaml'
 alias kready='kubectl get --raw="/readyz?verbose"'
 alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
-alias mknamedvenv='mkvirtualenv $(basename $PWD) -r requirements.txt'
 alias neovim=nvim
 alias open='xdg-open'
 alias rgh="rg --hidden --glob '!.git/' --no-ignore-vcs"
@@ -127,14 +126,6 @@ siteinfo () {
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
-
-##### venvs ######
-
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper_lazy.sh
-alias workondir='workon $(basename $(pwd))'
 
 ##### fzf #####
 
