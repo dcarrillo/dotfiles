@@ -6,6 +6,7 @@ require("tree-sitter-manager").setup({
 		"go",
 		"gomod",
 		"gosum",
+		"gotmpl",
 		"gowork",
 		"helm",
 		"java",

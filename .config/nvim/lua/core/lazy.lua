@@ -251,6 +251,8 @@ require("lazy").setup({
 			},
 		},
 	},
-
-	{ "towolf/vim-helm", ft = "helm" },
+	{
+		"qvalentin/helm-ls.nvim",
+		ft = "helm",
+	},
 }, lazy_opts)
