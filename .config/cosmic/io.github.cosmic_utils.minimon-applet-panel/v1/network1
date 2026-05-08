@@ -1,6 +1,8 @@
 (
     chart_visible: false,
-    label_visible: true,
+    value_visible: true,
+    label_visible: false,
+    icon_visible: false,
     chart: Line,
     colors: (
         ring: (
@@ -156,9 +158,9 @@
             ),
         ),
     ),
-    adaptive: true,
-    bandwidth: 62500000,
+    adaptive: false,
+    bandwidth: 1000000,
     unit: Some(0),
-    variant: Combined,
+    variant: Download,
     show_bytes: false,
 )
