@@ -1,5 +1,5 @@
 {
-    "20abcbf9ab798950c964a257de9208934559385f86b93459e0b2cc0b5ac1e9ee": (
+    "ceeebb9baea7ef11fe45acbc68663639abec002622738525c77d1cde5081ae46": (
         usage: (
             chart_visible: false,
             value_visible: false,
@@ -488,7 +488,7 @@
         pause_on_battery: true,
         stack_values: true,
     ),
-    "ceeebb9baea7ef11fe45acbc68663639abec002622738525c77d1cde5081ae46": (
+    "20abcbf9ab798950c964a257de9208934559385f86b93459e0b2cc0b5ac1e9ee": (
         usage: (
             chart_visible: false,
             value_visible: false,
