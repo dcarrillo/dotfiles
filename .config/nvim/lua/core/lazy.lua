@@ -39,6 +39,10 @@ require("lazy").setup({
 				on_colors = function(colors)
 					colors.error = "#ff966c"
 				end,
+
+				on_highlights = function(hl, _)
+					hl.LspInlayHint = { italic = true, bg = "#24283c", fg = "#545c7e" }
+				end,
 			})
 			vim.cmd("colorscheme tokyonight-moon")
 		end,
@@ -251,8 +255,8 @@ require("lazy").setup({
 			},
 		},
 	},
-	{
-		"qvalentin/helm-ls.nvim",
-		ft = "helm",
-	},
+	-- {
+	-- 	"qvalentin/helm-ls.nvim",
+	-- 	ft = "helm",
+	-- },
 }, lazy_opts)

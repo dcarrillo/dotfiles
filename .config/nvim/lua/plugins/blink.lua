@@ -21,7 +21,6 @@ require("blink.cmp").setup({
 			window = { border = "single" },
 		},
 		menu = {
-
 			auto_show = function(ctx)
 				return vim.fn.getcmdtype() == ":"
 			end,
