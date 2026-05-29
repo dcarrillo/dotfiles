@@ -115,7 +115,6 @@ require("lazy").setup({
 	},
 	{
 		"knubie/vim-kitty-navigator",
-		build = "cp ./*.py ~/.config/kitty/",
 	},
 	{
 		"MagicDuck/grug-far.nvim",
