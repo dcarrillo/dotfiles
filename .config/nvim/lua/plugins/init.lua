@@ -1,6 +1,5 @@
 require("plugins.snacks")
 require("plugins.blink")
--- require("plugins.copilot")
 require("plugins.telescope")
 require("plugins.mini-comment")
 require("plugins.mini-pairs")

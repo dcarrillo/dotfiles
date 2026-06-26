@@ -125,9 +125,6 @@ require("lazy").setup({
 	{
 		"saghen/blink.cmp",
 		version = "*",
-		-- dependencies = {
-		-- 	"fang2hou/blink-copilot",
-		-- },
 	},
 
 	-- LSP
@@ -217,12 +214,6 @@ require("lazy").setup({
 	{ "mzlogin/vim-markdown-toc" },
 
 	-- AI
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- },
-	-- { "AndreM222/copilot-lualine" },
 	{
 		"nickjvandyke/opencode.nvim",
 		version = "*", -- Latest stable release
