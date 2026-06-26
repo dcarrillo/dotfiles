@@ -41,18 +41,7 @@ require("blink.cmp").setup({
 		},
 	},
 	sources = {
-		default = { "lsp", "path", "buffer", "copilot" },
-		providers = {
-			copilot = {
-				name = "copilot",
-				module = "blink-copilot",
-				score_offset = 100,
-				async = true,
-				opts = {
-					max_completions = 3,
-				},
-			},
-		},
+		default = { "lsp", "path", "buffer" },
 	},
 
 	keymap = {
