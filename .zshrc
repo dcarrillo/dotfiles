@@ -51,7 +51,10 @@ alias issh='kitten ssh'
 alias k=kubectl
 alias kgy='kubectl get -o yaml'
 alias kready='kubectl get --raw="/readyz?verbose"'
-alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
+case $(uname) in
+  Darwin) alias ls='$(brew --prefix)/bin/gls --group-directories-first --color=auto --hyperlink=auto' ;;
+  Linux)  alias ls='ls --group-directories-first --color=auto --hyperlink=auto' ;;
+esac
 alias neovim=nvim
 alias open='xdg-open'
 alias rgh="rg --hidden --glob '!.git/' --no-ignore-vcs"
@@ -129,8 +132,12 @@ export PAGER='less'
 
 ##### fzf #####
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+case $(uname) in
+  Darwin) source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+          source "$(brew --prefix)/opt/fzf/shell/completion.zsh" ;;
+  Linux)  source /usr/share/fzf/key-bindings.zsh
+          source /usr/share/fzf/completion.zsh ;;
+esac
 
 fzf-file-widget-hidden () {
   fd --type f --hidden --follow --exclude .git --exclude .cache | fzf
@@ -157,7 +164,11 @@ eval "$(direnv hook zsh)"
 eval "$(atuin init zsh)"
 
 # aws cli zsh autocomplete
-source /usr/bin/aws_zsh_completer.sh
+case $(uname) in
+  Linux) source /usr/bin/aws_zsh_completer.sh ;;
+  Darwin) autoload bashcompinit && bashcompinit
+          complete -C "$(brew --prefix)/bin/aws_completer" aws ;;
+esac
 
 # custom device
 
