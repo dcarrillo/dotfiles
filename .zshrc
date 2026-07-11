@@ -59,10 +59,10 @@ alias kgy='kubectl get -o yaml'
 alias kready='kubectl get --raw="/readyz?verbose"'
 case $(uname) in
   Darwin) alias ls='$BREW_PREFIX/bin/gls --group-directories-first --color=auto --hyperlink=auto' ;;
-  Linux)  alias ls='ls --group-directories-first --color=auto --hyperlink=auto' ;;
+  Linux)  alias ls='ls --group-directories-first --color=auto --hyperlink=auto'
+          alias open='xdg-open' ;;
 esac
 alias neovim=nvim
-alias open='xdg-open'
 alias rgh="rg --hidden --glob '!.git/' --no-ignore-vcs"
 alias tf=terraform
 alias tfa='terraform apply -auto-approve'
