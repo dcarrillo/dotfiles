@@ -7,6 +7,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Add homebrew-installed package completions to fpath
+if command -v brew > /dev/null; then
+  export BREW_PREFIX=$(brew --prefix)
+  fpath+=$(brew --prefix)/share/zsh/site-functions
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -52,7 +58,7 @@ alias k=kubectl
 alias kgy='kubectl get -o yaml'
 alias kready='kubectl get --raw="/readyz?verbose"'
 case $(uname) in
-  Darwin) alias ls='$(brew --prefix)/bin/gls --group-directories-first --color=auto --hyperlink=auto' ;;
+  Darwin) alias ls='$BREW_PREFIX/bin/gls --group-directories-first --color=auto --hyperlink=auto' ;;
   Linux)  alias ls='ls --group-directories-first --color=auto --hyperlink=auto' ;;
 esac
 alias neovim=nvim
@@ -133,8 +139,8 @@ export PAGER='less'
 ##### fzf #####
 
 case $(uname) in
-  Darwin) source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
-          source "$(brew --prefix)/opt/fzf/shell/completion.zsh" ;;
+  Darwin) source "$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+          source "$BREW_PREFIX/opt/fzf/shell/completion.zsh" ;;
   Linux)  source /usr/share/fzf/key-bindings.zsh
           source /usr/share/fzf/completion.zsh ;;
 esac
@@ -166,8 +172,6 @@ eval "$(atuin init zsh)"
 # aws cli zsh autocomplete
 case $(uname) in
   Linux) source /usr/bin/aws_zsh_completer.sh ;;
-  Darwin) autoload bashcompinit && bashcompinit
-          complete -C "$(brew --prefix)/bin/aws_completer" aws ;;
 esac
 
 # custom device
