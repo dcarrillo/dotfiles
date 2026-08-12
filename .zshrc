@@ -51,6 +51,7 @@ alias duh='du -sch .[!.]* *'
 alias export_sso_creds='eval $(aws-export-credentials --env-export)'
 alias fdh='fd --hidden --no-ignore --exclude .git'
 alias gb="git checkout \$(git branch -avv | fzf +m | awk '{print \$1}')"
+alias gitami="git var GIT_AUTHOR_IDENT"
 alias icat='kitten icat --align=left'
 alias idiff='kitten diff'
 alias issh='kitten ssh'
