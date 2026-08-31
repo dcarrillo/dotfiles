@@ -147,7 +147,7 @@ case $(uname) in
 esac
 
 fzf-file-widget-hidden () {
-  fd --type f --hidden --follow --exclude .git --exclude .cache | fzf
+  FZF_CTRL_T_COMMAND="fd --type file --follow --hidden" fzf-file-widget
 }
 
 export FZF_DEFAULT_COMMAND="fd --type file --follow"
