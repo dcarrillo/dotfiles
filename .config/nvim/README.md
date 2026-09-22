@@ -16,3 +16,8 @@ Neovim conf heavily adapted to suit my needs, formerly based on LunarVim's [basi
 * hadolint
 * revive
 * tree-sitter-cli
+
+## Linting configs
+
+* [`.markdownlintrc`](../../.markdownlintrc) — Markdown lint rules
+* [`.revive.toml`](../../.revive.toml) — Go lint rules (requires `revive` above)
