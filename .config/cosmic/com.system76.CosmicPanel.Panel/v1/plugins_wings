@@ -5,6 +5,7 @@ Some(([
     "es.dcarrillo.StocksApplet",
     "com.nick42d.CosmicAppletArch",
     "io.github.cosmic_utils.minimon-applet",
+    "com.github.dani.TailscaleStatus",
     "com.system76.CosmicAppletAudio",
     "com.system76.CosmicAppletNetwork",
     "com.system76.CosmicAppletStatusArea",
