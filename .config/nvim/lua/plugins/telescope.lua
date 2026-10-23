@@ -31,6 +31,9 @@ telescope.setup({
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({}),
 		},
+		file_browser = {
+			entry_maker = require("real-icons.integrations.telescope_file_browser").entry_maker,
+		},
 		fzf = {
 			case_mode = "smart_case",
 		},

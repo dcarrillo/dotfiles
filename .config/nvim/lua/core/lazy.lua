@@ -47,6 +47,18 @@ require("lazy").setup({
 			vim.cmd("colorscheme tokyonight-moon")
 		end,
 	},
+	{
+		"Mirsmog/real-icons.nvim",
+		build = ":RealIcons install",
+		opts = {
+			integrations = {
+				telescope_file_browser = true,
+				snacks_picker = true,
+				bufferline = true,
+				lualine = true,
+			},
+		},
+	},
 
 	-- Plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
@@ -216,7 +228,7 @@ require("lazy").setup({
 	-- AI
 	{
 		"nickjvandyke/opencode.nvim",
-		version = "*", -- Latest stable release
+		branch = "main",
 	},
 
 	-- Folding
